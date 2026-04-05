@@ -1,71 +1,103 @@
-## NX 
+## NX
 
-Modern, full-stack web application framework and platform built on [Next.js](https://nextjs.org/) and [React](https://react.dev/). It provides a robust foundation for building scalable, modular, and high-performance web apps, with a focus on developer experience, design systems, and multi-tenant support.
+NX 是一个现代化的全栈 Web 应用框架和平台，基于 Next.js 和 React 构建。它为构建可扩展、模块化和高性能的 Web 应用提供了强大的基础，并专注于开发者体验、设计系统和多租户支持。
 
-In this Open Source release we offer a public repo. Production ready and fully documented it allows a fullstack JavaScript developer to spin up a fully functinoing Firebase powered NX instance within 30 mins. 
+在这个开源版本中，我们提供了一个公共代码库。NX 已达到生产就绪状态，并附有完整的文档，使全栈 JavaScript 开发人员能够在 30 分钟内快速启动一个功能齐全、基于 Firebase 的 NX 实例。
 
-#### Features
+#### 功能特性
 
-- **Next.js 16**: SSR, SSG, API routes, and advanced routing
-- **TypeScript**: Strict typing and modern JavaScript features
-- **Material UI (MUI)**: Beautiful, accessible UI components
-- **Redux Toolkit**: State management
-- **Firebase**: Authentication and backend integration
-- **PWA Support**: Offline-ready with service workers
-- **Multi-Tenant Architecture**: Easily support multiple brands/clients
-- **RESTful API**: Built-in API endpoints ([API Docs](https://goldlabel.pro/api))
-- **Design System**: Reusable components and hooks
-- **Rich Media Support**: Markdown, images, SVG, PDF, and more
+- **Next.js 16**：服务器端渲染 (SSR)、静态站点生成器 (SSG)、API 路由和高级路由
 
-#### Quick Start
+- **TypeScript**：严格的类型规范和现代 JavaScript 特性
 
-1. **Clone the repository:**
-	```bash
-	git clone https://github.com/goldlabelapps/nx
-	cd nx
-	```
-2. **Install dependencies:**
-	```bash
-	yarn install
-	```
-3. **Run the development server:**
-	```bash
-	yarn dev
-	```
+- **Material UI (MUI)**：美观且易于访问的 UI 组件
 
-The app will be available at [http://localhost:1999](http://localhost:1999). NX exposes a RESTful API under `/api`. See [app/api/README.md](app/api/README.md) for details and [live API docs](https://github.com/goldlabelapps/python-nx-ai).
+- **Redux Toolkit**：状态管理
 
-#### Techstack
+- **Firebase**：身份验证和后端集成
+
+- **PWA 支持**：支持离线 Service Worker
+
+- **多租户架构**：轻松支持多个品牌/客户
+
+- **RESTful API**：内置 API 端点（[API 文档](https://goldlabel.pro/api)）
+
+- **设计系统**：可重用的组件和钩子
+
+- **富媒体支持**：Markdown、图像、SVG、PDF 等
+
+#### 快速入门
+
+1. **克隆仓库：**
+
+```bash
+
+git clone https://github.com/goldlabelapps/nx
+
+cd nx
+
+```
+2. **安装依赖项：**
+
+```bash
+
+yarn install
+
+```
+3. **运行开发服务器：**
+
+```bash
+
+yarn dev
+
+```
+
+该应用可通过 [http://localhost:1999](http://localhost:1999) 访问。NX 在 `/api` 目录下提供 RESTful API。详情请参阅 [app/api/README.md](app/api/README.md) 和 [在线 API 文档](https://github.com/goldlabelapps/python-nx-ai)。
+
+#### 技术栈
 
 - [Next.js 16](https://nextjs.org/)
+
 - [React 19](https://react.dev/)
+
 - [TypeScript](https://www.typescriptlang.org/)
+
 - [Material UI](https://mui.com/)
+
 - [Redux Toolkit](https://redux-toolkit.js.org/)
+
 - [Firebase](https://firebase.google.com/)
+
 - [Mapbox GL](https://docs.mapbox.com/mapbox-gl-js/)
+
 - [GSAP](https://greensock.com/gsap/)
+
 - [PWA](https://web.dev/progressive-web-apps/)
 
-#### Scripts
+#### 脚本
 
-- `yarn dev` — Start development server
-- `yarn build` — Build for production
-- `yarn start` — Start production server
-- `yarn lint` — Run ESLint
-- `yarn clean` — Clean build artifacts
+- `yarn dev` — 启动开发服务器
 
-#### Contributing
+- `yarn build` — 构建生产环境
 
-Contributions are welcome! Please open issues or submit pull requests. 
-For major changes, open an issue first to discuss what you would like to change.
+- `yarn start` — 启动生产服务器
 
-#### License
+- `yarn lint` — 运行 ESLint
 
-This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
+- `yarn clean` — 清理构建产物
 
-#### Owner
+#### 贡献
 
-NX is built and maintained by [Goldlabel Apps Ltd](https://goldlabel.pro).
+欢迎贡献！请提交 issue 或 pull request。
 
-![NextJS](public/shared/png/opengraph/apps.png) 
+对于重大更改，请先提交 issue 进行讨论。
+
+#### 许可证
+
+本项目采用 MIT 许可证。详情请参阅 [LICENSE](LICENSE)。
+
+#### 所有者
+
+NX 由 [Goldlabel Apps Ltd](https://goldlabel.pro) 构建和维护。
+
+![NextJS](public/shared/png/opengraph/apps.png)

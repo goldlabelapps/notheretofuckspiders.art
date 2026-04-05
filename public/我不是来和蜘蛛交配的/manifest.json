@@ -1,0 +1,19 @@
+{
+  "short_name": "我不是来和蜘蛛交配的",
+  "name": "我不是来和蜘蛛交配的",
+  "theme_color": "#000",
+  "background_color": "#000",
+  "display": "fullscreen",
+  "orientation": "any",
+  "scope": "/",
+  "start_url": "/",
+  "splash_pages": null,
+  "icons": [
+    {
+      "src": "/我不是来和蜘蛛交配的/png/favicon.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ]
+}

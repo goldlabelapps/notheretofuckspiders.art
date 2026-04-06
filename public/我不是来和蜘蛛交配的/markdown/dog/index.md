@@ -8,14 +8,15 @@ icon: dog
 image: https://live.staticflickr.com/65535/54353713944_5571897d59_b.jpg
 ---
 
-Dog is….. obviously… a dog. She’s a nice dog, but not very bright. When we meet her she’s about 11 years old. She’s never been trained and being a Shitzu Maltese cross, which are supposedly hard to train she’s not going to be learning anything new anytime. w
+> [CleverText text="Name: Dog (because what else would you call her?)"]
+
+Breed: Shih Tzu-Maltese cross
+Age: 11 years
+Personality: Endlessly affectionate, completely clueless
+
+Dog is….. obviously… a dog. She’s a nice dog, but not very bright. When we meet her she’s about 11 years old. She’s never been trained and being a Shitzu Maltese cross, which are supposedly hard to train she’s not going to be learning anything new anytime soon.
 
 She’s nice, though. Show her a ball and she’ll have no idea what you mean. She’ll just try to lick you. Because licking humans is what she lives for.
-
-Name: Dog (because what else would you call her?)
-Breed: Shih Tzu-Maltese cross
-Age: 11 years old
-Personality: Endlessly affectionate, completely clueless
 
 - Has never been trained and shows no particular inclination to start now
 - Responds to most situations with either enthusiastic tail wagging or mild confusion

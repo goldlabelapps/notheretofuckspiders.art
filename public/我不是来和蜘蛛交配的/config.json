@@ -1,7 +1,7 @@
 {
     "tenant": "我不是来和蜘蛛交配的",
     "siteName": "我不是来和蜘蛛交配的",
-    "description": "我不是来和蜘蛛交配的",
+    "description": "by Wei Zang",
     "url": "https://notheretofuckspiders.art",
     "owner": {
         "name": "Wei Zang",
@@ -13,12 +13,12 @@
         "dark": "/我不是来和蜘蛛交配的/svg/avatarDark.svg"
     },
     "images": {
-        "light": "/我不是来和蜘蛛交配的/png/apps.png",
-        "dark": "/我不是来和蜘蛛交配的/png/apps.png"
+        "light": "https://live.staticflickr.com/65535/54338019655_94e8e39903_b.jpg",
+        "dark": "https://live.staticflickr.com/65535/54338019655_94e8e39903_b.jpg"
     },
     "cartridges": {
         "paywall": {
-            "enabled": false
+            "enabled": true
         },
         "designSystem": {
             "themeSwitching": true,

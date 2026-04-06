@@ -1,5 +1,5 @@
 {
-  "name": "我不是来和蜘蛛交配的",
+  "name": "notheretofuckspiders",
   "version": "2.1.5",
   "scripts": {
     "dev": "yarn kill && yarn install && rm -rf .next && next dev -p 1975 --webpack",

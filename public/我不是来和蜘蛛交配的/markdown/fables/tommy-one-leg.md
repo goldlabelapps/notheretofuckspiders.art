@@ -1,10 +1,10 @@
 ---
-order: 310
-slug: /wei-zang/tommy-one-leg
-title: Tommy One Leg
-description: 伟张
-tags: wei zang, author, tommy
-icon: writing
+order: 410
+slug: /fables/tommy-one-leg
+title: Little Tommy One Leg
+description: 独腿小汤米
+tags: wei zang, author, tommy, fables
+icon: virus
 image: https://live.staticflickr.com/65535/53519132401_549d6c2773_b.jpg
 ---
 #### Chapter 1

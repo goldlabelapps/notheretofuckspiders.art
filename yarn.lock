@@ -11554,49 +11554,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nx@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "nx@workspace:."
-  dependencies:
-    "@ducanh2912/next-pwa": "npm:^10.2.9"
-    "@emotion/react": "npm:^11.14.0"
-    "@emotion/styled": "npm:^11.14.1"
-    "@fingerprintjs/fingerprintjs": "npm:^5.1.0"
-    "@mui/icons-material": "npm:^7.3.7"
-    "@mui/material": "npm:^7.3.7"
-    "@mui/x-data-grid": "npm:^8.28.0"
-    "@mui/x-tree-view": "npm:^8.0.0"
-    "@reduxjs/toolkit": "npm:^2.11.2"
-    "@types/node": "npm:^20"
-    "@types/react": "npm:^19"
-    "@types/react-dom": "npm:^19"
-    dotenv: "npm:^17.2.3"
-    eslint: "npm:^9"
-    eslint-config-next: "npm:16.1.1"
-    firebase: "npm:^12.10.0"
-    firebase-admin: "npm:^13.6.0"
-    firebase-tools: "npm:^15.1.0"
-    gray-matter: "npm:^4.0.3"
-    gsap: "npm:^3.14.2"
-    inquirer: "npm:^13.1.0"
-    mapbox-gl: "npm:^3.20.0"
-    next: "npm:16.1.1"
-    open-cli: "npm:^8.0.0"
-    react: "npm:19.2.3"
-    react-dom: "npm:19.2.3"
-    react-map-gl: "npm:^8.1.0"
-    react-markdown: "npm:^10.1.0"
-    react-redux: "npm:^9.2.0"
-    react-share: "npm:^5.2.2"
-    recharts: "npm:^3.7.0"
-    remark: "npm:^15.0.1"
-    remark-html: "npm:^16.0.1"
-    resend: "npm:^6.9.3"
-    tsx: "npm:^4.21.0"
-    typescript: "npm:^5"
-  languageName: unknown
-  linkType: soft
-
 "object-assign@npm:^4, object-assign@npm:^4.0.1, object-assign@npm:^4.1.1":
   version: 4.1.1
   resolution: "object-assign@npm:4.1.1"
@@ -15901,3 +15858,46 @@ __metadata:
   checksum: 10c0/3c7830cdd3378667e058ffdb4cf2bb78ac5711214e2725900873accb23f3dfe5f9e7e5a06dcdc5f29605da976fc45c26d9a13ca334d6eea2245a15e77b8fc06e
   languageName: node
   linkType: hard
+
+"我不是来和蜘蛛交配的@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "我不是来和蜘蛛交配的@workspace:."
+  dependencies:
+    "@ducanh2912/next-pwa": "npm:^10.2.9"
+    "@emotion/react": "npm:^11.14.0"
+    "@emotion/styled": "npm:^11.14.1"
+    "@fingerprintjs/fingerprintjs": "npm:^5.1.0"
+    "@mui/icons-material": "npm:^7.3.7"
+    "@mui/material": "npm:^7.3.7"
+    "@mui/x-data-grid": "npm:^8.28.0"
+    "@mui/x-tree-view": "npm:^8.0.0"
+    "@reduxjs/toolkit": "npm:^2.11.2"
+    "@types/node": "npm:^20"
+    "@types/react": "npm:^19"
+    "@types/react-dom": "npm:^19"
+    dotenv: "npm:^17.2.3"
+    eslint: "npm:^9"
+    eslint-config-next: "npm:16.1.1"
+    firebase: "npm:^12.10.0"
+    firebase-admin: "npm:^13.6.0"
+    firebase-tools: "npm:^15.1.0"
+    gray-matter: "npm:^4.0.3"
+    gsap: "npm:^3.14.2"
+    inquirer: "npm:^13.1.0"
+    mapbox-gl: "npm:^3.20.0"
+    next: "npm:16.1.1"
+    open-cli: "npm:^8.0.0"
+    react: "npm:19.2.3"
+    react-dom: "npm:19.2.3"
+    react-map-gl: "npm:^8.1.0"
+    react-markdown: "npm:^10.1.0"
+    react-redux: "npm:^9.2.0"
+    react-share: "npm:^5.2.2"
+    recharts: "npm:^3.7.0"
+    remark: "npm:^15.0.1"
+    remark-html: "npm:^16.0.1"
+    resend: "npm:^6.9.3"
+    tsx: "npm:^4.21.0"
+    typescript: "npm:^5"
+  languageName: unknown
+  linkType: soft

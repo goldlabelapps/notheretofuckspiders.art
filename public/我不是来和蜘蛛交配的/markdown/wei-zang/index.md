@@ -4,11 +4,15 @@ slug: /wei-zang
 title: Wei Zang
 description: 伟张
 tags: wei zang, auther
-icon: writing
+icon: virus
 image: https://live.staticflickr.com/65535/54338019655_94e8e39903_b.jpg
 ---
 
-> I am Zang Wei. At least, that would be the Western way of saying it. In China we would say it the other way around. Wei Zang. Cos family comes first.
+[PageLink icon="doc" title="My Pronouns" description="我的代词" url="/wei-zang/pronouns"]  
+
+> [CleverText text="This is my story. Some of it is true"]
+
+I am Zang Wei. At least, that would be the Western way of saying it. In China we would say it the other way around. Wei Zang. Cos family comes first.
 
 There I was. Working hard. I won't say which company, but it was for one of those big Western smartphone companies who manufacture their hardware in Shenzhen. Some people say that the Chinese are only good at srewing components together, but fuck them.
 

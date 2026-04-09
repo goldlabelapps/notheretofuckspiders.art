@@ -15,3 +15,5 @@ icon: virus
     handleChange('Betrag', num);
   };
 ```
+[PageLink icon="right" title="Bez." description="Turbo inject 5 bongs" url="/bez"]  
+[PageLink icon="right" title="悲惨故事" description="Wei Zang's Sob story" url="/wei-zang/backstory"]  

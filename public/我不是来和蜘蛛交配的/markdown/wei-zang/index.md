@@ -8,8 +8,6 @@ icon: virus
 image: https://live.staticflickr.com/65535/54338019655_94e8e39903_b.jpg
 ---
 
-[PageLink icon="doc" title="My Pronouns" description="我的代词" url="/wei-zang/pronouns"]  
-
 > [CleverText text="This is my story. Some of it is true"]
 
 I am Zang Wei. At least, that would be the Western way of saying it. In China we would say it the other way around. Wei Zang. Cos family comes first.
@@ -30,3 +28,4 @@ Background
 Internal Conflicts
 External Conflicts
 
+[PageLink icon="right" description="Next" title="我的代词" url="/wei-zang/pronouns"]  

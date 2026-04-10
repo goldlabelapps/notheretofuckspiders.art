@@ -291,6 +291,8 @@ export type I_Icon = {
     icon:
     | 'more'
     | 'heart'
+    | 'hammer'
+    | 'archive'
     | 'maths'
     | 'free'
     | 'seniority'

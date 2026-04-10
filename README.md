@@ -1,3 +1,34 @@
+
+## How to update this codebase from upstream (goldlabelapps/nx)
+
+1. View your current remotes:
+	```sh
+	git remote -v
+	```
+
+2. Add the upstream remote if it is not already set:
+	```sh
+	git remote add upstream https://github.com/goldlabelapps/nx.git
+	```
+
+3. Fetch the latest changes from upstream:
+	```sh
+	git fetch upstream
+	```
+
+4. Merge or rebase the upstream branch (usually main) into your local branch:
+	```sh
+	git merge upstream/master
+	# or
+	git rebase upstream/master
+	```
+
+5. Push your updated branch to your origin if needed:
+	```sh
+	git push origin <your-branch-name>
+	```
+
+
 ## NX
 
 NX 是一个现代化的全栈 Web 应用框架和平台，基于 Next.js 和 React 构建。它为构建可扩展、模块化和高性能的 Web 应用提供了强大的基础，并专注于开发者体验、设计系统和多租户支持。

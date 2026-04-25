@@ -3,7 +3,6 @@ import type { T_Config, T_Frontmatter, T_NavItem } from '../../types';
 import * as React from 'react';
 import Image from 'next/image';
 import {
-	useTheme,
 	Box,
 } from '@mui/material';
 
@@ -26,11 +25,6 @@ export default function Hero({
 		src = frontmatter.image;
 	}
 	if (!src) return null;
-	// Open Graph aspect ratio: 1200x630
-	const OG_WIDTH = 600;
-	const OG_HEIGHT = 315;
-	// const OG_ASPECT_RATIO = OG_WIDTH / OG_HEIGHT;
-
 	return (
 		<Box sx={{
 			my: 2,
@@ -38,10 +32,11 @@ export default function Hero({
 			<Box
 				sx={{
 					width: '100%',
-					maxWidth: `${OG_WIDTH}px`,
-					aspectRatio: `${OG_WIDTH} / ${OG_HEIGHT}`,
+					height: '275px',
+					maxHeight: '275px',
 					position: 'relative',
-					margin: '0 auto',
+					overflow: 'hidden',
+					borderRadius: 2,
 				}}
 			>
 				<Image
@@ -49,15 +44,12 @@ export default function Hero({
 					alt={frontmatter?.title || 'Hero Image'}
 					fill
 					style={{
-						borderRadius: 8,
 						objectFit: 'cover',
+						objectPosition: 'center',
 						width: '100%',
 						height: '100%',
-						aspectRatio: `${OG_WIDTH} / ${OG_HEIGHT}`,
-						maxWidth: `${OG_WIDTH}px`,
-						maxHeight: `${OG_HEIGHT}px`,
 					}}
-					sizes={`(max-width: 1200px) 100vw, ${OG_WIDTH}px`}
+					sizes="100vw"
 					priority
 				/>
 			</Box>

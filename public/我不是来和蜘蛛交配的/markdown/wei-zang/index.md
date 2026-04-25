@@ -8,7 +8,7 @@ icon: virus
 image: https://live.staticflickr.com/65535/54338019655_94e8e39903_b.jpg
 ---
 
-> [CleverText text="This is my story. Some of it is true"]
+> [CleverText text="I am Wei Zang. This is my story. Some of it is true"]
 
 I am Zang Wei. At least, that would be the Western way of saying it. In China we would say it the other way around. Wei Zang. Cos family comes first.
 
@@ -19,13 +19,4 @@ Sorry, I digress already.
 
 I felt - how should I put it - unfullfilled?
 
-Protagonist
-Chinese looking with heavily accented, but perfect English
-Personality : Acerbic
-Occupation: Software Developer
-Habits/Mannerisms
-Background
-Internal Conflicts
-External Conflicts
-
-[PageLink icon="right" description="Next" title="我的代词" url="/wei-zang/pronouns"]  
+[PageLink icon="right" title="My Story" description="I was born in a fishing village called Shenzhen in 1975" url="/wei-zang/backstory"]  

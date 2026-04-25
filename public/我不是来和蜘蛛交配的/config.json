@@ -18,7 +18,7 @@
     },
     "cartridges": {
         "paywall": {
-            "enabled": true
+            "enabled": false
         },
         "designSystem": {
             "themeSwitching": true,

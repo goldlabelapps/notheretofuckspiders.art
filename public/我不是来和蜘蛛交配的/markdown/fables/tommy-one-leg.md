@@ -1,9 +1,9 @@
 ---
 order: 410
 slug: /fables/tommy-one-leg
-title: Little Tommy One Leg
-description: 独腿小汤米
-tags: wei zang, author, tommy, fables
+title: Tommy One Leg
+description: Didn't pass the genetic profiling cos of his having only one leg
+tags: wei zang, author, tommy, fables, 独腿小汤米,
 icon: virus
 image: https://live.staticflickr.com/65535/53519132401_549d6c2773_b.jpg
 ---

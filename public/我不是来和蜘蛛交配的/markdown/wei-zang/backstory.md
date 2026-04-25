@@ -41,3 +41,5 @@ Back in the 90s, computer science degrees weren’t really a thing. Not the way 
 I picked it because it sounded interesting, and I was bored of the Shùxué (数学), Wùlǐ (物理), Huàxué (化学) I studied at High School. 
 
 At first, Psychology felt like the science of stating the obvious. People get stressed before exams? No shit. Then I discovered cognitive biases, and that changed everything. I started seeing them everywhere. How people deceive themselves, how they overestimate their abilities, how they confidently get things wrong. And later, in software engineering, I saw it play out in real-time.
+
+[PageLink icon="right" title="I am a coder" description="const handleBetragBlur" url="/wei-zang/coder"]  

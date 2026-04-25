@@ -1,7 +1,5 @@
 import type { T_UbereduxDispatch } from '../../types';
 import { setUbereduxKey } from '../../Uberedux';
-import { setProspects, searchProspects } from '../../Prospects';
-import { setFeedback } from '../../DesignSystem';
 import { setDesignSystem } from './setDesignSystem';
 
 // Helper for GET with JSON body and error handling
@@ -50,10 +48,6 @@ export const fetchMarkdown = (
                     : item
             );
             dispatch(setDesignSystem('markdown', updatedArr));
-            // dispatch(setFeedback({
-            //     severity: 'success',
-            //     title: successMessage,
-            // }));
         } catch (e) {
             let msg = e instanceof Error ? e.message : String(e);
             // Update entry with error
@@ -63,7 +57,6 @@ export const fetchMarkdown = (
                     : item
             );
             dispatch(setDesignSystem('markdown', updatedArr));
-            dispatch(setProspects('error', msg));
             dispatch(setUbereduxKey({ key: 'error', value: msg }));
         }
     };

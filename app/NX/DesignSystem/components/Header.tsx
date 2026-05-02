@@ -14,6 +14,7 @@ import {
 import {UserSpot} from '../../Paywall';
 import { navigateTo } from '../../DesignSystem';
 import { useDispatch } from '../../Uberedux';
+import { Virus} from '../../../Virus';
 
 export interface I_Header {
 	config: T_Config;
@@ -66,7 +67,7 @@ export default function Header({
 						avatar={<IconButton onClick={handleAvatarClick}>
 									<Avatar src={avatar} />
 								</IconButton>}
-						action={<UserSpot onClick={handleAccountClick} />}
+						action={<Virus />}
 					/>
 				</Container>
 			</AppBar>			

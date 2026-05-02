@@ -8,7 +8,7 @@ icon: virus
 image: https://live.staticflickr.com/65535/54338019655_94e8e39903_b.jpg
 ---
 
-> [CleverText text="I am Wei Zang. This is my story. Some of it is true"]
+> [CleverText text="This is my story. Some of it is true"]
 
 I am Zang Wei. At least, that would be the Western way of saying it. In China we would say it the other way around. Wei Zang. Cos family comes first.
 

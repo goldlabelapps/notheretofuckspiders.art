@@ -1,0 +1,97 @@
+"use client";
+import React from "react";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import {
+  Box,
+  Button,
+  Card,
+  CardHeader,
+  CardContent,
+  Typography,
+} from '@mui/material';
+import Score from "./Score";
+import { getFirebaseFirestore } from "../../NX/lib/firebase";
+import { collection, onSnapshot, query, orderBy } from "firebase/firestore";
+import { CleverText, Icon, navigateTo } from "../../NX/DesignSystem";
+import moment from "moment";
+import { useDispatch } from "../../NX/Uberedux";
+
+export default function Viruses() {
+  const dispatch = useDispatch();
+  const router = useRouter();
+  const [viruses, setViruses] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const firestore = getFirebaseFirestore();
+    const q = query(collection(firestore, "viruses"), orderBy("score", "desc"));
+    const unsub = onSnapshot(q, (snapshot) => {
+      setViruses(snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })));
+      setLoading(false);
+    });
+    return () => unsub();
+  }, []);
+
+  return (
+    <Box>
+      {loading && <CleverText options={{
+        markdown: "Loading...",
+        id: "loading",
+        onFinish: () => {
+          // Optionally handle finish
+        }
+      }} />}
+      {!loading && viruses.length > 0 && (
+        <Box display="flex" flexDirection="column" gap={3}>
+
+        <Box display="flex" alignItems="center" gap={1}>
+
+          <Button
+            startIcon={<Icon icon="new" />}
+            onClick={() => {
+              dispatch(navigateTo(router, '/viruses/new'));
+            }}
+          >
+            New Virus°
+          </Button>
+          
+                    
+        </Box>
+          
+          {viruses.map((virus, idx) => (
+            <Box
+              key={virus.id}
+              sx={{ cursor: 'pointer' }}
+              onClick={() => router.push(`/viruses/${virus.id}`)}
+            >
+              <Card variant="outlined">
+                <CardHeader
+                  avatar={
+                    <Score score={virus.score ?? 0} />
+                  }
+                  title={<Typography variant="h6">{virus.name}</Typography>}
+                  subheader={<Typography variant="subtitle2" color="text.secondary">Created {virus.created ? moment(virus.created).fromNow() : ''}</Typography>}
+                />
+                <CardContent>
+                  {idx === 0 && (
+                    <CleverText options={{
+                      markdown: virus.message,
+                      id: virus.id,
+                      onFinish: () => {
+                        // Optionally handle finish
+                      }
+                    }} />
+                  )}
+                </CardContent>
+              </Card>
+            </Box>
+          ))}
+        </Box>
+      )}
+      {!loading && viruses.length === 0 && (
+        <Typography color="text.secondary">No viruses found.</Typography>
+      )}
+    </Box>
+  );
+}

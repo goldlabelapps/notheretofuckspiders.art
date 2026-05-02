@@ -154,17 +154,7 @@ const Nav: React.FC<I_Nav> = ({
                                 </Box>
                             </>}
                             
-                            <Box sx={{ mt: 1, ml: 2 }}>
-                                <NavVirus frontmatter={frontmatter} />
-                            </Box>
                             
-                            {/* <Box sx={{ ml: 1 }}>
-                                <IconButton
-                                    color="primary"
-                                    onClick={handleGithubClick}>
-                                    <Icon icon={'github'} />
-                                </IconButton>
-                            </Box> */}
                             
                         </Box>
                     </Box>

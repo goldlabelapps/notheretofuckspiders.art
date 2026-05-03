@@ -3,7 +3,7 @@ import * as React from "react";
 import { useRouter } from "next/navigation";
 import {
   Box,
-  Card,
+  Button,
   CardHeader,
   Typography,
   List,
@@ -19,7 +19,7 @@ import moment from "moment";
 import { Icon } from '../../NX/DesignSystem';
 import { useVirus, getTopViruses, setVirus } from "../../Virus";
 import { useDispatch } from "../../NX/Uberedux";
-import { navigateTo } from "../../NX/DesignSystem";
+import { navigateTo, CleverText } from "../../NX/DesignSystem";
 
 export default function TopViruses() {
 
@@ -36,28 +36,27 @@ export default function TopViruses() {
 
   return (
     <Box>
-      <CardHeader
-        avatar={
-          <IconButton
-            size="small"
-            color="primary"
-            onClick={() => {
-              dispatch(navigateTo(router, "/viruses"));
-              dispatch(setVirus('dialogOpen', false));
-            }}
-          >
-            <Icon icon="virus" />
-          </IconButton>
-        }
-        title="Viruses°"
-        // action={<IconButton size="small" color="primary" onClick={() => dispatch(getTopViruses())}>
-        //   <Icon icon="reset" />
-        // </IconButton>}
-      />
+
+      <Button
+        variant='contained'
+        startIcon={<Icon icon="new" />}
+        onClick={() => {
+          dispatch(navigateTo(router, '/viruses/new'));
+        }}
+      >
+        New Virus°
+      </Button>  
+
       {topViruses.fetching && (
         <Box display="flex" alignItems="center" justifyContent="center" py={2}>
           <CircularProgress />
-          <Typography variant="body1">Loading...</Typography>
+          <CleverText options={{
+            markdown: "Loading Viruses°",
+            id: "top-viruses-title",
+            onFinish: () => {
+              console.log('start fade timer');
+            }
+          }} />
         </Box>
       )}
       {topViruses.error && (

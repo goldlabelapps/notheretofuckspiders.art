@@ -31,11 +31,16 @@ export async function POST(request: Request) {
             return NextResponse.json(makeRes({ severity: 'error', message: 'No file uploaded' }), { status: 400 });
         }
 
-        const arrayBuffer = await file.arrayBuffer();
-        const buffer = Buffer.from(arrayBuffer);
-        const filename = file.name || `avatar_${Date.now()}`;
+
+        // Sanitize filename to ASCII (replace non-ASCII with '_')
+        let rawFilename = file.name || `avatar_${Date.now()}`;
+        const filename = rawFilename.replace(/[^\x00-\x7F]/g, '_');
         const mimetype = file.type || 'application/octet-stream';
         console.log('[avatars] POST filename:', filename, 'mimetype:', mimetype);
+
+        // Convert arrayBuffer to Buffer (content is binary, so encoding is not needed)
+        const arrayBuffer = await file.arrayBuffer();
+        const buffer = Buffer.from(arrayBuffer);
 
         // Upload to Firebase Storage
         const app = getFirebaseAdminApp();

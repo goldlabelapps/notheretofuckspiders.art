@@ -46,17 +46,15 @@ export default function Viruses() {
         <Box display="flex" flexDirection="column" gap={3}>
 
         <Box display="flex" alignItems="center" gap={1}>
-
           <Button
+            variant='contained'
             startIcon={<Icon icon="new" />}
             onClick={() => {
               dispatch(navigateTo(router, '/viruses/new'));
             }}
           >
-            New Virus°
-          </Button>
-          
-                    
+            New
+          </Button>              
         </Box>
           
           {viruses.map((virus, idx) => (

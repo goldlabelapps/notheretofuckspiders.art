@@ -49,24 +49,27 @@ export default function VirusPage() {
       {loading && <Typography>Loading...</Typography>}
       {!loading && virus && (
         <Box sx={{  }}>
-          <Button
-            startIcon={<Icon icon="virus" />}
-            onClick={() => {
-              dispatch(navigateTo(router, '/viruses'));
-            }}
-          >
-            All Viruses°
-          </Button>
 
-          <Button
-            startIcon={<Icon icon="new" />}
-            onClick={() => {
-              dispatch(navigateTo(router, '/viruses/new'));
-            }}
-          >
-            New Virus°
-          </Button>
-
+          <Box sx={{display: 'flex', gap: 1, mb: 2}}>
+            <Button
+              variant="contained"
+              startIcon={<Icon icon="virus" />}
+              onClick={() => {
+                dispatch(navigateTo(router, '/viruses'));
+              }}
+            >
+              Viruses°
+            </Button>
+            <Button
+              variant="contained"
+              startIcon={<Icon icon="new" />}
+              onClick={() => {
+                dispatch(navigateTo(router, '/viruses/new'));
+              }}
+            >
+              New
+            </Button>
+          </Box>
           
           <CardHeader
             action={

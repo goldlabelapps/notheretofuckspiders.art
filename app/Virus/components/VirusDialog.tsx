@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import config from '../config.json';
 import { useRouter } from "next/navigation";
 import {
     Box,
@@ -27,7 +28,9 @@ export default function VirusDialog() {
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
     const virus = useVirus();
     const dialogOpen = !!virus.dialogOpen;
-    const toggleText = virus.toggleText || '';
+    // const toggleText = virus.toggleText || '';
+
+    const toggleText = config.version;
 
     const handleVirusClick = () => {
         dispatch(setVirus('dialogOpen', true));
@@ -45,7 +48,8 @@ export default function VirusDialog() {
                     onFinish: () => {
                         setTimeout(() => {
                             dispatch(setVirus('toggleText', ''));
-                        }, 3000);
+                            
+                        }, 10000);
                         
                     }
                 }} />

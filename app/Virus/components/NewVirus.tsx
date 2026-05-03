@@ -66,16 +66,18 @@ export default function NewVirus() {
         }));
     };
 
-    return (
-        <Box sx={{ }}>
-                        <Button
-                                startIcon={<Icon icon="virus" />}
-                                onClick={() => {
-                                        dispatch(navigateTo(router, '/viruses'));
-                                }}
-                        >
-                                All Viruses°
-                      </Button>
+    return ( <Box sx={{ }}>
+
+                <Button
+                    variant='contained'
+                    startIcon={<Icon icon="virus" />}
+                    onClick={() => {
+                            dispatch(navigateTo(router, '/viruses'));
+                    }}
+                >
+                        Viruses°
+                </Button>
+
             <Collapse in={open} timeout="auto" unmountOnExit>
                 <Box component="form" onSubmit={handleSubmit} 
                 sx={{ p: 2, display: 'flex', flexDirection: 'column', gap: 2 }}>

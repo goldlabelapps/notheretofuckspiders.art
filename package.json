@@ -1,6 +1,6 @@
 {
   "name": "notheretofuckspiders",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "scripts": {
     "dev": "yarn kill && yarn install && rm -rf .next && next dev -p 1975 --webpack",
     "build": "next build --webpack",

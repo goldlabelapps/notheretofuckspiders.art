@@ -58,7 +58,8 @@ export default function TopViruses() {
         </Button>  
       </Box>
       {topViruses.fetching && (
-        <Box display="flex" py={2}>
+        <Box display="flex" alignItems="center" justifyContent="center" py={2}>
+          <CircularProgress />
           <CleverText options={{
             markdown: "Loading Viruses°",
             id: "top-viruses-title",
@@ -69,7 +70,7 @@ export default function TopViruses() {
         </Box>
       )}
       {topViruses.error && (
-        <Typography color="text.secondary" variant="body2">
+        <Typography color="text.secondary"variant="body2">
           {topViruses.error}
         </Typography>
       )}

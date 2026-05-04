@@ -15,12 +15,10 @@ import { setVirus } from './actions/setVirus';
 import { getTopViruses } from './actions/getTopViruses';
 import { useVirus } from './hooks/useVirus';
 import { newFirestore } from './actions/newFirestore';
-import VirusSurface from './components/VirusSurface';
 
 export {
     Virus,
     Viruses,
-    VirusSurface,
     initVirus,
     Favourites,
     setVirus,

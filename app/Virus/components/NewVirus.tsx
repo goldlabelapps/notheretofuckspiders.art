@@ -66,21 +66,25 @@ export default function NewVirus() {
         }));
     };
 
-    return ( <Box sx={{ }}>
-
-                <Button
-                    variant='contained'
-                    startIcon={<Icon icon="virus" />}
-                    onClick={() => {
+    return (<>
+    <Box sx={{ mb: 3}}>
+                <Box display="flex">
+                    <Box sx={{flexGrow:1}} />
+                    <Button
+                        variant='outlined'
+                        startIcon={<Icon icon="virus" />}
+                        onClick={() => {
                             dispatch(navigateTo(router, '/viruses'));
-                    }}
-                >
+                        }}
+                    >
                         Viruses°
-                </Button>
+                    </Button>
+                </Box>
+            </Box>
 
             <Collapse in={open} timeout="auto" unmountOnExit>
                 <Box component="form" onSubmit={handleSubmit} 
-                sx={{ p: 2, display: 'flex', flexDirection: 'column', gap: 2 }}>
+                sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
                     <TextField
                         label="Virus° name"
                         name="name"
@@ -122,14 +126,14 @@ export default function NewVirus() {
                             type="submit" 
                             variant="contained" 
                             color="primary"
-                            endIcon={<Icon icon="send" />} 
+                            endIcon={<Icon icon="tick" />} 
                             disabled={!isValid}>
                             Create Virus
                         </Button>
                     </Box>
                 </Box>
             </Collapse>
-        </Box>
+    </>        
     );
 }
 

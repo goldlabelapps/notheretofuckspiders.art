@@ -4,7 +4,7 @@ import { Box, Container } from '@mui/material';
 import { NX } from '../../NX';
 import { serverUseNav, getTenant, getMeta } from '../../NX/lib/index.server';
 import { Header, Footer, TreeNav } from '../../NX/DesignSystem';
-import { VirusPage } from '../../Virus';
+import { VirusPage, Favourites, Share } from '../../Virus';
 
 const PAGE_TITLE = "Virus°";
 const PAGE_DESCRIPTION = "PORNVIRUSMP3";
@@ -40,12 +40,11 @@ export default async function Page() {
 
     return (
         <NX config={config}>
-            <Header config={config} frontmatter={{}} />
-            <Container id="main" maxWidth="lg" sx={{ mt: '100px', pb: '90px' }}>
+            <Container id="main" maxWidth="lg" sx={{ mt: '20px', pb: '90px' }}>
                 <Box sx={{ width: '100%', display: 'flex', gap: 1 }}>
                     <Box sx={{ display: { xs: 'none', sm: 'flex' }, flexDirection: 'column' }}>
                         <Box sx={{ flexGrow: 1, minHeight: 0, minWidth: 200 }}>
-                            <TreeNav navItems={navItems} />
+                            <Share />
                         </Box>
                     </Box>
                     <Box component="main" sx={{ gridColumn: { lg: '1' }, width: '100%', minWidth: 0, pr: { xs: 2, lg: 3 }, pl: { xs: 2, lg: 0 }, flexGrow: 1 }}>

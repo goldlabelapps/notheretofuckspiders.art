@@ -35,21 +35,30 @@ export default function TopViruses() {
   }, [dispatch, topViruses.fetching, topViruses.fetched]);
 
   return (
-    <Box>
-
-      <Button
-        variant='contained'
-        startIcon={<Icon icon="new" />}
-        onClick={() => {
-          dispatch(navigateTo(router, '/viruses/new'));
-        }}
-      >
-        New Virus°
-      </Button>  
-
+    <Box sx={{mt:2}}>
+      <Box sx={{ display: 'flex', gap: 2}}>
+        <Button
+          variant='outlined'
+          startIcon={<Icon icon="virus" />}
+          onClick={() => {
+            dispatch(navigateTo(router, '/viruses'));
+          }}
+        >
+          All
+        </Button>  
+        
+        <Button
+          variant='outlined'
+          startIcon={<Icon icon="new" />}
+          onClick={() => {
+            dispatch(navigateTo(router, '/viruses/new'));
+          }}
+        >
+          New
+        </Button>  
+      </Box>
       {topViruses.fetching && (
-        <Box display="flex" alignItems="center" justifyContent="center" py={2}>
-          <CircularProgress />
+        <Box display="flex" py={2}>
           <CleverText options={{
             markdown: "Loading Viruses°",
             id: "top-viruses-title",
@@ -60,7 +69,7 @@ export default function TopViruses() {
         </Box>
       )}
       {topViruses.error && (
-        <Typography color="text.secondary"variant="body2">
+        <Typography color="text.secondary" variant="body2">
           {topViruses.error}
         </Typography>
       )}

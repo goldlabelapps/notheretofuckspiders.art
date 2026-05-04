@@ -10,7 +10,6 @@ import {
   CardHeader,
   CardContent,
   Typography,
-  Avatar,
   IconButton,
   Button,
 } from '@mui/material';
@@ -51,8 +50,9 @@ export default function VirusPage() {
         <Box sx={{  }}>
 
           <Box sx={{display: 'flex', gap: 1, mb: 2}}>
+            <Box sx={{flexGrow:1}} />
             <Button
-              variant="contained"
+              variant="outlined"
               startIcon={<Icon icon="virus" />}
               onClick={() => {
                 dispatch(navigateTo(router, '/viruses'));
@@ -61,7 +61,7 @@ export default function VirusPage() {
               Viruses°
             </Button>
             <Button
-              variant="contained"
+              variant="outlined"
               startIcon={<Icon icon="new" />}
               onClick={() => {
                 dispatch(navigateTo(router, '/viruses/new'));
@@ -73,15 +73,17 @@ export default function VirusPage() {
           
           <CardHeader
             action={
-              <IconButton size="small" color="primary" onClick={() => window.history.back()}>
+              <IconButton color="primary" onClick={() => window.history.back()}>
                 <Icon icon="left" />
               </IconButton>
             }
             avatar={
               <Score score={virus.score ?? 0} />
             }
-            title={<Typography variant="h6">{virus.name}</Typography>}
-            subheader={<Typography variant="subtitle2" color="text.secondary">Created {virus.created ? moment(virus.created).fromNow() : ''}</Typography>}
+            title={<Typography variant="body1">{virus.name}</Typography>}
+            subheader={<Typography variant="body2" color="text.secondary">
+                        born {virus.created ? moment(virus.created).fromNow() : ''}
+                        </Typography>}
           />
           <CardContent>
             <CleverText options={{

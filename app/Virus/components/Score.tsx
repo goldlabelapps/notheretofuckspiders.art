@@ -15,13 +15,12 @@ export default function Score({ score, size = 40 }: ScoreProps) {
   const pct = Math.max(0, Math.min(100, score));
   // Gradient from light grey to theme.palette.primary.main
   const bg = `linear-gradient(135deg, #e0e0e0 0%, ${theme.palette.primary.main} ${pct}%)`;
-  // Text color: white if score > 50, else primary.main
-  const color = '#000';
+
   return (
     <Avatar
       sx={{
         background: bg,
-        color,
+        // color,
         fontWeight: 'bold',
         width: size,
         height: size,

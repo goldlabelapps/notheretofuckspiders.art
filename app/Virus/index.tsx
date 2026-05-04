@@ -7,6 +7,7 @@ import NewVirus from './components/NewVirus';
 import TopViruses from './components/TopViruses';
 import VirusPage from './components/VirusPage';
 import Share from './components/Share';
+import Favourites from './components/Favourites';
 import { virusOutbreak } from './prompts/virusOutbreak';
 import { randomVirus } from './prompts/randomVirus';
 import { initVirus } from './actions/initVirus';
@@ -14,11 +15,14 @@ import { setVirus } from './actions/setVirus';
 import { getTopViruses } from './actions/getTopViruses';
 import { useVirus } from './hooks/useVirus';
 import { newFirestore } from './actions/newFirestore';
+import VirusSurface from './components/VirusSurface';
 
 export {
     Virus,
     Viruses,
+    VirusSurface,
     initVirus,
+    Favourites,
     setVirus,
     useVirus,
     VirusDialog,

@@ -16,12 +16,21 @@ import { collection, onSnapshot, query, orderBy } from "firebase/firestore";
 import { CleverText, Icon, navigateTo } from "../../NX/DesignSystem";
 import moment from "moment";
 import { useDispatch } from "../../NX/Uberedux";
+// import { setNXAdmin } from "../../NX/NXAdmin";
 
 export default function Viruses() {
   const dispatch = useDispatch();
   const router = useRouter();
   const [viruses, setViruses] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
+
+
+  // React.useEffect(() => {
+  //   dispatch(setNXAdmin('header', {
+  //     title: 'Viruses°',
+  //     icon: 'virus',
+  //   }));
+  // }, [dispatch]);
 
   useEffect(() => {
     const firestore = getFirebaseFirestore();
@@ -46,8 +55,9 @@ export default function Viruses() {
         <Box display="flex" flexDirection="column" gap={3}>
 
         <Box display="flex" alignItems="center" gap={1}>
+          <Box sx={{flexGrow:1}} />
           <Button
-            variant='contained'
+            variant='outlined'
             startIcon={<Icon icon="new" />}
             onClick={() => {
               dispatch(navigateTo(router, '/viruses/new'));
@@ -71,17 +81,17 @@ export default function Viruses() {
                   title={<Typography variant="h6">{virus.name}</Typography>}
                   subheader={<Typography variant="subtitle2" color="text.secondary">Created {virus.created ? moment(virus.created).fromNow() : ''}</Typography>}
                 />
-                <CardContent>
                   {idx === 0 && (
-                    <CleverText options={{
-                      markdown: virus.message,
-                      id: virus.id,
-                      onFinish: () => {
-                        // Optionally handle finish
-                      }
-                    }} />
+                    <CardContent>
+                      <CleverText options={{
+                        markdown: virus.message,
+                        id: virus.id,
+                        onFinish: () => {
+                          // Optionally handle finish
+                        }
+                      }} />
+                    </CardContent>
                   )}
-                </CardContent>
               </Card>
             </Box>
           ))}

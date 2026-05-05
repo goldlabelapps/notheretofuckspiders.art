@@ -33,7 +33,7 @@ export default function Share() {
 
   return <Box id="share">
         {/* <pre>{JSON.stringify({ url, title, description }, null, 2)}</pre>     */}
-        <Box sx={{ my: 2 }}>
+        <Box sx={{ my: 1 }}>
           <XShareButton url={url}>
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
               <Icon icon="twitter" color={'primary'} />
@@ -44,7 +44,7 @@ export default function Share() {
           </XShareButton>
         </Box>
 
-        <Box sx={{ my: 2 }}>
+        <Box sx={{ my: 1 }}>
           <FacebookShareButton url={url} >
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
               <Icon icon="facebook" color={'primary'} />
@@ -55,7 +55,7 @@ export default function Share() {
           </FacebookShareButton>
         </Box>
 
-        <Box sx={{ my: 2 }}>
+        <Box sx={{ my: 1 }}>
           <LinkedinShareButton
             url={url}
             summary={description}
@@ -69,7 +69,7 @@ export default function Share() {
           </LinkedinShareButton>
         </Box>
 
-        <Box sx={{ my: 2 }}>
+        <Box sx={{ my: 1 }}>
           <WhatsappShareButton
             url={url}
             separator=" - "
@@ -86,10 +86,11 @@ export default function Share() {
         <Box sx={{ ml: 0 }}>
           <ButtonBase
             onClick={e => {
+              console.log('title', title)
               navigator.clipboard.writeText(url);
               setCopied(true);
               setAnchorEl(e.currentTarget);
-              setTimeout(() => {
+              setTimeout(() => {  
                 setCopied(false);
                 setAnchorEl(null);
               }, 3500);

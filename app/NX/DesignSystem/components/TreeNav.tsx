@@ -1,11 +1,6 @@
 "use client";
-import {
-    Box,
-    Typography,
-} from '@mui/material';
 import { RichTreeView } from '@mui/x-tree-view/RichTreeView';
 import { useRouter, usePathname } from 'next/navigation';
-import { useAuthed } from '../../Paywall';
 import { useDispatch } from '../../Uberedux';
 import { navigateTo } from '../../DesignSystem';
 
@@ -51,9 +46,6 @@ export default function TreeNav({ navItems = [] }: { navItems?: any[] }) {
     const dispatch = useDispatch();
     const pathname = usePathname();
     const treeViewItems = mapNavItemsToTreeView(navItems);
-    const authed = useAuthed();
-    let md = ``;
-    if (authed) md = ``;
 
     // Helper to collect all node ids along the path to the current page
     function getExpandedIds(items: any[], pathname: string): string[] {
@@ -76,11 +68,25 @@ export default function TreeNav({ navItems = [] }: { navItems?: any[] }) {
 
     const defaultExpandedItems = getExpandedIds(treeViewItems, pathname);
 
+    // Find the id of the item matching the current pathname exactly
+    function findCurrentId(items: any[]): string | undefined {
+        for (const item of items) {
+            if (item.route === pathname) return item.id;
+            if (item.children) {
+                const found = findCurrentId(item.children);
+                if (found) return found;
+            }
+        }
+        return undefined;
+    }
+    const currentItemId = findCurrentId(treeViewItems);
+
     return (
-        <Box sx={{}}>
             <RichTreeView
                 items={treeViewItems}
                 defaultExpandedItems={defaultExpandedItems}
+                selectedItems={currentItemId}
+                isItemDisabled={(item: any) => item.id === currentItemId && (!item.children || item.children.length === 0)}
                 onItemClick={(event, itemId) => {
                     function findItem(items: any[], id: string): any | undefined {
                         for (const item of items) {
@@ -93,16 +99,10 @@ export default function TreeNav({ navItems = [] }: { navItems?: any[] }) {
                         return undefined;
                     }
                     const clickedItem = findItem(treeViewItems, itemId);
-                    if (clickedItem && clickedItem.route) {
+                    if (clickedItem && clickedItem.route && clickedItem.route !== pathname) {
                         dispatch(navigateTo(router, clickedItem.route));
                     }
                 }}
             />
-            {/* <Box sx={{mx: 1, mt: 2}}>
-                <Typography variant="caption">
-                    Related
-                </Typography>
-            </Box> */}
-        </Box>
     );
 }

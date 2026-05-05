@@ -1,4 +1,5 @@
 "use client";
+import pJSON from '../../../../package.json'
 import { I_Nav, I_NavNode } from '../../types';
 import React from 'react';
 import Drawer from '@mui/material/Drawer';
@@ -10,6 +11,7 @@ import {
     ListItemButton,
     ListItemText,
     ListItemIcon,
+    Typography,
 } from '@mui/material';
 import { 
     Icon, 
@@ -18,8 +20,6 @@ import {
     TreeNav,
 } from '../../DesignSystem';
 import { useDispatch } from '../../Uberedux';
-import { NavVirus } from '../../Virus';
-import { MiniAccount } from '../../Paywall';
 
 function sortNavItems(items: any[]) {
     return [...items].sort((a, b) => {
@@ -35,6 +35,7 @@ const Nav: React.FC<I_Nav> = ({
     mode = 'desktop',
     frontmatter,
 }) => {
+
     const router = useRouter();
     const sortedNavItems = sortNavItems(navItems);
     const [drawerOpen, setDrawerOpen] = React.useState(false);
@@ -67,7 +68,7 @@ const Nav: React.FC<I_Nav> = ({
     // }
 
     function handleGithubClick() {
-        dispatch(navigateTo(router, '/techstack/git'));
+        dispatch(navigateTo(router, '/account'));
         setDrawerOpen(false);
     }
 
@@ -131,6 +132,14 @@ const Nav: React.FC<I_Nav> = ({
                     anchor="right"
                     open={drawerOpen}
                     onClose={() => setDrawerOpen(false)}>
+
+                    <ListItemButton onClick={handleGithubClick} sx={{ m: 2 }}>
+                        <ListItemIcon>
+                            <Icon icon={'user'} color="primary" />
+                        </ListItemIcon>
+                        <ListItemText primary={'Account'} />
+                    </ListItemButton>
+
                     <Box
                         sx={{
                             height: '100vh',
@@ -140,12 +149,8 @@ const Nav: React.FC<I_Nav> = ({
                             minWidth: 310,
                         }}
                         role="presentation">
-                        <MiniAccount />
                         <TreeNav navItems={navItems}/>
                         <Box sx={{ mt: 'auto', display: 'flex' }}>
-                            
-                            
-
                             {themeSwitching && <>
                                 <Box sx={{ pb: 1.5, ml:2 }}>
                                     <IconButton onClick={handleThemeModeToggle}>
@@ -153,10 +158,14 @@ const Nav: React.FC<I_Nav> = ({
                                     </IconButton>
                                 </Box>
                             </>}
-                            
-                            
-                            
+                            <Box sx={{ flexGrow: 1 }} />
+                            <Box sx={{mt: 1}}>
+                                <Typography variant='caption' fontSize={10}>
+                                    NX° {pJSON.version}
+                                </Typography>
+                            </Box>
                         </Box>
+                        
                     </Box>
                 </Drawer>
             </>

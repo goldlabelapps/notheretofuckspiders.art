@@ -13,7 +13,7 @@ import { Icon, navigateTo } from '../../NX/DesignSystem';
 import { useDispatch } from '../../NX/Uberedux';
 import { useAccount } from '../../NX/Paywall';
 import { 
-    newFirestore, 
+    newVirus, 
     randomVirus,
 } from '../../Virus'
 
@@ -56,7 +56,7 @@ export default function NewVirus() {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         if (!validate(form)) return;
-        dispatch(newFirestore(form, () => {
+        dispatch(newVirus(form, () => {
             setForm({
                 name: '',
                 message: '',

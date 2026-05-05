@@ -1,7 +1,9 @@
 "use client";
 import React from "react";
-import { useRouter } from "next/navigation";
+
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import moment from "moment";
 import {
   Box,
   Button,
@@ -10,27 +12,17 @@ import {
   CardContent,
   Typography,
 } from '@mui/material';
-import Score from "./Score";
+import { useDispatch } from "../../NX/Uberedux";
+import {Score} from "../../Virus";
 import { getFirebaseFirestore } from "../../NX/lib/firebase";
 import { collection, onSnapshot, query, orderBy } from "firebase/firestore";
 import { CleverText, Icon, navigateTo } from "../../NX/DesignSystem";
-import moment from "moment";
-import { useDispatch } from "../../NX/Uberedux";
-// import { setNXAdmin } from "../../NX/NXAdmin";
 
 export default function Viruses() {
   const dispatch = useDispatch();
   const router = useRouter();
   const [viruses, setViruses] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
-
-
-  // React.useEffect(() => {
-  //   dispatch(setNXAdmin('header', {
-  //     title: 'Viruses°',
-  //     icon: 'virus',
-  //   }));
-  // }, [dispatch]);
 
   useEffect(() => {
     const firestore = getFirebaseFirestore();

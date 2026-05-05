@@ -41,3 +41,44 @@ The **Virus°** concept in this codebase represents a modular, interactive, and 
 
 ---
 _Last updated: 1 May 2026_
+
+
+
+```typescript
+    React.useEffect(() => {
+        if (typeof window !== 'undefined') {
+            setUrl(window.location.href);
+            const meta = document.querySelector('meta[name="description"]') as HTMLMetaElement | null;
+            setDescription(meta?.content || '');
+        }
+    }, []);
+```
+
+
+
+```typescript
+
+{/* <Grid size={{ xs: 12, sm: 8 }}>
+                    {imageSrc && (
+                        <Box
+                            component="img"
+                            src={imageSrc}
+                            alt="Social share preview"
+                            sx={{
+                                display: 'block',
+                                width: '100%',
+                                maxWidth: 480,
+                                mt: 2,
+                                borderRadius: 2,
+                                border: '1px solid',
+                                borderColor: 'divider',
+                                boxShadow: 1,
+                            }}
+                        />
+                    )}
+                    </Grid> */}
+                {/* <Grid size={{ xs: 12, sm: 4 }}>
+                    <Share />
+                </Grid> */}
+
+    ```

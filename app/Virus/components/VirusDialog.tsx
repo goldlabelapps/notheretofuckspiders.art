@@ -1,102 +1,139 @@
 "use client";
 import React from "react";
 import config from '../config.json';
-import { useRouter } from "next/navigation";
 import {
     Box,
     Grid,
     Dialog,
+    DialogActions,
     DialogContent,
     DialogTitle,
     IconButton,
+    Tooltip,
     useMediaQuery,
     useTheme,
+    Typography,
 } from '@mui/material';
 import { useDispatch } from '../../NX/Uberedux';
 import { 
-    Icon, 
-    CleverText, 
-    navigateTo,
+    Icon,
+    ConfirmAction,
+    setFeedback,
+    FullscreenToggle,
+    useFullscreen,
 } from '../../NX/DesignSystem';
-import { setVirus, useVirus, Share, TopViruses } from '../../Virus';
+import { 
+    setVirus,
+} from '../actions/setVirus';
+import Fingerprint from './Fingerprint';
+import { useDoc, useVirus, forgetFingerprint } from '../../Virus';
 
 export default function VirusDialog() {
-
     const dispatch = useDispatch();
-    const router = useRouter();
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
     const virus = useVirus();
+    const doc = useDoc();
     const dialogOpen = !!virus.dialogOpen;
-    // const toggleText = virus.toggleText || '';
+    const fingerprint = virus.fingerprint;
+    const fullscreen = useFullscreen() || false;
+    const [confirmOpen, setConfirmOpen] = React.useState(false);
 
-    const toggleText = config.version;
+    const handleDeleteRequest = () => setConfirmOpen(true);
+    const handleDeleteCancel = () => setConfirmOpen(false);
+    const handleDeleteConfirm = async () => {
+        setConfirmOpen(false);
+        if (!fingerprint || typeof fingerprint !== 'string') {
+            dispatch(setFeedback({
+                severity: 'error',
+                title: 'No fingerprint found to delete.',
+            }));
+            return;
+        }
 
-    const handleVirusClick = () => {
-        dispatch(setVirus('dialogOpen', true));
+        const deleted = await dispatch(forgetFingerprint(fingerprint));
+        dispatch(setVirus('dialogOpen', false));
+
+        if (!deleted) {
+            dispatch(setFeedback({
+                severity: 'error',
+                title: 'Unable to delete fingerprint.',
+            }));
+        }
+    };
+
+    const handleClose = () => {
+        dispatch(setVirus('dialogOpen', false));
     };
 
     return <>
-        <Box sx={{
-            display: 'flex',
-            gap: 1,
-        }}>
-            <Box>
-                <CleverText options={{
-                    id: 'infoPaneCleverText',
-                    markdown: toggleText,
-                    onFinish: () => {
-                        setTimeout(() => {
-                            dispatch(setVirus('toggleText', ''));
-                            
-                        }, 10000);
-                        
-                    }
-                }} />
-            </Box>
-            <Box>
-                <IconButton
-                    sx={{ m: 1 }}
-                    color="primary"
-                    onClick={handleVirusClick}>
-                    <Icon icon="virus" />
-                </IconButton>
-            </Box>
-        </Box>
-
         <Dialog
             open={dialogOpen}
-            onClose={() => dispatch(setVirus('dialogOpen', false))}
-            fullScreen={isMobile}
+            onClose={handleClose}
+            fullScreen={fullscreen || isMobile}
             fullWidth
-            maxWidth="sm"
-        >
+            maxWidth="sm">
             <DialogTitle>
-                <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <Box sx={{ 
+                    display: 'flex', 
+                    justifyContent: 'space-between', 
+                    alignItems: 'center'
+                }}>
+                    <Box sx={{mt:1}}>
+                        <Icon icon="virus" />
+                    </Box>
+                    <Box sx={{ ml: 1 }}>
+                        <Typography variant="h5">
+                            Virus°
+                        </Typography>
+                    </Box>
                     <Box sx={{flexGrow: 1}}/>
-                    <IconButton onClick={() => dispatch(setVirus('dialogOpen', false))}>
+
+                    <Tooltip title="Forget Me">
+                        <IconButton onClick={handleDeleteRequest} color="primary">
+                            <Icon icon="forget" />
+                        </IconButton>
+                    </Tooltip>
+
+                    <FullscreenToggle />
+
+                    <IconButton onClick={handleClose} color="primary">
                         <Icon icon="close" />
                     </IconButton>
                 </Box>
             </DialogTitle>
-            <DialogContent sx={{mb: 3}}>
-                <Grid container spacing={2}>
 
-                    <Grid size={{ xs: 12, sm: 7 }}>
-                        <TopViruses />
+            <DialogContent sx={{mb: 3}}>
+                <Grid container spacing={1}>
+                    <Grid size={{ xs: 12, sm: 12 }}>
+                        <Fingerprint />
                     </Grid>
-                    <Grid size={{ xs: 12, sm: 5 }}>
-                        <Share />
+                    <Grid size={{ xs: 12, sm: 12 }}>
+                        <pre>doc: {JSON.stringify(doc, null, 2)}</pre>
                     </Grid>
                 </Grid>
+                
             </DialogContent>
+            
+            <DialogActions>
+                <Typography variant="caption" sx={{
+                    display: 'block',
+                    textAlign: 'center',
+                    opacity: 0.75,
+                    mr: 2
+                }}>
+                    Virus° {config.version}
+                </Typography>
+            </DialogActions>
         </Dialog>
 
+        <ConfirmAction
+            open={confirmOpen}
+            handleClose={handleDeleteCancel}
+            handleConfirm={handleDeleteConfirm}
+            icon="forget"
+            title="Forget me?"
+            body="You have the right to be forgotten. Confirming will permanently remove all data tied to your device, no traces left behind. If you visit again, a new fingerprint will be created"
+        />
     </>
-
 }
-
-
-/* 
-<pre>{JSON.stringify(firestoreDoc, null, 2)}</pre> 
-*/

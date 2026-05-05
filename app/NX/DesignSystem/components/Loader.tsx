@@ -5,10 +5,12 @@ import { useDesignSystem, setDesignSystem } from '../../DesignSystem';
 import { useDispatch } from '../../Uberedux';
 
 export default function Loader() {
-    
-    const  designSystem  = useDesignSystem();
+    const designSystem = useDesignSystem();
     const loading = designSystem?.loading;
     const dispatch = useDispatch();
+
+    const [mounted, setMounted] = React.useState(false);
+    React.useEffect(() => setMounted(true), []);
 
     const handleClose = () => {
         dispatch(setDesignSystem('loading', false));
@@ -23,6 +25,8 @@ export default function Loader() {
         window.addEventListener('keydown', onKeyDown);
         return () => window.removeEventListener('keydown', onKeyDown);
     }, [loading]);
+
+    if (!mounted) return null;
 
     return (
         <Backdrop 

@@ -84,7 +84,7 @@ import WebIcon from '@mui/icons-material/Language';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import ExpandIcon from '@mui/icons-material/MenuOpen';
 import WhereIcon from '@mui/icons-material/LocationOnOutlined';
-import TechstackIcon from '@mui/icons-material/EmojiEvents';
+import TechstackIcon from '@mui/icons-material/CloudSync';
 import FishIcon from '@mui/icons-material/Phishing';
 import BackofficeIcon from '@mui/icons-material/SecurityOutlined';
 import ShopIcon from '@mui/icons-material/ShoppingBasketOutlined';
@@ -108,7 +108,7 @@ import HideIcon from '@mui/icons-material/VisibilityOffOutlined';
 import ShowIcon from '@mui/icons-material/VisibilityOutlined';
 import BootIcon from '@mui/icons-material/DoNotStepOutlined';
 import YoutubeIcon from '@mui/icons-material/YouTube';
-import ForgetIcon from '@mui/icons-material/PsychologyOutlined';
+import ForgetIcon from '@mui/icons-material/PersonRemove';
 import AIIcon from '@mui/icons-material/Psychology';
 import FolderIcon from '@mui/icons-material/FolderOutlined';
 import CompanyIcon from '@mui/icons-material/Apartment';
@@ -188,16 +188,23 @@ import ProspectsIcon from '@mui/icons-material/DataSaverOff';
 import StalkIcon from '@mui/icons-material/Camera';
 import HammerIcon from '@mui/icons-material/Build';
 import ArchiveIcon from '@mui/icons-material/ArchiveOutlined';
+import InstallIcon from '@mui/icons-material/InstallDesktop';
+import StopIcon from '@mui/icons-material/Stop';
 
 export default function Icon({ icon, color }: I_Icon) {
   if (!color) color = 'inherit';
   let iconFragment = <React.Fragment />;
   switch (icon) {
-
+    case 'stop':
+      iconFragment = <StopIcon color={color} />;
+      break;
+    case 'install':
+      iconFragment = <InstallIcon color={color} />;
+      break;
     case 'archive':
       iconFragment = <ArchiveIcon color={color} />;
       break;
-          case 'hammer':
+    case 'hammer':
       iconFragment = <HammerIcon color={color} />;
       break;
     case 'stalk':

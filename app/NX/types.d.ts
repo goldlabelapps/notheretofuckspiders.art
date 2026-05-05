@@ -291,6 +291,7 @@ export type I_Icon = {
     icon:
     | 'more'
     | 'heart'
+    | 'stop'
     | 'hammer'
     | 'archive'
     | 'maths'
@@ -302,6 +303,7 @@ export type I_Icon = {
     | 'skiing'
     | 'typescript'
     | 'van'
+    | 'install'
     | 'fullstack'
     | 'web3d'
     | 'rocket'

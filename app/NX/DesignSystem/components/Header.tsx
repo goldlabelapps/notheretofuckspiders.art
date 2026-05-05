@@ -11,10 +11,11 @@ import {
 	AppBar,
 	Typography,
 } from '@mui/material';
-import {UserSpot} from '../../Paywall';
 import { navigateTo } from '../../DesignSystem';
 import { useDispatch } from '../../Uberedux';
-import { Virus} from '../../../Virus';
+import {
+	Virus,
+} from '../../../Virus';
 
 export interface I_Header {
 	config: T_Config;
@@ -31,17 +32,11 @@ export default function Header({
     const themeMode = theme?.palette?.mode || 'light';
 	const avatar = config?.avatars?.[themeMode] || '';
     const {title} = frontmatter || {};
-
 	const pathname = usePathname();
 
 	const handleAvatarClick = () => {
 		if (pathname === '/') return;
 		dispatch(navigateTo(router, '/'));
-	}
-
-	const handleAccountClick = () => {
-		if (pathname === '/account') return;
-		dispatch(navigateTo(router, '/account'));
 	}
 
 	return (
@@ -59,11 +54,9 @@ export default function Header({
 							color='secondary'
 							variant="h5"
 							component="h1"
-							sx={{ mt: 0.25 }}
-						>
+							sx={{ mt: 0.25 }}>
 							{title}
 						</Typography>}
-						// subheader={pathname}
 						avatar={<IconButton onClick={handleAvatarClick}>
 									<Avatar src={avatar} />
 								</IconButton>}

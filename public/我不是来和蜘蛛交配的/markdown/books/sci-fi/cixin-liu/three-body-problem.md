@@ -1,6 +1,6 @@
 ---
 order: 150
-title: 3 Body Problem
+title: Three Body Problem
 description: The Remembrance of Earth’s Past, Book 1
 slug: /reading/sci-fi/cixin-liu/three-body-problem
 icon: books

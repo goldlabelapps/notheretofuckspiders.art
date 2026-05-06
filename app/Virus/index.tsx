@@ -17,7 +17,14 @@ import { useVirus } from './hooks/useVirus';
 import { useFingerprint } from './hooks/useFingerprint';
 import { useDoc } from './hooks/useDoc';
 import { newVirus } from './actions/newVirus';
-import { parseDevice } from './actions/parseDevice';
+import { parseDevice } from './prompts/parseDevice';
+import {
+    getFirebaseApp,
+    getFirebaseAuth,
+    getFirebaseFirestore,
+    getFirebaseStorage,
+    getFirebaseMessaging,
+} from './firebase';
 
 import Debug from './components/Debug';
 import Score from './components/Score';
@@ -56,4 +63,9 @@ export {
     useDoc,
     updateFingerprint,
     parseDevice,
+    getFirebaseApp,
+    getFirebaseAuth,
+    getFirebaseFirestore,
+    getFirebaseStorage,
+    getFirebaseMessaging,
 };

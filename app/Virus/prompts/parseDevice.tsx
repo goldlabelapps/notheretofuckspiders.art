@@ -2,7 +2,7 @@ import type { T_UbereduxDispatch } from '../../NX/types';
 import { setUbereduxKey } from '../../NX/Uberedux';
 import { getFirebaseFirestore } from '../../NX/lib/firebase';
 import { doc, updateDoc } from 'firebase/firestore';
-import deviceModels from '../deviceModels.json';
+import deviceModels from './deviceModels.json';
 
 function getDeviceInfo() {
     const ua = navigator.userAgent || '';

@@ -2,7 +2,6 @@ import { getFirebaseFirestore } from '../../NX/lib/firebase';
 import { collection, addDoc } from 'firebase/firestore';
 import { setFeedback } from '../../NX/DesignSystem';
 
-// Creates a new Virus document in Firestore with the provided payload
 export const newVirus = (payload: any, onSuccess?: () => void) => async (dispatch: any) => {
 	try {
 		const db = getFirebaseFirestore();
@@ -16,7 +15,7 @@ export const newVirus = (payload: any, onSuccess?: () => void) => async (dispatc
 			severity: 'success',
 			title: 'New Virus° created',
 		}));
-		if (onSuccess) onSuccess(); // e.g., to clear/reset form
+		if (onSuccess) onSuccess();
 	} catch (e: any) {
 		dispatch(setFeedback({
 			severity: 'error',

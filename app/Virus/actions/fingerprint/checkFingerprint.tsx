@@ -6,22 +6,16 @@ import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
 
 const VIRUS_JUST_DELETED_SESSION_KEY = 'virus.justDeletedFingerprint';
 
-const RETURNING_VISITOR_MARKDOWN = `Your device's fingerprint was recognised. A stable identifier derived from your device and browser characteristics.
-This ID is used to:
+const RETURNING_VISITOR_MARKDOWN = `Your device's unique fingerprint was recognised by [FingerprintJS](https://fingerprintjs.com/). With no personal data collected, it is a stable identifier derived from your device and browser characteristics used to  
 - Recognise you across sessions without requiring a login
 - Track how viruses spread across unique visitors
 - Personalise your experience over time
-
-No personal data is collected. Your fingerprint is generated entirely in your browser using [FingerprintJS](https://fingerprintjs.com/).
 `.trim();
 
-const NEW_VISITOR_MARKDOWN = `Your browser has been assigned a unique fingerprint. A stable identifier derived from your device and browser characteristics. This ID is used to
-
+const NEW_VISITOR_MARKDOWN = `Your device has been assigned a unique fingerprint by [FingerprintJS](https://fingerprintjs.com/). With no personal data collected, it is a stable identifier derived from your device and browser characteristics used to  
 - Recognise you across sessions without requiring a login
 - Track how viruses spread across unique visitors
 - Personalise your experience over time
-
-No personal data is collected. Your fingerprint is generated entirely in your browser using [FingerprintJS](https://fingerprintjs.com/).
 `.trim();
 
 export const checkFingerprint = (): any =>
@@ -59,7 +53,6 @@ export const checkFingerprint = (): any =>
                 await setDoc(docRef, {
                     created: now,
                     updated: now,
-                    tenant: process.env.NEXT_PUBLIC_TENANT ?? null,
                 });
                 dispatch(setVirus('title', 'You have been fingerprinted'));
                 dispatch(setVirus('clever', NEW_VISITOR_MARKDOWN));

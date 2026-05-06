@@ -108,9 +108,9 @@ export default function VirusDialog() {
                     <Grid size={{ xs: 12, sm: 12 }}>
                         <Fingerprint />
                     </Grid>
-                    <Grid size={{ xs: 12, sm: 12 }}>
+                    {/* <Grid size={{ xs: 12, sm: 12 }}>
                         <pre>doc: {JSON.stringify(doc, null, 2)}</pre>
-                    </Grid>
+                    </Grid> */}
                 </Grid>
                 
             </DialogContent>

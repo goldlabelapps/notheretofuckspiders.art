@@ -1,5 +1,4 @@
 "use client";
-
 import * as React from "react";
 import Avatar from '@mui/material/Avatar';
 import { useTheme } from '@mui/material/styles';
@@ -32,15 +31,3 @@ export default function Score({ score, size = 40 }: ScoreProps) {
     </Avatar>
   );
 }
-
-/*
-<Avatar
-  sx={{
-    bgcolor: `rgba(25, 118, 210, ${Math.max(0.1, Math.min(1, (virus.score ?? 0) / 100))})`,
-    color: (virus.score ?? 0) > 50 ? '#fff' : 'primary.main',
-    fontWeight: 'bold',
-  }}
->
-  {virus.score}
-</Avatar>
-*/

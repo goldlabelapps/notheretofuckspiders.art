@@ -11,9 +11,7 @@ import { useFingerprint } from './hooks/useFingerprint';
 import { useSubFingerprint } from './hooks/useSubFingerprint';
 import { useVirus } from './hooks/useVirus';
 import { useDoc } from './hooks/useDoc';
-import { parseDevice } from './utils/parseDevice';
-import { randomVirus } from './utils/randomVirus';
-import { virusOutbreak } from './utils/virusOutbreak';
+import { parseDevice, randomVirus, virusOutbreak } from './utils';
 import {
     getFirebaseApp,
     getFirebaseAuth,

@@ -41,8 +41,12 @@ Virus/
 │   ├── useSubFingerprint.tsx # Mounts the Firestore fingerprint subscription
 │   └── useDoc.tsx          # Generic Firestore document hook
 └── utils/
-    ├── randomVirus.tsx     # Generates a random virus object (name, rates, pandemic phase, transmission modes)
-    └── virusOutbreak.tsx   # Prompt / copy for outbreak events
+    ├── index.tsx           # Full utils barrel export surface
+    ├── randomVirus.tsx     # Random virus naming and pandemic phase metadata
+    ├── virusOutbreak.tsx   # Prompt / copy for outbreak events
+    ├── parseDevice.tsx     # Device metadata parser + Firestore updater thunk
+    ├── utils.ts            # Device summary and language formatting helpers
+    └── deviceModels.json   # Model code to friendly-name lookup data
 ```
 
 ## Key Concepts
@@ -76,6 +80,7 @@ Uses **Uberedux** (project-local Redux wrapper). The virus slice is keyed under 
 ## Developer Notes
 
 - **Avoid circular imports** — do not import from `app/Virus/index.tsx` inside this module. Use direct relative imports instead.
+- Prefer importing Virus utilities from `app/Virus/utils/index.tsx` rather than utility leaf files.
 - All Firestore writes go through actions in `actions/fingerprint/`; components do not write directly.
 - `VirusDialog` uses a two-step confirm flow (`ConfirmAction`) before deleting a fingerprint.
 

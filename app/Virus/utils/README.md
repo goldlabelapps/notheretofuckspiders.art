@@ -13,7 +13,31 @@ This folder is a working area for utility and prompt-related assets used by the 
 - `randomVirus.tsx`: prompt generator logic.
 - `virusOutbreak.tsx`: outbreak prompt logic.
 - `parseDevice.tsx`: device parsing/update utility thunk.
+- `utils.ts`: device formatting helpers.
 - `deviceModels.json`: device model lookup data used by `parseDevice.tsx`.
+- `index.tsx`: full barrel file for utility exports.
+
+## Barrel exports
+
+The barrel in `index.tsx` re-exports everything in this folder that is part of the runtime utility API:
+
+- `parseDevice`
+- `randomVirus`
+- `pandemicPhases`
+- `virusOutbreak`
+- `formatLanguages`
+- `formatDeviceSummary`
+- `deviceModels`
+
+## Import style
+
+Prefer importing Virus utils from the folder barrel:
+
+```ts
+import { parseDevice, randomVirus, formatDeviceSummary } from './utils';
+```
+
+This keeps imports stable if utility files are reorganized later.
 
 ## Notes
 

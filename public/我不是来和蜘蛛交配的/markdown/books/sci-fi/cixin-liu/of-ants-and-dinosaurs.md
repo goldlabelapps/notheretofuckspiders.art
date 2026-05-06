@@ -1,8 +1,8 @@
 ---
-order: 100
+order: 1001
 title: Of Ants and Dinosaurs
 description: Two wildly different species in a forced symbiosis
-slug: /life/books/cixin-liu/of-ants-and-dinosaurs
+slug: /reading/sci-fi/cixin-liu/of-ants-and-dinosaurs
 icon: books
 image: https://live.staticflickr.com/65535/54941778209_29ee005a38_b.jpg
 tags: Cixin Liu, Speculative fiction, Chinese, hard sci-fi, parable, orwell

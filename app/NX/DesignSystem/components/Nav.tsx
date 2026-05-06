@@ -20,6 +20,7 @@ import {
     TreeNav,
 } from '../../DesignSystem';
 import { useDispatch } from '../../Uberedux';
+import { Share } from '../../../Virus';
 
 function sortNavItems(items: any[]) {
     return [...items].sort((a, b) => {
@@ -133,13 +134,17 @@ const Nav: React.FC<I_Nav> = ({
                     open={drawerOpen}
                     onClose={() => setDrawerOpen(false)}>
 
-                    <ListItemButton onClick={handleGithubClick} sx={{ m: 2 }}>
+                    <Box sx={{ mt: 2, display: 'flex', justifyContent: 'center' }}>
+                        <Share size="small" />
+                    </Box>
+
+                    {/* <ListItemButton onClick={handleGithubClick} sx={{ m: 2 }}>
                         <ListItemIcon>
                             <Icon icon={'user'} color="primary" />
                         </ListItemIcon>
                         <ListItemText primary={'Account'} />
-                    </ListItemButton>
-
+                    </ListItemButton> */}
+                    
                     <Box
                         sx={{
                             height: '100vh',
@@ -158,6 +163,7 @@ const Nav: React.FC<I_Nav> = ({
                                     </IconButton>
                                 </Box>
                             </>}
+                            
                             <Box sx={{ flexGrow: 1 }} />
                             <Box sx={{mt: 1}}>
                                 <Typography variant='caption' fontSize={10}>

@@ -1,4 +1,5 @@
 {
-    "version": "2.0.2",
-    "description": "A virus that markets itself."
+    "version": "2.0.3",
+    "description": "Use individual configuration files for both development and production environments and to separate tenants. Keep config organised and consistent. everywhere.",
+    "enabled": false
 }

@@ -2,7 +2,7 @@
 order: 1233
 title: Tom Robbins
 description: Even Cowgirls Get the Blues
-slug: /life/books/tom-robbins
+slug: /reading/spec-fic/tom-robbins
 icon: books
 image: https://live.staticflickr.com/65535/54735999657_5ec054b3e2_b.jpg
 ---

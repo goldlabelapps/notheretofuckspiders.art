@@ -8,9 +8,9 @@ icon: virus
 image: https://live.staticflickr.com/65535/54338019655_94e8e39903_b.jpg
 ---
 
-> [CleverText text="This is my story. Some of it is true"]
-
 I am Zang Wei. At least, that would be the Western way of saying it. In China we would say it the other way around. Wei Zang. Cos family comes first.
+
+[PageLink icon="books" title="Speculative Fiction" url="/reading/spec-fic"]  
 
 There I was. Working hard. I won't say which company, but it was for one of those big Western smartphone companies who manufacture their hardware in Shenzhen. Some people say that the Chinese are only good at srewing components together, but fuck them.
 
@@ -19,4 +19,4 @@ Sorry, I digress already.
 
 I felt - how should I put it - unfullfilled?
 
-[PageLink icon="right" title="My Story" description="I was born in a fishing village called Shenzhen in 1975" url="/wei-zang/backstory"]  
+[PageLink icon="right" title="My sob story" description="I was born in a fishing village called Shenzhen in 1975" url="/wei-zang/backstory"]  

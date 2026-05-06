@@ -25,7 +25,7 @@ import {
 } from '../NX/DesignSystem';
 import { RenderMarkdown } from '../NX/Shortcodes';
 import { Orders } from '../NX/Orders';
-import { Virus } from '../NX/Virus';
+import { Virus } from '../Virus';
 
 export async function generateMetadata({ params }: { params: any }): Promise<Metadata> {
     const resolvedParams = typeof params.then === 'function' ? await params : params;

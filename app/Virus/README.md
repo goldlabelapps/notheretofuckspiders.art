@@ -40,7 +40,7 @@ Virus/
 │   ├── useFingerprint.tsx  # Selects fingerprint data from Redux
 │   ├── useSubFingerprint.tsx # Mounts the Firestore fingerprint subscription
 │   └── useDoc.tsx          # Generic Firestore document hook
-└── prompts/
+└── utils/
     ├── randomVirus.tsx     # Generates a random virus object (name, rates, pandemic phase, transmission modes)
     └── virusOutbreak.tsx   # Prompt / copy for outbreak events
 ```

@@ -1,6 +1,6 @@
-# Prompts Working Folder
+# Utils Working Folder
 
-This folder is a working area for prompt and utility assets used by the Virus module.
+This folder is a working area for utility and prompt-related assets used by the Virus module.
 
 ## Purpose
 

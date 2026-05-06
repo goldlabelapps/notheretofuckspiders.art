@@ -1,8 +1,10 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import {
     Box,
     IconButton,
+    useMediaQuery,
+    useTheme,
 } from '@mui/material';
 import { useDispatch } from '../../NX/Uberedux';
 import { 
@@ -15,8 +17,18 @@ export default function VirusButton() {
 
     const dispatch = useDispatch();
     const virus = useVirus();
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
     const toggleText = virus?.toggleText || '';
     const icon = virus?.icon || 'virus';
+
+    useEffect(() => {
+        if (!toggleText) return;
+        const timeout = setTimeout(() => {
+            dispatch(setVirus('toggleText', ''));
+        }, 2500);
+        return () => clearTimeout(timeout);
+    }, [dispatch, toggleText]);
 
     const handleIconClick = () => {
         dispatch(setVirus('dialogOpen', true));
@@ -27,17 +39,12 @@ export default function VirusButton() {
             display: 'flex',
             gap: 1,
         }}>
-            <Box>
+            {!isMobile && <Box>
                 <CleverText options={{
                     id: 'infoPaneCleverText',
                     markdown: toggleText,
-                    onFinish: () => {
-                        setTimeout(() => {
-                            dispatch(setVirus('toggleText', ''));
-                        }, 2500);
-                    }
                 }} />
-            </Box>
+            </Box>}
             <Box>
                 <IconButton
                     sx={{ m: 1 }}

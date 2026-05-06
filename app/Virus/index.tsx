@@ -11,14 +11,13 @@ import { checkFingerprint } from './actions/fingerprint/checkFingerprint';
 import { updateFingerprint } from './actions/fingerprint/updateFingerprint';
 import { deleteFingerprint } from './actions/fingerprint/deleteFingerprint';
 import { forgetFingerprint } from './actions/fingerprint/forgetFingerprint';
-
-
 import { useSubFingerprint } from './hooks/useSubFingerprint';
 
 import { useVirus } from './hooks/useVirus';
 import { useFingerprint } from './hooks/useFingerprint';
 import { useDoc } from './hooks/useDoc';
 import { newVirus } from './actions/newVirus';
+import { parseDevice } from './actions/parseDevice';
 
 import Debug from './components/Debug';
 import Score from './components/Score';
@@ -56,4 +55,5 @@ export {
     forgetFingerprint,
     useDoc,
     updateFingerprint,
+    parseDevice,
 };

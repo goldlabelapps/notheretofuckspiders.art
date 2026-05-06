@@ -1,6 +1,6 @@
 import type { T_UbereduxDispatch } from '../../NX/types';
 import { setUbereduxKey } from '../../NX/Uberedux';
-
+import { setDesignSystem } from '../../NX/DesignSystem';
 import { 
     setVirus,
 } from '../../Virus';
@@ -16,11 +16,9 @@ export const initVirus = (): any =>
 
             const state = getState();
             const virus = state?.redux?.virus || {};
-
-            // dispatch(setVirus('toggleText', 'Virus°'));
-            dispatch(setVirus('toggleText', 'Virus°'));
-            dispatch(setVirus('dialogOpen', true));
-            dispatch(setVirus('title', 'Fingerprint°'));
+            dispatch(setVirus('dialogOpen', false));
+            // dispatch(setDesignSystem('fullscreen', true));
+            dispatch(setVirus('toggleText', 'Fingerprint°'));
             dispatch(setVirus('icon', 'fingerprint'));
 
             if (typeof window !== 'undefined') {
@@ -33,8 +31,6 @@ export const initVirus = (): any =>
                 const fingerprintAgent = await fingerprintAgentPromise;
                 const { visitorId } = await fingerprintAgent.get();
 
-                // await dispatch(checkFingerprint());
-                // dispatch(setVirus('clever', visitorId));
                 dispatch(setVirus('fingerprint', visitorId));
             }
 
@@ -51,3 +47,4 @@ export const initVirus = (): any =>
             dispatch(setUbereduxKey({ key: 'error', value: msg }));
         }
     };
+    

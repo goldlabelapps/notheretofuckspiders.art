@@ -1,27 +1,23 @@
 'use client';
 import * as React from 'react';
-import { useRouter } from 'next/navigation';
-import { 
-  Box,
-} from '@mui/material';
 import { useDispatch } from '../NX/Uberedux';
 import { 
   initVirus,
+  useDoc,
   useVirus,
   VirusDialog,
   VirusButton,
   checkFingerprint,
   useSubFingerprint,
+  parseDevice,
 } from '../Virus';
 
 export default function Virus() {
   const dispatch = useDispatch();
   const slice = useVirus();
-
-  // checkFingerprint
+  const doc = useDoc();
 
   React.useEffect(() => {
-    // If the virus slice is empty or uninitialized, initialize it
     if (!slice || Object.keys(slice).length === 0) {
       dispatch(initVirus());
     }
@@ -29,15 +25,21 @@ export default function Virus() {
 
   React.useEffect(() => {
     if (slice?.fingerprint) {
-      // console.log('Virus ready. fingerprint:', slice.fingerprint);
       dispatch(checkFingerprint());
     }
   }, [slice?.fingerprint]);
 
+  React.useEffect(() => {
+    if (typeof window === 'undefined') return;
+    if (doc && Object.keys(doc).length > 0 && !doc.device) {
+      dispatch(parseDevice());
+    }
+  }, [doc]);
+
   useSubFingerprint();
 
-  return (<Box>
+  return (<>
             <VirusDialog />
             <VirusButton />
-          </Box>);
+          </>);
 }

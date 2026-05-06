@@ -1,8 +1,8 @@
 'use client';
 import * as React from 'react';
 import { Box, Typography } from '@mui/material';
-import { Icon } from '../../../../DesignSystem';
-import type { I_Icon } from '../../../../types';
+import { Icon } from '../../NX/DesignSystem';
+import type { I_Icon } from '../../NX/types';
 import type { T_Fingerprint } from '../types';
 
 type T_IconName = I_Icon['icon'];
@@ -67,12 +67,11 @@ export default function FingerprintDeviceData({ device, compact = false, size = 
     const browser = device?.browser;
 
     const metaItems: Array<{ label: string; value: string; icon: T_IconName }> = [
-        // { label: 'device', value: isMobile ? 'Mobile' : 'Desktop', icon: getIsMobileIcon(isMobile) },
-        ...(resolvedModel ? [{ label: 'model', value: resolvedModel, icon: isMobile ? 'mobile' as T_IconName : 'desktop' as T_IconName }] : []),
+    ...(resolvedModel ? [{ label: 'model', value: resolvedModel, 
+        icon: isMobile ? 'mobile' as T_IconName : 'desktop' as T_IconName }] : []),
        { label: 'os', value: os || 'Unknown', icon: getOSIcon(os) },
         { label: 'browser', value: browser || 'Unknown', icon: getBrowserIcon(browser) },
          { label: 'platform', value: platform || 'Unknown', icon: getPlatformIcon(platform) },
-        // ...(vendor ? [{ label: 'vendor', value: vendor, icon: 'info' as T_IconName }] : []),
     ];
 
     if (size === 'small') {

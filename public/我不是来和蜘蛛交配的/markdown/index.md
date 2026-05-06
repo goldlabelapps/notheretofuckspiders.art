@@ -8,6 +8,7 @@ icon: virus
 image: https://live.staticflickr.com/65535/54338019655_94e8e39903_b.jpg
 ---
 
-[PageLink icon="virus" title="I am Wei Zang" description="This is my story" url="/wei-zang"]  
-
 [CleverText text="As far back as I can remember I knew that if I played by the rules I'd lose."]  
+
+[PageLink icon="virus" title="I am Wei Zang and this is my story" url="/wei-zang"]  
+

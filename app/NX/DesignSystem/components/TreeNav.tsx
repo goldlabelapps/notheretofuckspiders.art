@@ -4,6 +4,12 @@ import { useRouter, usePathname } from 'next/navigation';
 import { useDispatch } from '../../Uberedux';
 import { navigateTo } from '../../DesignSystem';
 
+function normalizeRoute(route?: string): string | undefined {
+    if (typeof route !== 'string' || route.trim() === '') return undefined;
+    if (route === '/') return '/';
+    return route.replace(/\/+$/, '') || '/';
+}
+
 function mapNavItemsToTreeView(items: any[], usedIds = new Set()): any[] {
     return items
         .filter(item => !(item.hideInNav === true || item.hideInNav === 'true'))
@@ -21,16 +27,16 @@ function mapNavItemsToTreeView(items: any[], usedIds = new Set()): any[] {
             if (route === "/") {
                 label = "Home";
             }
-            // Recursively filter children as well, but skip the first child if children exist
+            // Recursively filter children, removing only duplicate index entries
+            // where a child points to the same route as its parent.
             let filteredChildren = undefined;
-            if (item.children && Array.isArray(item.children) && item.children.length > 1) {
-                // Remove the first child (index 0)
-                filteredChildren = mapNavItemsToTreeView(item.children.slice(1), usedIds);
-            } else if (item.children && Array.isArray(item.children) && item.children.length === 1) {
-                // If only one child, removing it results in no children
-                filteredChildren = undefined;
-            } else if (item.children) {
-                filteredChildren = mapNavItemsToTreeView(item.children, usedIds);
+            if (item.children && Array.isArray(item.children)) {
+                const childrenWithoutDuplicateIndex = item.children.filter((child: any) => {
+                    if (!route || typeof route !== 'string') return true;
+                    const childRoute = child?.path || child?.slug;
+                    return normalizeRoute(childRoute) !== normalizeRoute(route);
+                });
+                filteredChildren = mapNavItemsToTreeView(childrenWithoutDuplicateIndex, usedIds);
             }
             return {
                 id,

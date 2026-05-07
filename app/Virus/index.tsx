@@ -11,14 +11,16 @@ import { useFingerprint } from './hooks/useFingerprint';
 import { useSubFingerprint } from './hooks/useSubFingerprint';
 import { useVirus } from './hooks/useVirus';
 import { useDoc } from './hooks/useDoc';
-import { parseDevice, randomVirus, virusOutbreak } from './utils';
 import {
+    parseDevice,
+    randomVirus,
+    virusOutbreak,
     getFirebaseApp,
     getFirebaseAuth,
     getFirebaseFirestore,
     getFirebaseMessaging,
     getFirebaseStorage,
-} from './firebase';
+} from './utils';
 import Debug from './components/Debug';
 import Favourites from './components/Favourites';
 import Fingerprint from './components/Fingerprint';

@@ -1,88 +1,199 @@
 # Virus°
 
-**v2.0.0** — A gamified virus simulation module for Next.js / React.
+v2.0.0 - A client-side Virus module for Next.js + React using Firebase and FingerprintJS.
 
 ## Overview
 
-Virus° is a self-contained feature module. It generates procedurally-named viruses with randomised stats, tracks unique visitors via browser fingerprinting, and stores virus instances with real-time view counts in Firestore. It is not a literal biological simulation — the term "virus" is used metaphorically.
+Virus° is a self-contained feature module that provides:
 
-## Architecture
+- A fingerprint-aware visitor flow (new vs returning visitor)
+- Firestore-backed virus creation and live listings
+- A score mechanic where viewing a virus increments its score
+- A floating UI entry point (`VirusButton`) and modal (`VirusDialog`)
+
+The term "virus" here is thematic/game-like, not a medical simulation.
+
+## What It Does
+
+1. On mount, `Virus.tsx` dispatches `initVirus()`.
+2. `initVirus()` loads FingerprintJS and stores `visitorId` in `redux.virus.fingerprint`.
+3. When a fingerprint is available, `checkFingerprint()` creates or updates `fingerprints/{fingerprint}` in Firestore.
+4. `useSubFingerprint()` subscribes to that fingerprint doc in real time.
+5. Users can create new virus records in `viruses` via `newVirus()`.
+6. `VirusPage` increments `viruses/{id}.score` with Firestore `increment(1)` on page visit.
+
+## File Map
 
 ```
 Virus/
-├── Virus.tsx              # Root component — bootstraps state and fingerprinting
-├── index.tsx              # Barrel exports (do not import from here within this module)
-├── config.json            # Module version
-├── types.d.ts             # Shared TypeScript types
-├── actions/               # Uberedux async thunks
-│   ├── initVirus.tsx      # Initialises Redux slice, loads FingerprintJS visitor ID
-│   ├── newVirus.tsx       # Creates a new virus document in Firestore
-│   ├── setVirus.tsx       # Sets a key on the virus Redux slice
-│   └── fingerprint/
-│       ├── checkFingerprint.tsx   # Looks up / creates fingerprint doc in Firestore
-│       ├── updateFingerprint.tsx  # Updates an existing fingerprint doc
-│       ├── deleteFingerprint.tsx  # Hard-deletes a fingerprint doc
-│       ├── forgetFingerprint.tsx  # Soft-delete with session flag to suppress re-create
-│       └── subFingerprint.tsx     # Firestore real-time subscription for fingerprint doc
-├── components/
-│   ├── VirusButton.tsx    # FAB / toggle button to open the dialog
-│   ├── VirusDialog.tsx    # Main dialog — shows fingerprint info and actions
-│   ├── Fingerprint.tsx    # Displays current fingerprint and returning-visitor state
-│   ├── VirusPage.tsx      # Full-page view for a single virus (real-time Firestore)
-│   ├── Viruses.tsx        # List / grid of all viruses
-│   ├── NewVirus.tsx       # Form for creating a new virus
-│   ├── Score.tsx          # Gradient avatar showing a 0–100 score
-│   ├── Share.tsx          # Social share helper
-│   ├── Favourites.tsx     # Saved / favourited viruses
-│   └── Debug.tsx          # Dev-only state inspector
-├── hooks/
-│   ├── useVirus.tsx        # Selects the virus slice from Redux
-│   ├── useFingerprint.tsx  # Selects fingerprint data from Redux
-│   ├── useSubFingerprint.tsx # Mounts the Firestore fingerprint subscription
-│   └── useDoc.tsx          # Generic Firestore document hook
-└── utils/
-    ├── index.tsx           # Full utils barrel export surface
-    ├── randomVirus.tsx     # Random virus naming and pandemic phase metadata
-    ├── virusOutbreak.tsx   # Prompt / copy for outbreak events
-    ├── parseDevice.tsx     # Device metadata parser + Firestore updater thunk
-    ├── utils.ts            # Device summary and language formatting helpers
-    └── deviceModels.json   # Model code to friendly-name lookup data
+|- Virus.tsx
+|- index.tsx
+|- config.json
+|- types.d.ts
+|- actions/
+|  |- initVirus.tsx
+|  |- newVirus.tsx
+|  |- setVirus.tsx
+|  `- fingerprint/
+|     |- checkFingerprint.tsx
+|     |- updateFingerprint.tsx
+|     |- deleteFingerprint.tsx
+|     |- forgetFingerprint.tsx
+|     `- subFingerprint.tsx
+|- components/
+|  |- VirusButton.tsx
+|  |- VirusDialog.tsx
+|  |- Fingerprint.tsx
+|  |- Viruses.tsx
+|  |- VirusPage.tsx
+|  |- NewVirus.tsx
+|  |- Score.tsx
+|  |- Share.tsx
+|  |- Favourites.tsx
+|  `- Debug.tsx
+|- hooks/
+|  |- useVirus.tsx
+|  |- useFingerprint.tsx
+|  |- useSubFingerprint.tsx
+|  `- useDoc.tsx
+`- utils/
+     |- index.tsx
+    |- firebase.ts
+     |- randomVirus.tsx
+     |- parseDevice.tsx
+     |- virusOutbreak.tsx
+     |- utils.ts
+     `- deviceModels.json
 ```
 
-## Key Concepts
+## Public Exports
 
-### Fingerprinting
-On mount, `initVirus` loads [FingerprintJS](https://fingerprintjs.com/) and derives a stable `visitorId` from browser and device characteristics. This ID is stored in Redux and checked against Firestore to distinguish new from returning visitors. No personal data is collected.
+The module barrel (`index.tsx`) exports:
 
-### Random Virus Generation (`randomVirus`)
-Produces a virus object with:
-- Procedurally generated name (prefix + suffix combos)
-- Randomised `infectionRate`, `mutationRate`, `mortalityRate`
-- 2–4 transmission modes drawn from a pool (Airborne, Droplet, Waterborne, …)
-- A pandemic phase (Emergence → Endemic)
+- Component: `Virus`
+- Actions: `initVirus`, `newVirus`, `setVirus`, `checkFingerprint`, `deleteFingerprint`, `forgetFingerprint`, `subFingerprint`, `updateFingerprint`
+- Hooks: `useVirus`, `useFingerprint`, `useSubFingerprint`, `useDoc`
+- Utils: `parseDevice`, `randomVirus`, `virusOutbreak`
+- Firebase helpers: `getFirebaseApp`, `getFirebaseAuth`, `getFirebaseFirestore`, `getFirebaseStorage`, `getFirebaseMessaging`
+- UI: `Debug`, `Favourites`, `Fingerprint`, `NewVirus`, `Score`, `Share`, `VirusButton`, `VirusDialog`, `VirusPage`, `Viruses`
 
-### Real-time Score (`VirusPage`)
-Each time a virus page is visited, Firestore `increment(1)` fires on the document's `score` field. `Score.tsx` renders this as a gradient avatar clamped to 0–100.
+## Firestore Shape
 
-## State Management
+### Collection: `fingerprints`
 
-Uses **Uberedux** (project-local Redux wrapper). The virus slice is keyed under `redux.virus`. Key slice fields:
+Document ID: FingerprintJS visitor ID
 
-| Field | Description |
-|---|---|
-| `fingerprint` | FingerprintJS visitor ID |
-| `fingerprintDoc` | Firestore document for this fingerprint |
-| `dialogOpen` | Controls `VirusDialog` visibility |
-| `toggleText` | Label shown on `VirusButton` |
-| `title` / `icon` | Dialog header |
-| `topViruses` | Cached list of top viruses |
+Typical fields:
+
+- `created: number` (ms timestamp)
+- `updated: number` (ms timestamp)
+- Optional device metadata keys (written by `parseDevice` / `updateFingerprint`)
+
+### Collection: `viruses`
+
+Typical fields created by `newVirus()`:
+
+- `name: string`
+- `message: string`
+- `score: number` (starts at 1 in current form flow)
+- `created: number`
+- `updated: number`
+
+## Environment Variables
+
+`utils/firebase.ts` expects these client env vars:
+
+- `NEXT_PUBLIC_FIREBASE_API_KEY`
+- `NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN`
+- `NEXT_PUBLIC_FIREBASE_PROJECT_ID`
+- `NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET`
+- `NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID`
+- `NEXT_PUBLIC_FIREBASE_APP_ID`
+
+## Quick Start
+
+1. Add Firebase env vars (above) and confirm your app has Firebase + Uberedux wired.
+2. Mount the root Virus UI in any client page/layout:
+
+```tsx
+import Virus from './Virus/Virus';
+
+export default function AppShell() {
+    return <Virus />;
+}
+```
+
+3. Add route pages that render Virus module screens:
+   - `/viruses` -> `Viruses`
+   - `/viruses/new` -> `NewVirus`
+   - `/viruses/[id]` -> `VirusPage`
+
+Example route components:
+
+```tsx
+// app/viruses/page.tsx
+import { Viruses } from '../Virus';
+export default function Page() {
+    return <Viruses />;
+}
+```
+
+```tsx
+// app/viruses/new/page.tsx
+import { NewVirus } from '../../Virus';
+export default function Page() {
+    return <NewVirus />;
+}
+```
+
+```tsx
+// app/viruses/[id]/page.tsx
+import { VirusPage } from '../../Virus';
+export default function Page() {
+    return <VirusPage />;
+}
+```
+
+4. Ensure Firestore has read/write rules for collections used by this module:
+   - `fingerprints`
+   - `viruses`
+
+5. Open the app and verify:
+   - Fingerprint doc is created/updated in `fingerprints/{visitorId}`
+   - Creating a new virus writes a doc in `viruses`
+   - Opening a virus detail page increments its `score`
+
+## Usage
+
+Render the root UI entry point in a client component:
+
+```tsx
+import Virus from './Virus/Virus';
+
+export default function Page() {
+    return <Virus />;
+}
+```
+
+The module expects your app to already provide:
+
+- Uberedux store wiring (`NX/Uberedux`)
+- Design system utilities used by components (`NX/DesignSystem`)
+- Firebase SDK packages and initialized project credentials
+
+## Privacy + Behavior Notes
+
+- Fingerprinting uses FingerprintJS visitor IDs, not direct personal identifiers.
+- `deleteFingerprint()` removes fingerprint doc and sets a session flag to avoid instant recreation.
+- `forgetFingerprint()` deletes the fingerprint and redirects to Google in the current implementation.
+- `getFirebaseMessaging()` safely returns `null` when unsupported (SSR or browser limitations).
 
 ## Developer Notes
 
-- **Avoid circular imports** — do not import from `app/Virus/index.tsx` inside this module. Use direct relative imports instead.
-- Prefer importing Virus utilities from `app/Virus/utils/index.tsx` rather than utility leaf files.
-- All Firestore writes go through actions in `actions/fingerprint/`; components do not write directly.
-- `VirusDialog` uses a two-step confirm flow (`ConfirmAction`) before deleting a fingerprint.
+- Inside this module, prefer relative imports rather than importing from its own barrel (`index.tsx`) to avoid circular dependencies.
+- Firestore writes are handled via actions (`newVirus`, `checkFingerprint`, `updateFingerprint`, `deleteFingerprint`, `forgetFingerprint`, `parseDevice` action flow).
+- `VirusButton` briefly shows `toggleText` then clears it after 2.5s.
+- `Score` is currently visualized as a 0-100 style badge while stored values can exceed 100 over time.
 
 ---
-_Last updated: 5 May 2026_
+Last updated: 7 May 2026

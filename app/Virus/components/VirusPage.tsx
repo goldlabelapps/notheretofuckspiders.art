@@ -3,7 +3,7 @@ import React from "react";
 import {useRouter} from "next/navigation";
 import { useParams } from "next/navigation";
 import { useEffect, useState, useRef } from "react";
-import { getFirebaseFirestore } from "../../NX/lib/firebase";
+import { getFirebaseFirestore } from "../utils/firebase";
 import { doc, onSnapshot, updateDoc, increment } from "firebase/firestore";
 import {
   Box,

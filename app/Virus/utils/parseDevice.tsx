@@ -1,6 +1,6 @@
 import type { T_UbereduxDispatch } from '../../NX/types';
 import { setUbereduxKey } from '../../NX/Uberedux';
-import { getFirebaseFirestore } from '../../NX/lib/firebase';
+import { getFirebaseFirestore } from './firebase';
 import { doc, updateDoc } from 'firebase/firestore';
 import deviceModels from './deviceModels.json';
 

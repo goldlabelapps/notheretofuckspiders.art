@@ -14,7 +14,7 @@ import {
 } from '@mui/material';
 import { useDispatch } from "../../NX/Uberedux";
 import {Score} from "../../Virus";
-import { getFirebaseFirestore } from "../../NX/lib/firebase";
+import { getFirebaseFirestore } from "../utils/firebase";
 import { collection, onSnapshot, query, orderBy } from "firebase/firestore";
 import { CleverText, Icon, navigateTo } from "../../NX/DesignSystem";
 

@@ -1,4 +1,4 @@
-import { getFirebaseFirestore } from '../../NX/lib/firebase';
+import { getFirebaseFirestore } from '../utils/firebase';
 import { collection, addDoc } from 'firebase/firestore';
 import { setFeedback } from '../../NX/DesignSystem';
 

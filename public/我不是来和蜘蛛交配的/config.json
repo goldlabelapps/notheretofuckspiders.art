@@ -17,18 +17,15 @@
         "dark": "https://live.staticflickr.com/65535/54338019655_94e8e39903_b.jpg"
     },
     "cartridges": {
-        "paywall": {
-            "enabled": false
-        },
         "designSystem": {
             "themeSwitching": true,
-            "defaultTheme": "dark",
+            "defaultTheme": "light",
             "themes": {
                 "light": {
                     "mode": "light",
-                    "primary": "#000",
-                    "secondary": "#000",
-                    "background": "#fff",
+                    "primary": "#333",
+                    "secondary": "#222",
+                    "background": "#fefefe",
                     "paper": "#fff",
                     "text": "#222",
                     "border": "#2EAF4A"

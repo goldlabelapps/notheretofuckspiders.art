@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useDispatch } from '../../NX/Uberedux';
 import { useFingerprint } from './useFingerprint';
 import { setVirus } from '../actions/setVirus';
-import { getFirebaseFirestore } from '../firebase';
+import { getFirebaseFirestore } from '../utils/firebase';
 import { doc, onSnapshot } from 'firebase/firestore';
 
 export function useSubFingerprint() {

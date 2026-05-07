@@ -2,21 +2,19 @@
 order: 300
 slug: /wei-zang
 title: Wei Zang
-description: 伟张
+description: This is my story. Some of it is true
 tags: wei zang, auther
 icon: virus
 image: https://live.staticflickr.com/65535/54338019655_94e8e39903_b.jpg
 ---
 
-I am Zang Wei. At least, that would be the Western way of saying it. In China we would say it the other way around. Wei Zang. Cos family comes first.
+[PageLink url="/wei-zang/backstory" icon="right" iconAlign="right" title="Next" description="Born in a fishing village called Shenzhen in 1975"]  
 
-[PageLink icon="books" title="Speculative Fiction" url="/reading/spec-fic"]  
+I am Zang Wei. At least, that would be the Western way of saying it. In China we would say it the other way around. Wei Zang. Cos family comes first.
 
 There I was. Working hard. I won't say which company, but it was for one of those big Western smartphone companies who manufacture their hardware in Shenzhen. Some people say that the Chinese are only good at srewing components together, but fuck them.
 
 They don't see the power of being able to mobilise a quarter of the world's population to efficiently not only produce what the world wants, but also to make all the components so cheaply while at the same time making friends with the folk who actually mine the raw materials.That kind of planning needs power.
 Sorry, I digress already.
 
-I felt - how should I put it - unfullfilled?
-
-[PageLink icon="right" title="My sob story" description="I was born in a fishing village called Shenzhen in 1975" url="/wei-zang/backstory"]  
+I felt... how should I put it - unfullfilled?

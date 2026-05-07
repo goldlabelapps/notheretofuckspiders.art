@@ -1,6 +1,6 @@
 import type { T_UbereduxDispatch } from '../../../NX/types';
 import { setUbereduxKey } from '../../../NX/Uberedux';
-import { getFirebaseFirestore } from '../../firebase';
+import { getFirebaseFirestore } from '../../utils/firebase';
 import { doc, deleteDoc } from 'firebase/firestore';
 import { setFeedback } from '../../../NX/DesignSystem';
 

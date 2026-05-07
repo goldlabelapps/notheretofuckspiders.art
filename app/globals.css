@@ -7,6 +7,21 @@ body {
 
 pre {
     font-size: 0.8em;
+    max-width: 100%;
+    box-sizing: border-box;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+code {
+    white-space: break-spaces;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+pre code {
+    white-space: inherit;
 }
 
 a,

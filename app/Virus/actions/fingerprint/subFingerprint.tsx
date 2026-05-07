@@ -1,7 +1,7 @@
 import type { Dispatch } from 'redux';
 import { doc, onSnapshot } from 'firebase/firestore';
 import { setUbereduxKey } from '../../../NX/Uberedux';
-import { getFirebaseFirestore } from '../../firebase';
+import { getFirebaseFirestore } from '../../utils/firebase';
 import { setVirus } from '../../../Virus';
 
 let activeSubscription: (() => void) | null = null;

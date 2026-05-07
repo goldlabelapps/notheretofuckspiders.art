@@ -1,7 +1,7 @@
 import type { T_UbereduxDispatch } from '../../../NX/types';
 import { setUbereduxKey } from '../../../NX/Uberedux';
 import { setVirus } from '../../../Virus';
-import { getFirebaseFirestore } from '../../firebase';
+import { getFirebaseFirestore } from '../../utils/firebase';
 import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
 
 const VIRUS_JUST_DELETED_SESSION_KEY = 'virus.justDeletedFingerprint';

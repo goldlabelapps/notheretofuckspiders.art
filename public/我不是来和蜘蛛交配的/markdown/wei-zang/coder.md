@@ -2,10 +2,13 @@
 order: 322
 slug: /wei-zang/coder
 title: Coder
-description: 程序员
-tags: Coder,
+description: iCode
+tags: code, coding
 icon: virus
 ---
+
+[PageLink url="https://ed-tech.co/courses/python" icon="right" iconAlign="right" title="Next" description="Learn Python"]  
+
 ```javascript
   const handleBetragBlur = () => {
     let num = parseFloat(betragInput.replace(',', '.'));
@@ -15,5 +18,3 @@ icon: virus
     handleChange('Betrag', num);
   };
 ```
-[PageLink icon="right" title="Bez." description="Turbo inject 5 bongs" url="/bez"]  
-[PageLink icon="right" title="悲惨故事" description="Wei Zang's Sob story" url="/wei-zang/backstory"]  

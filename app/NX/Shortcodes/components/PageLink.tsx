@@ -13,11 +13,13 @@ import { useDispatch } from '../../Uberedux';
 export default function PageLink({
   url = null,
   icon = 'link',
+  iconAlign = 'left',
   title = null,
   description = null
 }: {
   url?: string | null;
   icon?: string | null;
+  iconAlign?: 'left' | 'right' | null;
   title?: string | null;
   description?: string | null;
 }) {
@@ -32,6 +34,9 @@ export default function PageLink({
     }
   };
 
+  const isRightAligned = iconAlign === 'right';
+  const iconNode = <Icon icon={icon as any} color="primary" />;
+
   return (
     <ButtonBase 
       onClick={handleClick}
@@ -44,10 +49,15 @@ export default function PageLink({
         <CardHeader 
           sx={{
             width: '100%',
+            '& .MuiCardHeader-action': {
+              alignSelf: 'center',
+              margin: 0,
+            },
           }}
           title={title}
           subheader={description}
-          avatar={<Icon icon={icon as any} color="primary" />}
+          avatar={!isRightAligned ? iconNode : undefined}
+          action={isRightAligned ? iconNode : undefined}
         />
       </Paper>
     </ButtonBase>

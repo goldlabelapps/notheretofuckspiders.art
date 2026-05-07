@@ -8,6 +8,9 @@ icon: writing
 image: https://live.staticflickr.com/65535/54338019655_94e8e39903_b.jpg
 ---
 
+[PageLink url="/wei-zang/pronouns" icon="right" iconAlign="right" title="Next" description="Try me"]  
+
+
 I was born in a fishing village called Shenzhen in 1975. I grew up on dusty roads, surrounded by rice paddies and market stalls selling fish that were still gasping. Then, one day, the roads weren't dusty anymore. They were concrete. 
 
 The paddies vanished under scaffolding. The markets made way for department stores. Foreigners started showing up in pressed shirts, talking about opportunities, and overnight, factories swallowed the horizon.  

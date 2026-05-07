@@ -46,7 +46,15 @@ The following shortcodes are available out of the box:
 | `FeedbackBtn`     | Button to trigger feedback UI                    | `[FeedbackBtn url="/feedback" label="Send Feedback"]` |
 | `CleverText`      | Renders clever/animated text                     | `[CleverText text="Hello, world!"]`                |
 | `ContentCard`     | Embeds a card with markdown content by slug      | `[ContentCard slug="/docs/intro"]`                  |
-| `PageLink`        | Renders a styled link to a page or URL           | `[PageLink url="/about" title="About Us"]`         |
+| `PageLink`        | Renders a styled link to a page or URL           | `[PageLink url="/about" title="About Us" iconAlign="right"]`         |
+
+### PageLink attributes
+
+- `url` (string): destination path or external URL.
+- `title` (string): primary text.
+- `description` (string): secondary text.
+- `icon` (string): icon name, defaults to `link`.
+- `iconAlign` (`left` | `right`): controls icon position. Default is `left`; set to `right` to render the icon on the right.
 
 ---
 

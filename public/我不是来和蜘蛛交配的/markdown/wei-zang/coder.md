@@ -7,8 +7,6 @@ tags: code, coding
 icon: virus
 ---
 
-[PageLink url="https://ed-tech.co/courses/python" icon="right" iconAlign="right" title="Next" description="Learn Python"]  
-
 ```javascript
   const handleBetragBlur = () => {
     let num = parseFloat(betragInput.replace(',', '.'));
@@ -18,3 +16,5 @@ icon: virus
     handleChange('Betrag', num);
   };
 ```
+
+[PageLink url="https://ed-tech.co/courses/python" icon="right" iconAlign="right" title="Learn Python on EdTech°"]  

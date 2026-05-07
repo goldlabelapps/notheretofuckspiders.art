@@ -16,8 +16,8 @@ export const initVirus = (): any =>
 
             const state = getState();
             const virus = state?.redux?.virus || {};
-            dispatch(setVirus('dialogOpen', false));
-            // dispatch(setDesignSystem('fullscreen', true));
+            dispatch(setVirus('dialogOpen', true));
+            dispatch(setDesignSystem('fullscreen', true));
             dispatch(setVirus('toggleText', 'Fingerprint°'));
             dispatch(setVirus('icon', 'fingerprint'));
 

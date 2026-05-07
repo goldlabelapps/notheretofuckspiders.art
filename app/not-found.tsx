@@ -7,7 +7,7 @@ import config from '../public/free/config.json';
 
 export default function NotFound() {
 
-    const theme = config?.cartridges?.designSystem?.themes?.['dark'];
+    const theme = config?.features?.designSystem?.themes?.['dark'];
 
     return <DesignSystem theme={theme as T_Theme} config={config}>
             <Clip404 />

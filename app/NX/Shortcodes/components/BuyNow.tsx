@@ -1,4 +1,4 @@
-// /Users/goldlabel/GitHub/example-app/gl-core/cartridges/Shortcodes/components/LinkOut.tsx
+// /Users/goldlabel/GitHub/example-app/gl-core/features/Shortcodes/components/LinkOut.tsx
 'use client';
 import React from 'react';
 import {

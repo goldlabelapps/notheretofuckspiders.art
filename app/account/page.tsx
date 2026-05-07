@@ -92,7 +92,7 @@ export default async function Page(props: any) {
     if (data.description) description = data.description;
     const icon = (typeof data.icon === 'string' && data.icon.trim()) ? data.icon : null;
     const navItems = await serverUseNav();
-    const themeMode: 'light' | 'dark' = (config?.cartridges?.designSystem?.defaultTheme 
+    const themeMode: 'light' | 'dark' = (config?.features?.designSystem?.defaultTheme 
             === 'dark') ? 'dark' : 'light';
     const themedImage = config?.images?.[themeMode] || config?.images?.light || null;
 

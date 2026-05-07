@@ -24,8 +24,6 @@ import {
     TreeNav,
 } from '../NX/DesignSystem';
 import { RenderMarkdown } from '../NX/Shortcodes';
-import { Orders } from '../NX/Orders';
-import { Virus } from '../Virus';
 
 export async function generateMetadata({ params }: { params: any }): Promise<Metadata> {
     const resolvedParams = typeof params.then === 'function' ? await params : params;
@@ -96,13 +94,10 @@ export default async function Page(props: any) {
     const { content, data } = matter(md);
     if (data.title) title = data.title;
     if (data.description) description = data.description;
-    const icon = (typeof data.icon === 'string' && data.icon.trim()) ? data.icon : null;
     const navItems = await serverUseNav();
-    const themeMode: 'light' | 'dark' = (config?.cartridges?.designSystem?.defaultTheme 
+    const themeMode: 'light' | 'dark' = (config?.features?.designSystem?.defaultTheme 
             === 'dark') ? 'dark' : 'light';
     const themedImage = config?.images?.[themeMode] || config?.images?.light || null;
-
-    // Use data.image if it's a non-empty string, otherwise fallback to themedImage
     const meta = getMeta({
         siteName: config.siteName,
         title,
@@ -114,63 +109,34 @@ export default async function Page(props: any) {
     return (
             <NX config={config} frontmatter={data}>
                 <Header config={config} frontmatter={data} />
-                {data.cartridge ? (
-                    data.cartridge === 'virus' ? (
-                        <Container id="main" maxWidth="lg" sx={{ mt: '100px', pb: '90px' }}>
-                            <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column', gap: 2 }}>
-                                <Virus />
-                            </Box>
-                        </Container>
-                    ) : data.cartridge === 'orders' ? (
-                        <Container id="main" maxWidth="lg" sx={{ mt: '100px', pb: '90px' }}>
-                            <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column', gap: 2 }}>
-                                <Orders />
-                            </Box>
-                        </Container>
-                    ) : (
-                        <Container id="main" maxWidth="lg" sx={{ mt: '100px', pb: '90px' }}>
-                            <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column', gap: 2 }}>
-                                <Typography variant="h4" color="primary" sx={{ mb: 2 }}>
-                                    {data.title || title} (CARTRIDGE)
-                                </Typography>
-                                <Box>
-                                    <RenderMarkdown config={config}>
-                                        {content}
-                                    </RenderMarkdown>
-                                </Box>
-                            </Box>
-                        </Container>
-                    )
-                ) : (
-                    <Container id="main" maxWidth="lg" 
-                        sx={{ mt: '100px', pb: '90px' }}>
-                        <Box sx={{ width: '100%', display: 'flex', gap: 1 }}>
-                            <Box sx={{ display: { xs: 'none', sm: 'flex' }, flexDirection: 'column' }}>
-                                <Box sx={{ flexGrow: 1, minHeight: 0, minWidth: 200 }}>
-                                    <TreeNav navItems={navItems}/>
-                                </Box>
-                            </Box>
-                            <Box component="main" sx={{ gridColumn: { lg: '1' }, width: '100%', minWidth: 0, pr: { xs: 2, lg: 3 }, pl: { xs: 2, lg: 0 }, flexGrow: 1 }}>
-                                <Typography sx={{ display: 'flex', mt: 1 }} color='secondary' variant="h6" component="h2">
-                                    <Box sx={{ display: 'flex', width: '100%' }}>
-                                        {data.icon && <Box sx={{ mx: 2 }}><Icon icon={data.icon} color="primary" /></Box>}
-                                        <Box sx={{ flexGrow: 1 }}>
-                                            {description}
-                                        </Box>
-                                    </Box>
-                                </Typography>
-                                <Hero
-                                    config={config}
-                                    frontmatter={data}
-                                    navItems={navItems as I_NestedNav["navItems"]}
-                                />
-                                <RenderMarkdown config={config}>
-                                    {content}
-                                </RenderMarkdown>
+                <Container id="main" maxWidth="lg" 
+                    sx={{ mt: '100px', pb: '90px' }}>
+                    <Box sx={{ width: '100%', display: 'flex', gap: 1 }}>
+                        <Box sx={{ display: { xs: 'none', sm: 'flex' }, flexDirection: 'column' }}>
+                            <Box sx={{ flexGrow: 1, minHeight: 0, minWidth: 200 }}>
+                                <TreeNav navItems={navItems}/>
                             </Box>
                         </Box>
-                    </Container>
-                )}
+                        <Box component="main" sx={{ gridColumn: { lg: '1' }, width: '100%', minWidth: 0, pr: { xs: 2, lg: 3 }, pl: { xs: 2, lg: 0 }, flexGrow: 1 }}>
+                            <Typography sx={{ display: 'flex', mt: 1 }} color='secondary' variant="h6" component="h2">
+                                <Box sx={{ display: 'flex', width: '100%' }}>
+                                    {data.icon && <Box sx={{ mx: 2 }}><Icon icon={data.icon} color="primary" /></Box>}
+                                    <Box sx={{ flexGrow: 1 }}>
+                                        {description}
+                                    </Box>
+                                </Box>
+                            </Typography>
+                            <Hero
+                                config={config}
+                                frontmatter={data}
+                                navItems={navItems as I_NestedNav["navItems"]}
+                            />
+                            <RenderMarkdown config={config}>
+                                {content}
+                            </RenderMarkdown>
+                        </Box>
+                    </Box>
+                </Container>
                 <footer>
                     <Footer
                         meta={meta as any}

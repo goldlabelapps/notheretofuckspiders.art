@@ -1,5 +1,5 @@
 {
-    "version": "2.0.2 beta",
-    "cartridge": "Virus",
+    "version": "2.0.3",
+    "feature": "Virus",
     "enabled": false
 }

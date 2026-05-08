@@ -4,7 +4,7 @@ slug: /fables/old-bull
 title: The Old Bull
 description: The fable of the young bull and the old bull
 tags: wei zang, author, bull, fables, 小公牛和老公牛的寓言,
-icon: star
+icon: dog
 image: https://live.staticflickr.com/65535/55229101171_71a2bcb742_b.jpg
 ---
 

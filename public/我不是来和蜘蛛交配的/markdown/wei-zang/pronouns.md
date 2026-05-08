@@ -2,12 +2,16 @@
 order: 305
 slug: /wei-zang/pronouns
 title: Pronouns
-description: 我的代词
+description: My pronouns are
 tags: wei zang, author, Pronouns
-icon: virus
-image: https://live.staticflickr.com/65535/54338019655_94e8e39903_b.jpg
+icon: fish
+image: https://live.staticflickr.com/65535/54105421612_dd80f9fdaa_b.jpg
 ---
 
-[PageLink url="/wei-zang/coder" icon="right" iconAlign="right" title="Next" description="I code"]  
+# I identify as a threat.  
+## My pronouns are try/me. 
 
-> [CleverText text="I identify as a threat. My pronouns are try/me"]
+
+
+[PageLink url="/wei-zang/coder" icon="right" iconAlign="right" description="I code"]  
+

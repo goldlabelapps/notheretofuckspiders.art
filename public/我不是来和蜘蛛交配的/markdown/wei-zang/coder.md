@@ -17,4 +17,4 @@ icon: virus
   };
 ```
 
-[PageLink url="https://ed-tech.co/courses/python" icon="right" iconAlign="right" title="Learn Python on EdTech°"]  
+[PageLink url="/fables/tommy-one-leg" icon="right" iconAlign="right" description="Didn't pass the genetic profiling cos of his having only one leg"]  

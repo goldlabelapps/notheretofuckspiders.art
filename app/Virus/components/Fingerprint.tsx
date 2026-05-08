@@ -41,6 +41,7 @@ export default function Fingerprint() {
                 onOpenChange={setIdentityEditorOpen}
                 hideTrigger
                 field="name"
+                icon="async"
                 label="Name"
                 description="Choose a new identity for this fingerprint."
                 valueType="string"
@@ -68,18 +69,20 @@ export default function Fingerprint() {
                     background: 'none',
                     cursor: 'pointer',
                 }}
-                avatar={
-                    <Tooltip title={avatar ? 'Change identity' : 'Add identity'}>
+                avatar={<>
+                    {avatar ? <Tooltip title={'Change identity'}>
                         <Avatar
-                            src={avatar ? `/shared/svg/characters/${avatar}.svg` : undefined}
-                            sx={{ 
-                                width: 128, 
+                            src={avatar ?
+                                `/shared/svg/characters/${avatar}.svg`
+                                : undefined}
+                            sx={{
+                                width: 128,
                                 height: 128,
                             }}
-                        >
-                            {!avatar ? <Icon icon="add" /> : null}
-                        </Avatar>
-                    </Tooltip>
+                        />
+                    </Tooltip> : null }
+                        
+                    </>
                 }
                 title={<Typography variant="h6">
                         {identityTitle}
@@ -92,7 +95,7 @@ export default function Fingerprint() {
                         id: 'fingerprint',
                         markdown: virus?.clever,
                         onFinish: () => {
-                            console.log('finished')
+                            // console.log('finished')
                         }
                     }}
                 />

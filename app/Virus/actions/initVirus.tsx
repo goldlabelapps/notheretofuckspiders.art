@@ -9,15 +9,14 @@ let fingerprintAgentPromise: Promise<{
     get: () => Promise<{ visitorId: string }>;
 }> | null = null;
 
-
 export const initVirus = (): any =>
     async (dispatch: T_UbereduxDispatch, getState: () => any) => {
         try {
 
             const state = getState();
             const virus = state?.redux?.virus || {};
-            dispatch(setVirus('dialogOpen', true));
-            dispatch(setDesignSystem('fullscreen', true));
+            // dispatch(setVirus('dialogOpen', true));
+            // dispatch(setDesignSystem('fullscreen', true));
             dispatch(setVirus('icon', 'fingerprint'));
             dispatch(setVirus('toggleText', 'Fingerprinting...°'));
             

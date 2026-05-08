@@ -2,21 +2,10 @@ import type { T_UbereduxDispatch } from '../../../NX/types';
 import { setUbereduxKey } from '../../../NX/Uberedux';
 import { setVirus } from '../../../Virus';
 import { getFirebaseFirestore } from '../../utils/firebase';
+import { randomIdentityProfile } from '../../utils/randomIdentity';
 import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
 
 const VIRUS_JUST_DELETED_SESSION_KEY = 'virus.justDeletedFingerprint';
-
-const RETURNING_VISITOR_MARKDOWN = `Your device's unique fingerprint was recognised by [FingerprintJS](https://fingerprintjs.com/). With no personal data collected, it is a stable identifier derived from your device and browser characteristics used to  
-- Recognise you across sessions without requiring a login
-- Track how viruses spread across unique visitors
-- Personalise your experience over time
-`.trim();
-
-const NEW_VISITOR_MARKDOWN = `Your device has been assigned a unique fingerprint by [FingerprintJS](https://fingerprintjs.com/). With no personal data collected, it is a stable identifier derived from your device and browser characteristics used to  
-- Recognise you across sessions without requiring a login
-- Track how viruses spread across unique visitors
-- Personalise your experience over time
-`.trim();
 
 export const checkFingerprint = (): any =>
     async (dispatch: T_UbereduxDispatch, getState: () => any) => {
@@ -24,7 +13,7 @@ export const checkFingerprint = (): any =>
             
             const state = getState();
             const fingerprint = state?.redux?.virus?.fingerprint;
-            // console.log('Checking fingerprint...', fingerprint);
+            // console.log('Checking fingerprint...', );
 
             if (!fingerprint || typeof fingerprint !== 'string') {
                 console.log('checkFingerprint: no valid fingerprint, bailing.');
@@ -46,21 +35,41 @@ export const checkFingerprint = (): any =>
             // console.log('checkFingerprint: calling getDoc for', fingerprint);
             const snapshot = await getDoc(docRef);
             // console.log('checkFingerprint: snapshot.exists() =', snapshot.exists());
-
             if (!snapshot.exists()) {
                 console.log('No existing fingerprint found. Creating new document...');
                 const now = Date.now();
+                const profile = randomIdentityProfile();
                 await setDoc(docRef, {
                     created: now,
                     updated: now,
+                    avatar: profile.character,
+                    name: profile.name,
                 });
                 dispatch(setVirus('title', 'Add identity'));
                 dispatch(setVirus('fingerprinted', true));
-                dispatch(setVirus('clever', NEW_VISITOR_MARKDOWN));
+                dispatch(setVirus(
+                    'clever',
+                    `# 1st time visitor
+        We created a starter identity for you: **${profile.name}**.
+        It looks a bit password-like on purpose so names stay unique.
+        You can change your name and avatar any time.`
+                ));
             } else {
+                const snapshotData = snapshot.data();
+                const existingName =
+                    snapshotData && typeof snapshotData.name === 'string'
+                        ? snapshotData.name
+                        : null;
+                const isCompleted =
+                    snapshotData && typeof snapshotData.completed === 'number';
                 await updateDoc(docRef, { updated: Date.now() });
                 dispatch(setVirus('title', `Add identity`));
-                dispatch(setVirus('clever', RETURNING_VISITOR_MARKDOWN));
+                if (isCompleted) {
+                    dispatch(setVirus(
+                        'clever',
+                        `## Welcome back${existingName ? `, ${existingName}` : ''}`
+                    ));
+                }
             }
 
         } catch (e: unknown) {

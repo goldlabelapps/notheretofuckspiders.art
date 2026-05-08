@@ -1,6 +1,7 @@
 import Virus from './Virus';
 import { initVirus } from './actions/initVirus';
 import { newVirus } from './actions/newVirus';
+import { fetchGeo } from './actions/fetchGeo';
 import { setVirus } from './actions/setVirus';
 import { checkFingerprint } from './actions/fingerprint/checkFingerprint';
 import { deleteFingerprint } from './actions/fingerprint/deleteFingerprint';
@@ -14,6 +15,7 @@ import { useDoc } from './hooks/useDoc';
 import {
     identityCharacters,
     parseDevice,
+    geoString,
     randomIdentity,
     randomIdentityProfile,
     randomVirus,
@@ -44,6 +46,7 @@ export {
     Virus,
     initVirus,
     newVirus,
+    fetchGeo,
     setVirus,
     checkFingerprint,
     deleteFingerprint,
@@ -56,6 +59,7 @@ export {
     useVirus,
     identityCharacters,
     parseDevice,
+    geoString,
     randomIdentity,
     randomIdentityProfile,
     randomVirus,

@@ -9,6 +9,7 @@ import {
   VirusDialog,
   VirusButton,
   checkFingerprint,
+  fetchGeo,
   useSubFingerprint,
   parseDevice,
 } from '../Virus';
@@ -40,6 +41,15 @@ export default function Virus() {
       dispatch(parseDevice());
     }
   }, [doc]);
+
+
+  React.useEffect(() => {
+    if (typeof window === 'undefined') return;
+    if (doc && Object.keys(doc).length > 0 && !doc.geo) {
+      dispatch(fetchGeo());
+    }
+  }, [doc]);
+
 
   useSubFingerprint();
 

@@ -283,11 +283,7 @@ export default function UpdateDialog({
 
                 <Box component="form" onSubmit={handleSubmit}>
                     <DialogContent>
-                        {description ? (
-                            <Typography variant="body2" sx={{ mb: 2 }}>
-                                {description}
-                            </Typography>
-                        ) : null}
+                        
 
                         {resolvedType === 'boolean' ? (
                             <TextField
@@ -311,7 +307,7 @@ export default function UpdateDialog({
                             <>
                                 <TextField
                                     fullWidth
-                                    autoFocus
+                                    
                                     inputRef={inputRef}
                                     label={label ?? field}
                                     type={resolvedType === 'number' ? 'number' : 'text'}
@@ -322,15 +318,15 @@ export default function UpdateDialog({
                                     }}
                                     onKeyDown={handleKeyDown}
                                     InputProps={isIdentityEditor ? {
-                                        endAdornment: (
-                                            <InputAdornment position="end">
-                                                <Tooltip title="Generate random name">
+                                        startAdornment: (
+                                            <InputAdornment position="start">
+                                                <Tooltip title="Generate random identity">
                                                     <IconButton
-                                                        edge="end"
-                                                        aria-label="Generate random name"
+                                                        edge="start"
+                                                        aria-label="Generate random identity"
                                                         onClick={handleRandomIdentity}
                                                     >
-                                                        <Icon icon="reset" />
+                                                        <Icon icon="async" />
                                                     </IconButton>
                                                 </Tooltip>
                                             </InputAdornment>
@@ -342,9 +338,6 @@ export default function UpdateDialog({
 
                                 {isIdentityEditor ? (
                                     <Box sx={{ mt: 2 }}>
-                                        <Typography variant="body2" sx={{ mb: 1 }}>
-                                            Choose avatar
-                                        </Typography>
                                         <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
                                             {identityCharacters.map((character) => {
                                                 const selected = selectedAvatar === character;

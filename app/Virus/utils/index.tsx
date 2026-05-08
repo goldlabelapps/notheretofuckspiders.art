@@ -2,6 +2,7 @@ export * from './parseDevice';
 export * from './randomIdentity';
 export * from './randomVirus';
 export * from './virusOutbreak';
+export * from './geoString';
 export * from './utils';
 export * from './firebase';
 

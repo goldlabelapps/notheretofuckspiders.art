@@ -62,15 +62,18 @@ export default function Fingerprint() {
 
             <CardHeader
                 avatar={
-                    <Tooltip title={avatar ? 'Change avatar' : 'Add avatar'}>
+                    <Tooltip title={avatar ? 'Change identity' : 'Add identity'}>
                         <IconButton
-                            aria-label={avatar ? 'Change avatar' : 'Add avatar'}
+                            aria-label={avatar ? 'Change identity' : 'Add identity'}
                             onClick={() => setIdentityEditorOpen(true)}
                             color="primary"
                         >
                             <Avatar
                                 src={avatar ? `/shared/svg/characters/${avatar}.svg` : undefined}
-                                sx={{ width: 48, height: 48 }}
+                                sx={{ width: 48, height: 48, 
+                                    backgroundColor: avatar ? 'transparent' : 'primary.main', 
+                                    color: '#fff',
+                                }}
                             >
                                 {!avatar ? <Icon icon="add" /> : null}
                             </Avatar>
@@ -80,7 +83,7 @@ export default function Fingerprint() {
                 title={<Typography variant="h6">
                         {identityTitle}
                     </Typography>} 
-                // subheader={firstSeen ?? fp}
+                subheader={'firstSeen ?? fp'}
             />
             {/* <CardContent>
                 <CleverText

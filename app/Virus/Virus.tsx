@@ -1,6 +1,7 @@
 'use client';
 import * as React from 'react';
 import { useDispatch } from '../NX/Uberedux';
+import config from './config.json';
 import { 
   initVirus,
   useDoc,
@@ -13,6 +14,10 @@ import {
 } from '../Virus';
 
 export default function Virus() {
+  if (!config.enabled) {
+    return null;
+  }
+
   const dispatch = useDispatch();
   const slice = useVirus();
   const doc = useDoc();

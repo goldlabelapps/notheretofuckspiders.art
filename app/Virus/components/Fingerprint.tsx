@@ -1,11 +1,9 @@
 'use client';
 import * as React from 'react';
-import moment from 'moment';
 import {
     Avatar,
     Box,
     CardHeader,
-    IconButton,
     Tooltip,
     Typography,
 } from '@mui/material';
@@ -13,22 +11,20 @@ import {
     Icon,
 } from '../../NX/DesignSystem';
 import {
+    geoString,
     identityCharacters,
-    useFingerprint,
-    useVirus,
     useDoc,
 } from '../../Virus'
 import UpdateDialog from './UpdateDialog';
 
 export default function Fingerprint() {
 
-    const virus = useVirus();
-    const title = virus.title;
     const doc = useDoc();
     const [identityEditorOpen, setIdentityEditorOpen] = React.useState(false);
     const identityTitle = typeof doc?.name === 'string' && doc.name.trim().length > 0
         ? doc.name
         : 'Add identity';
+    const geoSubheader = geoString(doc?.geo) || doc?.id || '';
     const avatar = typeof doc?.avatar === 'string' && identityCharacters.includes(doc.avatar as any)
         ? doc.avatar
         : null;
@@ -61,29 +57,34 @@ export default function Fingerprint() {
             />
 
             <CardHeader
+                component="button"
+                type="button"
+                onClick={() => setIdentityEditorOpen(true)}
+                aria-label={avatar ? 'Change identity' : 'Add identity'}
+                sx={{
+                    width: '100%',
+                    textAlign: 'left',
+                    border: 0,
+                    background: 'none',
+                    cursor: 'pointer',
+                }}
                 avatar={
                     <Tooltip title={avatar ? 'Change identity' : 'Add identity'}>
-                        <IconButton
-                            aria-label={avatar ? 'Change identity' : 'Add identity'}
-                            onClick={() => setIdentityEditorOpen(true)}
-                            color="primary"
+                        <Avatar
+                            src={avatar ? `/shared/svg/characters/${avatar}.svg` : undefined}
+                            sx={{ width: 48, height: 48, 
+                                backgroundColor: avatar ? 'transparent' : 'primary.main', 
+                                color: '#fff',
+                            }}
                         >
-                            <Avatar
-                                src={avatar ? `/shared/svg/characters/${avatar}.svg` : undefined}
-                                sx={{ width: 48, height: 48, 
-                                    backgroundColor: avatar ? 'transparent' : 'primary.main', 
-                                    color: '#fff',
-                                }}
-                            >
-                                {!avatar ? <Icon icon="add" /> : null}
-                            </Avatar>
-                        </IconButton>
+                            {!avatar ? <Icon icon="add" /> : null}
+                        </Avatar>
                     </Tooltip>
                 }
                 title={<Typography variant="h6">
                         {identityTitle}
                     </Typography>} 
-                subheader={'firstSeen ?? fp'}
+                subheader={geoSubheader}
             />
             {/* <CardContent>
                 <CleverText

@@ -54,11 +54,12 @@ export const checkFingerprint = (): any =>
                     created: now,
                     updated: now,
                 });
-                dispatch(setVirus('title', 'You have been fingerprinted'));
+                dispatch(setVirus('title', 'Add identity'));
+                dispatch(setVirus('fingerprinted', true));
                 dispatch(setVirus('clever', NEW_VISITOR_MARKDOWN));
             } else {
                 await updateDoc(docRef, { updated: Date.now() });
-                dispatch(setVirus('title', `Device fingerprint recognised`));
+                dispatch(setVirus('title', `Add identity`));
                 dispatch(setVirus('clever', RETURNING_VISITOR_MARKDOWN));
             }
 

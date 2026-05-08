@@ -16,7 +16,7 @@
         "light": "https://live.staticflickr.com/65535/54338019655_94e8e39903_b.jpg",
         "dark": "https://live.staticflickr.com/65535/54338019655_94e8e39903_b.jpg"
     },
-    "cartridges": {
+    "features": {
         "designSystem": {
             "themeSwitching": true,
             "defaultTheme": "light",

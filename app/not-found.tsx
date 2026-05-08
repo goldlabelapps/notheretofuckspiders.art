@@ -3,11 +3,11 @@ import React from 'react';
 import { T_Theme, I_NestedNav } from './NX/types';
 import { NotFound as Clip404 } from '../public/shared/flash'
 import { DesignSystem } from './NX/DesignSystem';
-import config from '../public/free/config.json';
+import config from '../public/我不是来和蜘蛛交配的/config.json';
 
 export default function NotFound() {
 
-    const theme = config?.cartridges?.designSystem?.themes?.['dark'];
+    const theme = config?.features?.designSystem?.themes?.['dark'];
 
     return <DesignSystem theme={theme as T_Theme} config={config}>
             <Clip404 />

@@ -48,7 +48,7 @@ export type T_Config = {
         light: string;
         dark: string;
     };
-    cartridges: {
+    features: {
         nxadmin?: {
             enabled: boolean;
             layout?: string;
@@ -140,7 +140,7 @@ export type T_Ad =
         target?: string;
     };
 
-export type T_CommerceCartridge = {
+export type T_CommerceFeature = {
     enabled: boolean;
     ads: boolean | T_Ad[];
 };
@@ -150,7 +150,7 @@ export type T_CommerceShortcode = {
 };
 
 // Lingua
-export type T_LinguaCartridge = {
+export type T_LinguaFeature = {
     enabled: boolean;
     defaultLanguage: string;
     languages: {
@@ -162,13 +162,13 @@ export type T_LinguaCartridge = {
 };
 
 // EchoPay
-export type T_EchoPayCartridge = Record<string, unknown>;
+export type T_EchoPayFeature = Record<string, unknown>;
 
 // Uberedux
-export type T_UbereduxCartridge = Record<string, unknown>;
+export type T_UbereduxFeature = Record<string, unknown>;
 
 // DesignSystem
-export type T_DesignSystemCartridge = {
+export type T_DesignSystemFeature = {
     allowTheme: boolean;
     defaultTheme: string;
     smartImages?: boolean | T_SmartImage[];
@@ -185,8 +185,8 @@ export type T_DesignSystemCartridge = {
     };
 };
 
-// Images cartridge types
-export type T_ImagesCartridge = {
+// Images feature types
+export type T_ImagesFeature = {
     enabled: boolean;
     description?: string;
     mode?: string;
@@ -349,7 +349,6 @@ export type I_Icon = {
     | 'copy'
     | 'linkedin'
     | 'core'
-    | 'cartridge'
     | 'uberedux'
     | 'good-fit'
     | 'products'

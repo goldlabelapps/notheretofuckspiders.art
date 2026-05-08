@@ -33,8 +33,8 @@ export default function SignIn({ onSignIn, config, error: externalError }: I_Sig
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [showPassword, setShowPassword] = useState(false);
-    const paywallEmail = config.cartridges?.paywall?.email;
-    const userMode = config.cartridges?.paywall?.userMode;
+    const paywallEmail = config.features?.paywall?.email;
+    const userMode = config.features?.paywall?.userMode;
     React.useEffect(() => {
         if (userMode === 'single' && paywallEmail) {
             setEmail(paywallEmail);
@@ -59,8 +59,8 @@ export default function SignIn({ onSignIn, config, error: externalError }: I_Sig
             onSignIn(email, password);
         }
     };
-    const themeMode: 'light' | 'dark' = config?.cartridges?.designSystem?.defaultTheme || 'light';
-    let theme = config?.cartridges?.designSystem?.themes?.[themeMode];
+    const themeMode: 'light' | 'dark' = config?.features?.designSystem?.defaultTheme || 'light';
+    let theme = config?.features?.designSystem?.themes?.[themeMode];
     if (theme) {
         theme = { ...theme, mode: themeMode };
     }

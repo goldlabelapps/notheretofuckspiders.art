@@ -3,6 +3,7 @@ import React from "react";
 import config from '../config.json';
 import {
     Box,
+    Button,
     Grid,
     Dialog,
     DialogActions,
@@ -88,15 +89,7 @@ export default function VirusDialog() {
                         </Typography>
                     </Box>
                     <Box sx={{flexGrow: 1}}/>
-
-                    <Tooltip title="Forget Me">
-                        <IconButton onClick={handleDeleteRequest} color="primary">
-                            <Icon icon="forget" />
-                        </IconButton>
-                    </Tooltip>
-
                     <FullscreenToggle />
-
                     <IconButton onClick={handleClose} color="primary">
                         <Icon icon="close" />
                     </IconButton>
@@ -104,25 +97,28 @@ export default function VirusDialog() {
             </DialogTitle>
 
             <DialogContent sx={{mb: 3}}>
-                <Grid container spacing={1}>
+                <Grid container spacing={0}>
                     <Grid size={{ xs: 12, sm: 12 }}>
                         <Fingerprint />
                     </Grid>
-                    {/* <Grid size={{ xs: 12, sm: 12 }}>
-                        <pre>doc: {JSON.stringify(doc, null, 2)}</pre>
-                    </Grid> */}
                 </Grid>
-                
             </DialogContent>
             
             <DialogActions>
-                <Typography variant="caption" sx={{
-                    display: 'block',
-                    textAlign: 'center',
-                    opacity: 0.75,
-                    mr: 2
-                }}>
-                    Virus° {config.version}
+                <Button onClick={handleDeleteRequest}
+                    startIcon={<Icon icon="forget" />}
+                    color="primary"
+                    variant="outlined"
+                    fullWidth>
+                    Forget Me
+                </Button>
+                <Typography variant="subtitle2" color="textSecondary"
+                    sx={{
+                        display: 'block',
+                        opacity: 0.75,
+                        mr: 2
+                    }}>
+                    {config.version}
                 </Typography>
             </DialogActions>
         </Dialog>

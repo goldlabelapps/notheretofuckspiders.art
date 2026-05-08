@@ -16,10 +16,11 @@ export const initVirus = (): any =>
 
             const state = getState();
             const virus = state?.redux?.virus || {};
-            dispatch(setVirus('dialogOpen', false));
-            // dispatch(setDesignSystem('fullscreen', true));
-            dispatch(setVirus('toggleText', 'Fingerprint°'));
+            // dispatch(setVirus('dialogOpen', true));
+            // dispatch(setDesignSystem('fullscreen', false));
             dispatch(setVirus('icon', 'fingerprint'));
+            dispatch(setVirus('toggleText', 'Fingerprinting...°'));
+            
 
             if (typeof window !== 'undefined') {
                 if (!fingerprintAgentPromise) {

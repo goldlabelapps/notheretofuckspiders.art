@@ -1,4 +1,3 @@
-
 ## How to update this codebase from upstream (goldlabelapps/nx)
 
 1. View your current remotes:

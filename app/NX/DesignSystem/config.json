@@ -1,5 +1,5 @@
 {
-    "version": "2.0.2 beta.",
-    "cartridge": "DesignSystem",
+    "version": "2.0.3",
+    "feature": "DesignSystem",
     "enabled": false
 }

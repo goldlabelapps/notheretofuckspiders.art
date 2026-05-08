@@ -21,7 +21,7 @@ export const NotFound: React.FC<{
     is404?: boolean;
 }> = ({ config, is404 }) => {
 
-    const theme = config?.cartridges?.designSystem?.themes?.light;
+    const theme = config?.features?.designSystem?.themes?.light;
     const [replay, setReplay] = React.useState(0);
     const logoRef = useRef<HTMLImageElement>(null);
     const as = useRef<any>(null);

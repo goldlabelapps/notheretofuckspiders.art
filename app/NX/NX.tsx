@@ -13,8 +13,8 @@ const NX: React.FC<I_NX> = ({
 }) => {
     const dispatch = useDispatch();
     const designSystem = useDesignSystem();
-    const defaultTheme = config?.cartridges?.designSystem?.defaultTheme;
-    const themeSwitching = config?.cartridges?.designSystem?.themeSwitching;
+    const defaultTheme = config?.features?.designSystem?.defaultTheme;
+    const themeSwitching = config?.features?.designSystem?.themeSwitching;
     const themeMode = designSystem?.themeMode || defaultTheme;
 
     React.useEffect(() => {
@@ -24,7 +24,7 @@ const NX: React.FC<I_NX> = ({
         }
     }, [dispatch, designSystem?.themeMode, defaultTheme, themeSwitching]);
 
-    let theme = config?.cartridges?.designSystem?.themes?.[themeMode];
+    let theme = config?.features?.designSystem?.themes?.[themeMode];
     if (theme) {
         const mode: 'light' | 'dark' = themeMode === 'dark' ? 'dark' : 'light';
         theme = { ...theme, mode };

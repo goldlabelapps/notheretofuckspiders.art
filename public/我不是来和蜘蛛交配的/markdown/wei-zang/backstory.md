@@ -2,26 +2,25 @@
 order: 302
 slug: /wei-zang/backstory
 title: Back Story
-description: 背景故事
+description: By the 90’s Shenzhen was a neon hallucination
 tags: backstory,
 icon: writing
-image: https://live.staticflickr.com/65535/54338019655_94e8e39903_b.jpg
+image: https://live.staticflickr.com/65535/54341281725_d4f54af0c5_b.jpg
 ---
 
-[PageLink url="/wei-zang/pronouns" icon="right" iconAlign="right" title="Next" description="Try me"]  
+I was born in a fishing village called Shenzhen in 1975. Dusty roads, rice paddies. Buying fish that were still gasping. Then, one day, the roads weren't dusty anymore. They were concrete. 
 
+Paddies vanished under scaffolding. Markets made way for malls. Foreigners started showing up in pressed shirts, talking about opportunities, and overnight, factories swallowed the horizon.  
 
-I was born in a fishing village called Shenzhen in 1975. I grew up on dusty roads, surrounded by rice paddies and market stalls selling fish that were still gasping. Then, one day, the roads weren't dusty anymore. They were concrete. 
+[PageLink url="/wei-zang/pronouns" icon="right" iconAlign="right" description="My pronouns are"]  
 
-The paddies vanished under scaffolding. The markets made way for department stores. Foreigners started showing up in pressed shirts, talking about opportunities, and overnight, factories swallowed the horizon.  
-
-By the time I was a teenager, the city wasn't just growing; it was mutating. I'd go to sleep to the sound of construction and wake up to find a new skyline. The pace was absurd. 
+By the time I was a teenager, the city was  was mutating. I'd go to sleep and wake up to find a new skyline. The pace was absurd. 
 
 Someone's uncle would be repairing bicycles one week, running a factory the next. People made fortunes before they knew how to spend them. People lost everything before they knew it was gone.  
 
-By the 90’s, Shenzhen was a neon-lit hallucination. Everything moved fast; money, deals, people. No one asked where you came from, only what you were building. It was chaos, but it was my kind of chaos. I understood it.  
+By the 90’s Shenzhen was a neon hallucination. Everything moved fast; money, deals, people. No one asked where you came from, only what you were building. It was chaos, but it was my kind of chaos. I understood it.  
 
-By my thirties, the city had evolved again. The factories still hummed, but now they were making drones and smartphones instead of cheap radios. 
+By my thirties, the city had evolved again. The factories still hummed making drones and smartphones instead of cheap radios. 
 
 The guys who had been smuggling cassette players across the border in the '80s were now tech CEOs. If you couldn't keep up, you got left behind. Simple as that.  
 
@@ -44,5 +43,3 @@ Back in the 90s, computer science degrees weren’t really a thing. Not the way 
 I picked it because it sounded interesting, and I was bored of the Shùxué (数学), Wùlǐ (物理), Huàxué (化学) I studied at High School. 
 
 At first, Psychology felt like the science of stating the obvious. People get stressed before exams? No shit. Then I discovered cognitive biases, and that changed everything. I started seeing them everywhere. How people deceive themselves, how they overestimate their abilities, how they confidently get things wrong. And later, in software engineering, I saw it play out in real-time.
-
-[PageLink icon="right" title="I am a coder" description="const handleBetragBlur" url="/wei-zang/coder"]  

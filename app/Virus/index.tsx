@@ -12,7 +12,10 @@ import { useSubFingerprint } from './hooks/useSubFingerprint';
 import { useVirus } from './hooks/useVirus';
 import { useDoc } from './hooks/useDoc';
 import {
+    identityCharacters,
     parseDevice,
+    randomIdentity,
+    randomIdentityProfile,
     randomVirus,
     virusOutbreak,
     getFirebaseApp,
@@ -27,10 +30,15 @@ import Fingerprint from './components/Fingerprint';
 import NewVirus from './components/NewVirus';
 import Score from './components/Score';
 import Share from './components/Share';
+import UpdateDialog from './components/UpdateDialog';
 import VirusButton from './components/VirusButton';
 import VirusDialog from './components/VirusDialog';
 import VirusPage from './components/VirusPage';
 import Viruses from './components/Viruses';
+export type {
+    T_IdentityCharacter,
+    T_RandomIdentity,
+} from './utils/randomIdentity';
 
 export {
     Virus,
@@ -46,7 +54,10 @@ export {
     useFingerprint,
     useSubFingerprint,
     useVirus,
+    identityCharacters,
     parseDevice,
+    randomIdentity,
+    randomIdentityProfile,
     randomVirus,
     virusOutbreak,
     getFirebaseApp,
@@ -60,6 +71,7 @@ export {
     NewVirus,
     Score,
     Share,
+    UpdateDialog,
     VirusButton,
     VirusDialog,
     VirusPage,

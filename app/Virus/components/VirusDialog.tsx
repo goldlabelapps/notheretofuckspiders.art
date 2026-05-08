@@ -97,7 +97,7 @@ export default function VirusDialog() {
             </DialogTitle>
 
             <DialogContent sx={{mb: 3}}>
-                <Grid container spacing={0}>
+                <Grid container spacing={1}>
                     <Grid size={{ xs: 12, sm: 12 }}>
                         <Fingerprint />
                     </Grid>

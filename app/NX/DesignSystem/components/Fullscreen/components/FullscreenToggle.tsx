@@ -1,8 +1,8 @@
 'use client';
 import * as React from 'react';
 import { IconButton, useMediaQuery, useTheme } from '@mui/material';
-import OpenInFullIcon from '@mui/icons-material/OpenInFull';
-import CloseFullscreenIcon from '@mui/icons-material/CloseFullscreen';
+import OpenInFullIcon from '@mui/icons-material/OpenInFullOutlined';
+import CloseFullscreenIcon from '@mui/icons-material/CloseFullscreenOutlined';
 import { useDispatch } from '../../../../Uberedux';
 import { useFullscreen, toggleFullscreen } from '../index';
 

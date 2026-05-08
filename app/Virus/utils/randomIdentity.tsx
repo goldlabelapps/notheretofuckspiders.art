@@ -78,10 +78,51 @@ const randomInt = (min: number, max: number) =>
 
 const randomItem = <T,>(items: readonly T[]): T => items[randomInt(0, items.length - 1)];
 
+const symbolPool = ['!', '@', '#', '$'] as const;
+const fillerPool = ['x', 'z', 'q', 'k'] as const;
+
+const toTitleCase = (value: string): string =>
+	value.charAt(0).toUpperCase() + value.slice(1).toLowerCase();
+
+const applyLeetSubstitution = (value: string): string => {
+	const map: Record<string, string> = {
+		a: '@',
+		e: '3',
+		i: '1',
+		o: '0',
+		s: '$',
+	};
+
+	const matchIndex = value.toLowerCase().search(/[aeios]/);
+	if (matchIndex < 0) return value;
+
+	const sourceChar = value.charAt(matchIndex);
+	const replacement = map[sourceChar.toLowerCase()];
+	if (!replacement) return value;
+
+	return `${value.slice(0, matchIndex)}${replacement}${value.slice(matchIndex + 1)}`;
+};
+
+const buildHumanPasswordName = (lead: string, tail: string): string => {
+	// Intentionally human-patterned: TitleCase words + leetspeak + symbol+digits suffix.
+	const styledLead = applyLeetSubstitution(toTitleCase(lead));
+	const styledTail = toTitleCase(tail);
+	const symbol = randomItem(symbolPool);
+	const digits = String(randomInt(10, 99));
+
+	let name = `${styledLead}${styledTail}${symbol}${digits}`;
+
+	while (name.length < 12) {
+		name += randomItem(fillerPool);
+	}
+
+	return name;
+};
+
 export function randomIdentityProfile(character?: T_IdentityCharacter): T_RandomIdentity {
 	const resolvedCharacter = character ?? randomItem(identityCharacters);
 	const profile = identityProfiles[resolvedCharacter];
-	const name = `${randomItem(profile.lead)} ${randomItem(profile.tail)}-${randomInt(7, 99)}`;
+	const name = buildHumanPasswordName(randomItem(profile.lead), randomItem(profile.tail));
 
 	return {
 		character: resolvedCharacter,

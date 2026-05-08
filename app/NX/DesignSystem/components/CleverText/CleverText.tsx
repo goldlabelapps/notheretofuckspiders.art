@@ -5,25 +5,30 @@ import ReactMarkdown from 'react-markdown';
 import { useState, useEffect } from 'react';
 import { Box } from '@mui/material';
 import { CleverTextAS } from './';
-import { setFlash, useFlash } from '../../../../NX/Flash';
-import { useDispatch } from '../../../../NX/Uberedux';
 
 export interface I_CleverText {
     options: {
         id: string | undefined;
-        markdown: string;
+        markdown?: string;
         onFinish?: () => void;
     }
 }
 
+const SAFE_URL_PATTERN = /^(https?:|mailto:|tel:|\/|#)/i;
+
+function sanitizeMarkdownUrl(url?: string) {
+    if (!url) {
+        return '';
+    }
+
+    const trimmedUrl = url.trim();
+    return SAFE_URL_PATTERN.test(trimmedUrl) ? trimmedUrl : '';
+}
+
 export default function CleverText({ options }: I_CleverText) {
 
-    const ActionScript = React.useRef<any>(null);
+    const ActionScript = React.useRef<CleverTextAS | null>(null);
     const clipRef = React.useRef<HTMLDivElement>(null);
-    const flash = useFlash();
-
-    const thisStep = flash.thisStep || {};
-    const dispatch = useDispatch();
 
     React.useEffect(() => {
         ActionScript.current = new CleverTextAS(clipRef);
@@ -33,14 +38,14 @@ export default function CleverText({ options }: I_CleverText) {
                 ActionScript.current.destroy();
             }
         }
-    }, [dispatch]);
+    }, []);
 
-    const markdownText = options.markdown;
+    const markdownText = options.markdown ?? '';
+    const onFinish = options.onFinish;
 
     // Typewriter effect for real-time text generation
     const [displayed, setDisplayed] = useState('');
     useEffect(() => {
-        setDisplayed('');
         let i = 0;
         let timeout: NodeJS.Timeout;
 
@@ -59,14 +64,15 @@ export default function CleverText({ options }: I_CleverText) {
                 timeout = setTimeout(typeNext, delay);
             } else {
                 // Animation finished, call onFinish if provided
-                if (typeof options.onFinish === 'function') {
-                    options.onFinish();
+                if (typeof onFinish === 'function') {
+                    onFinish();
                 }
             }
         }
-        typeNext();
+
+        timeout = setTimeout(typeNext, 0);
         return () => clearTimeout(timeout);
-    }, [markdownText]);
+    }, [markdownText, onFinish]);
 
     return (
         <Box
@@ -76,8 +82,29 @@ export default function CleverText({ options }: I_CleverText) {
                 wordBreak: 'break-word',
             }}
         >
-            {/* <pre>thisStep: {JSON.stringify(thisStep, null, 2)}</pre> */}
-            <ReactMarkdown>{displayed}</ReactMarkdown>
+            <ReactMarkdown
+                urlTransform={(url) => sanitizeMarkdownUrl(url)}
+                components={{
+                    a: ({ href, children, ...props }) => {
+                        const safeHref = sanitizeMarkdownUrl(href);
+                        const isExternal = /^https?:\/\//i.test(safeHref);
+
+                        return (
+                            <a
+                                {...props}
+                                href={safeHref || undefined}
+                                target={isExternal ? '_blank' : undefined}
+                                rel={isExternal ? 'noopener noreferrer' : undefined}
+                            >
+                                {children}
+                            </a>
+                        );
+                    },
+                    img: () => null,
+                }}
+            >
+                {displayed}
+            </ReactMarkdown>
         </Box>
     );
 }

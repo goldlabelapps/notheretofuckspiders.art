@@ -4,6 +4,7 @@ import { newVirus } from './actions/newVirus';
 import { fetchGeo } from './actions/fetchGeo';
 import { setVirus } from './actions/setVirus';
 import { checkFingerprint } from './actions/fingerprint/checkFingerprint';
+import { completeFingerprint } from './actions/fingerprint/completeFingerprint';
 import { deleteFingerprint } from './actions/fingerprint/deleteFingerprint';
 import { forgetFingerprint } from './actions/fingerprint/forgetFingerprint';
 import { subFingerprint } from './actions/fingerprint/subFingerprint';
@@ -49,6 +50,7 @@ export {
     fetchGeo,
     setVirus,
     checkFingerprint,
+    completeFingerprint,
     deleteFingerprint,
     forgetFingerprint,
     subFingerprint,

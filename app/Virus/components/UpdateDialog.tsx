@@ -27,9 +27,11 @@ import {
 } from '../utils/randomIdentity';
 
 type UpdateValueType = 'string' | 'number' | 'boolean';
+type T_IconName = React.ComponentProps<typeof Icon>['icon'];
 
 export type UpdateDialogProps = {
     field: string;
+    icon?: T_IconName;
     open?: boolean;
     onOpenChange?: (open: boolean) => void;
     hideTrigger?: boolean;
@@ -68,6 +70,7 @@ const inferType = (value: unknown): UpdateValueType => {
 
 export default function UpdateDialog({
     field,
+    icon,
     open: controlledOpen,
     onOpenChange,
     hideTrigger = false,
@@ -122,7 +125,7 @@ export default function UpdateDialog({
         : sourceValue !== undefined && sourceValue !== null;
     const isIdentityEditor = resolvedType === 'string' && resolvedField === 'name';
     const currentAvatar = typeof doc?.avatar === 'string' ? doc.avatar as T_IdentityCharacter : null;
-    const triggerIcon = hasSourceValue ? 'edit' : 'add';
+    const resolvedIcon: T_IconName = icon ?? (hasSourceValue ? 'edit' : 'add');
     const triggerText = triggerLabel
         ?? (hasSourceValue ? String(sourceValue) : `Add ${normalizedFieldLabel}`);
 
@@ -256,7 +259,7 @@ export default function UpdateDialog({
                     onClick={handleOpen} 
                     variant={triggerVariant} 
                     color="primary" 
-                    startIcon={<Icon icon={triggerIcon} />}
+                    startIcon={<Icon icon={resolvedIcon} />}
                 >
                     {triggerText}
                 </Button>
@@ -275,7 +278,7 @@ export default function UpdateDialog({
                 }}
             >
                 <DialogTitle sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                    <Icon icon="edit" />
+                    <Icon icon={resolvedIcon} />
                     <Typography variant="h6" component="span">
                         {dialogTitle}
                     </Typography>
@@ -326,7 +329,7 @@ export default function UpdateDialog({
                                                         aria-label="Generate random identity"
                                                         onClick={handleRandomIdentity}
                                                     >
-                                                        <Icon icon="async" />
+                                                        <Icon icon="about" />
                                                     </IconButton>
                                                 </Tooltip>
                                             </InputAdornment>

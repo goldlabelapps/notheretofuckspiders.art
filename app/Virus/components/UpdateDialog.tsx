@@ -326,7 +326,7 @@ export default function UpdateDialog({
                                                         aria-label="Generate random identity"
                                                         onClick={handleRandomIdentity}
                                                     >
-                                                        <Icon icon="async" />
+                                                        <Icon icon="about" />
                                                     </IconButton>
                                                 </Tooltip>
                                             </InputAdornment>

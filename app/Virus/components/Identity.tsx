@@ -272,7 +272,7 @@ export default function Identity({
                                                     aria-label="Generate random identity"
                                                     onClick={handleRandomIdentity}
                                                 >
-                                                    <Icon icon="random" />
+                                                    <Icon icon="reset" />
                                                 </IconButton>
                                             </Tooltip>
                                         </InputAdornment>

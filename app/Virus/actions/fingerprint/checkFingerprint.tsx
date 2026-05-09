@@ -1,6 +1,6 @@
 import type { T_UbereduxDispatch } from '../../../NX/types';
 import { setUbereduxKey } from '../../../NX/Uberedux';
-import { setVirus } from '../../../Virus';
+import { setVirus, updateHistory } from '../../../Virus';
 import { getFirebaseFirestore } from '../../utils/firebase';
 import { randomIdentityProfile } from '../../utils/randomIdentity';
 import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
@@ -34,44 +34,32 @@ export const checkFingerprint = (): any =>
             const docRef = doc(db, 'fingerprints', fingerprint);
             // console.log('checkFingerprint: calling getDoc for', fingerprint);
             const snapshot = await getDoc(docRef);
-            // console.log('checkFingerprint: snapshot.exists() =', snapshot.exists());
+            let resolvedName = '';
             if (!snapshot.exists()) {
                 console.log('No existing fingerprint found. Creating new document...');
                 const now = Date.now();
                 const profile = randomIdentityProfile();
+                resolvedName = profile.name;
                 await setDoc(docRef, {
                     created: now,
                     updated: now,
                     avatar: profile.character,
                     name: profile.name,
                 });
-                dispatch(setVirus('title', 'Add identity'));
                 dispatch(setVirus('fingerprinted', true));
-                dispatch(setVirus(
-                    'clever',
-                    `# 1st time visitor
-        We created a starter identity for you: **${profile.name}**.
-        It looks a bit password-like on purpose so names stay unique.
-        You can change your name and avatar any time.`
-                ));
             } else {
                 const snapshotData = snapshot.data();
                 const existingName =
                     snapshotData && typeof snapshotData.name === 'string'
                         ? snapshotData.name
                         : null;
+                resolvedName = existingName ?? '';
                 const isCompleted =
                     snapshotData && typeof snapshotData.completed === 'number';
                 await updateDoc(docRef, { updated: Date.now() });
-                dispatch(setVirus('title', `Add identity`));
-                if (isCompleted) {
-                    dispatch(setVirus(
-                        'clever',
-                        `## Welcome back${existingName ? `, ${existingName}` : ''}`
-                    ));
-                }
             }
-
+            dispatch(updateHistory());
+            dispatch(setVirus('toggleText', resolvedName));
         } catch (e: unknown) {
             const msg = e instanceof Error ? e.message : String(e);
             dispatch(setUbereduxKey({ key: 'error', value: msg }));

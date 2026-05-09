@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect } from "react";
 import {
+    Avatar,
     Box,
     IconButton,
     useMediaQuery,
@@ -11,12 +12,14 @@ import {
     Icon, 
     CleverText, 
 } from '../../NX/DesignSystem';
-import { setVirus, useVirus } from '../../Virus';
+import { setVirus, useVirus, useDoc } from '../../Virus';
 
 export default function VirusButton() {
 
     const dispatch = useDispatch();
     const virus = useVirus();
+    const doc = useDoc();
+    const avatar = doc?.avatar || '';
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
     const toggleText = virus?.toggleText || '';
@@ -50,7 +53,13 @@ export default function VirusButton() {
                     sx={{ m: 1 }}
                     color="primary"
                     onClick={handleIconClick}>
-                    <Icon icon={icon} />
+                    {avatar ? (
+                        <Avatar
+                            alt={avatar}
+                            src={`/shared/svg/characters/${avatar}.svg`}
+                            sx={{ width: 32, height: 32 }}
+                        />
+                    ) : null}
                 </IconButton>
             </Box>
         </Box>

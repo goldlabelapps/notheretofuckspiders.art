@@ -43,5 +43,5 @@ export const geoString = (geo?: T_GeoLike | null): string => {
 
     const emoji = clean(geo.country_emoji);
     const location = uniqueParts.join(', ');
-    return emoji ? `${emoji} ${location}` : location;
+    return location;
 };

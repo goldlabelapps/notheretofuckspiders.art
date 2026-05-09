@@ -1,4 +1,3 @@
-export * from './parseDevice';
 export * from './randomIdentity';
 export * from './randomVirus';
 export * from './virusOutbreak';

@@ -1,6 +1,9 @@
 # Virus°
 
-v2.1.0 - A client-side Virus feature module for Next.js + React, powered by Firebase and FingerprintJS.
+[![npm version](https://badge.fury.io/js/virus.svg)](https://badge.fury.io/js/virus)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+v2.1.2 - A client-side Virus feature module for Next.js + React, powered by Firebase and FingerprintJS.
 
 ## Overview
 
@@ -12,6 +15,43 @@ Virus° provides a complete visitor-identification and content loop:
 - Drop-in UI entry points (`VirusButton`, `VirusDialog`) and pages (`Viruses`, `NewVirus`, `VirusPage`)
 
 The term "virus" in this module is thematic/game-like.
+
+## Types
+
+Core type definitions live in `types.d.ts` and describe the shape of fingerprint and geo payloads used throughout the module.
+
+- `T_Fingerprint` — the main fingerprint document shape, including the device and geo blocks
+- `T_DeviceInfo` — parsed browser/device metadata saved under `device`
+- `T_Geo` — IP geolocation payload structure saved under `geo`
+- `T_Email` — email payload structure used by the module
+
+These types are the best place to understand the data contract for Firestore writes, fingerprint enrichment, and UI rendering.
+
+## Installation
+
+```bash
+npm install virus
+```
+
+## Usage
+
+Import the components and hooks as needed:
+
+```tsx
+import { Virus, useVirus, VirusButton } from 'virus';
+
+// In your component
+const MyComponent = () => {
+  const { fingerprint } = useVirus();
+
+  return (
+    <div>
+      <Virus />
+      <VirusButton />
+    </div>
+  );
+};
+```
 
 ## Runtime Flow
 
@@ -27,31 +67,39 @@ The term "virus" in this module is thematic/game-like.
 
 ```text
 Virus/
-|- 2.1.0
+|- 2.1.2
 |- config.json
 |- index.tsx
 |- README.md
 |- types.d.ts
 |- Virus.tsx
 |- actions/
+|  |- fetchGeo.tsx
+|  |- fingerprint/
+|  |  |- checkFingerprint.tsx
+|  |  |- completeFingerprint.tsx
+|  |  |- deleteFingerprint.tsx
+|  |  |- forgetFingerprint.tsx
+|  |  |- subFingerprint.tsx
+|  |  `- updateFingerprint.tsx
 |  |- initVirus.tsx
 |  |- newVirus.tsx
-|  |- setVirus.tsx
-|  `- fingerprint/
-|     |- checkFingerprint.tsx
-|     |- deleteFingerprint.tsx
-|     |- forgetFingerprint.tsx
-|     |- subFingerprint.tsx
-|     `- updateFingerprint.tsx
+|  `- setVirus.tsx
 |- components/
 |  |- Debug.tsx
 |  |- Device.tsx
 |  |- Favourites.tsx
 |  |- Fingerprint.tsx
+|  |- Identity.tsx
+|  |- Mapbox/
+|  |  |- index.tsx
+|  |  |- Mapbox.tsx
+|  |  |- mapboxDark.json
+|  |  |- mapboxLight.json
+|  |  `- MapPin.tsx
 |  |- NewVirus.tsx
 |  |- Score.tsx
 |  |- Share.tsx
-|  |- UpdateDialog.tsx
 |  |- VirusButton.tsx
 |  |- VirusDialog.tsx
 |  |- VirusPage.tsx
@@ -62,15 +110,16 @@ Virus/
 |  |- useSubFingerprint.tsx
 |  `- useVirus.tsx
 `- utils/
-    |- README.md
-    |- deviceModels.json
-    |- firebase.ts
-    |- index.tsx
-    |- parseDevice.tsx
-    |- randomIdentity.tsx
-    |- randomVirus.tsx
-    |- utils.ts
-    `- virusOutbreak.tsx
+   |- README.md
+   |- deviceModels.json
+   |- firebase.ts
+   |- geoString.tsx
+   |- index.tsx
+   |- parseDevice.tsx
+   |- randomIdentity.tsx
+   |- randomVirus.tsx
+   |- utils.ts
+   `- virusOutbreak.tsx
 ```
 
 ## Public API
@@ -78,11 +127,11 @@ Virus/
 Exports from `index.tsx`:
 
 - Root: `Virus`
-- Actions: `initVirus`, `newVirus`, `setVirus`, `checkFingerprint`, `deleteFingerprint`, `forgetFingerprint`, `subFingerprint`, `updateFingerprint`
+- Actions: `initVirus`, `newVirus`, `setVirus`, `fetchGeo`, `checkFingerprint`, `completeFingerprint`, `deleteFingerprint`, `forgetFingerprint`, `subFingerprint`, `updateFingerprint`
 - Hooks: `useDoc`, `useFingerprint`, `useSubFingerprint`, `useVirus`
 - Utilities: `identityCharacters`, `parseDevice`, `randomIdentity`, `randomIdentityProfile`, `randomVirus`, `virusOutbreak`, `deviceModels`
 - Firebase helpers: `getFirebaseApp`, `getFirebaseAuth`, `getFirebaseFirestore`, `getFirebaseMessaging`, `getFirebaseStorage`
-- UI components: `Debug`, `Favourites`, `Fingerprint`, `NewVirus`, `Score`, `Share`, `UpdateDialog`, `VirusButton`, `VirusDialog`, `VirusPage`, `Viruses`
+- UI components: `Debug`, `Favourites`, `Fingerprint`, `Identity`, `NewVirus`, `Score`, `Share`, `VirusButton`, `VirusDialog`, `VirusPage`, `Viruses`
 - Types: `T_IdentityCharacter`, `T_RandomIdentity`
 
 ## State + Data
@@ -98,6 +147,14 @@ Common keys used by this module include:
 - `title`
 - `clever`
 - `icon`
+
+## Contributing
+
+Contributions are welcome! Please open an issue or submit a pull request.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 - `toggleText`
 - `topViruses`
 

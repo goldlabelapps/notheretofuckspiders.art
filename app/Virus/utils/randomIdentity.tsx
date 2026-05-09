@@ -103,9 +103,9 @@ const applyLeetSubstitution = (value: string): string => {
 	return `${value.slice(0, matchIndex)}${replacement}${value.slice(matchIndex + 1)}`;
 };
 
-const buildHumanPasswordName = (lead: string, tail: string): string => {
+const buildHumanPasswordName = (characterLabel: string, tail: string): string => {
 	// Intentionally human-patterned: TitleCase words + leetspeak + symbol+digits suffix.
-	const styledLead = applyLeetSubstitution(toTitleCase(lead));
+	const styledLead = applyLeetSubstitution(toTitleCase(characterLabel));
 	const styledTail = toTitleCase(tail);
 	const symbol = randomItem(symbolPool);
 	const digits = String(randomInt(10, 99));
@@ -122,7 +122,7 @@ const buildHumanPasswordName = (lead: string, tail: string): string => {
 export function randomIdentityProfile(character?: T_IdentityCharacter): T_RandomIdentity {
 	const resolvedCharacter = character ?? randomItem(identityCharacters);
 	const profile = identityProfiles[resolvedCharacter];
-	const name = buildHumanPasswordName(randomItem(profile.lead), randomItem(profile.tail));
+	const name = buildHumanPasswordName(profile.label, randomItem(profile.tail));
 
 	return {
 		character: resolvedCharacter,

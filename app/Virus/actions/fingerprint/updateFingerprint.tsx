@@ -14,7 +14,7 @@ export const updateFingerprint = (
 		await updateDoc(ref, { [key]: value, updated: Date.now() });
 		dispatch(setFeedback({
 			severity: 'success',
-			title: 'Fingerprint updated',
+			title: 'Identity updated',
 		}));
 	} catch (e: any) {
 		const isNotFound = e?.code === 'not-found';

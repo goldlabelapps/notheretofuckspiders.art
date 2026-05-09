@@ -7,21 +7,26 @@ import {
     Tooltip,
     Typography,
     CardContent,
+    Accordion,
+    AccordionSummary,
+    AccordionDetails,
 } from '@mui/material';
 import { 
     Icon,
-    CleverText,
 } from '../../NX/DesignSystem';
 import {
     geoString,
     identityCharacters,
     useDoc,
-    useVirus,
-} from '../../Virus'
-import UpdateDialog from './UpdateDialog';
+    Identity,
+    Mapbox,
+    GeoData,
+    DeviceData,
+    History,
+} from '../../Virus';
 
 export default function Fingerprint() {
-    const virus = useVirus();
+    
     const doc = useDoc();
     const [identityEditorOpen, setIdentityEditorOpen] = React.useState(false);
     const identityTitle = typeof doc?.name === 'string' && doc.name.trim().length > 0
@@ -31,35 +36,36 @@ export default function Fingerprint() {
     const avatar = typeof doc?.avatar === 'string' && identityCharacters.includes(doc.avatar as any)
         ? doc.avatar
         : null;
-    ;
+    const geo = doc?.geo as Record<string, unknown> | undefined;
+    const lat = Number(geo?.latitude ?? geo?.lat);
+    const lon = Number(geo?.longitude ?? geo?.lon);
+    const map = Number.isFinite(lat) && Number.isFinite(lon)
+        ? {
+            lat,
+            lon,
+            country_code: typeof geo?.country_code2 === 'string' ? geo.country_code2 : '',
+            label: geoSubheader,
+        }
+        : null;
+    const latestHistory = React.useMemo(() => {
+        const history = Array.isArray(doc?.history) ? doc.history : [];
+        return history.reduce((latest: typeof history[number] | undefined, item: typeof history[number]) => {
+            if (!latest || (typeof item.timestamp === 'number' && item.timestamp > latest.timestamp)) {
+                return item;
+            }
+            return latest;
+        }, undefined as typeof history[number] | undefined);
+    }, [doc?.history]);
+
     return (
         <Box>
-
-            <UpdateDialog
+            <Identity
                 title="Identity"
                 open={identityEditorOpen}
                 onOpenChange={setIdentityEditorOpen}
                 hideTrigger
-                field="name"
-                icon="async"
-                label="Name"
-                description="Choose a new identity for this fingerprint."
-                valueType="string"
-                required
-                minLength={2}
-                maxLength={80}
-                confirmText="Save"
-                cancelText="Not today thank you"
-                validate={(nextValue) => {
-                    const value = String(nextValue ?? '').trim();
-                    if (!value) return 'Name is required';
-                    return null;
-                }}
             />
-
             <CardHeader
-                component="button"
-                type="button"
                 onClick={() => setIdentityEditorOpen(true)}
                 aria-label={avatar ? 'Change identity' : 'Add identity'}
                 sx={{
@@ -76,29 +82,92 @@ export default function Fingerprint() {
                                 `/shared/svg/characters/${avatar}.svg`
                                 : undefined}
                             sx={{
-                                width: 128,
-                                height: 128,
+                                width: 150,
+                                height: 150,
                             }}
                         />
                     </Tooltip> : null }
                         
                     </>
                 }
-                title={<Typography variant="h6">
-                        {identityTitle}
-                    </Typography>} 
-                subheader={geoSubheader}
+                title={<Typography variant="h4">
+                            {identityTitle}
+                        </Typography>} 
             />
+            
             <CardContent>
-                <CleverText
-                    options={{
-                        id: 'fingerprint',
-                        markdown: virus?.clever,
-                        onFinish: () => {
-                            // console.log('finished')
-                        }
-                    }}
-                />
+
+                <Accordion variant='outlined' sx={{ mt: 2 }}>
+                    <AccordionSummary
+                        expandIcon={<Icon icon="expand" />}
+                        aria-controls="map-content"
+                        id="map-header">
+                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                            <Box sx={{ mr: 0.5 }}>
+                                <Avatar 
+                                    sx={{
+                                        m: 0.5,
+                                        width: 24,
+                                        height: 24,
+                                    }}
+                                    src={typeof geo?.country_code2 === 'string' ? `/shared/svg/flags/${geo.country_code2.toLowerCase()}.svg` : undefined} 
+                                />
+                            </Box>
+                            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.5 }}>
+                                <Typography variant="subtitle1" sx={{ color: 'text.secondary' }}>
+                                    {typeof geo?.country_name === 'string' && typeof geo?.city === 'string' 
+                                        ? `${geo.city}, ${geo.country_name}`
+                                        : typeof geo?.country_name === 'string'
+                                        ? geo.country_name
+                                        : 'Location data'}
+                                </Typography>
+                            </Box>
+                        </Box>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                        <Box sx={{ mb: 2 }}>
+                            <Mapbox map={map} />
+                        </Box>
+                        <GeoData geo={geo} />
+                    </AccordionDetails>
+                </Accordion>
+
+                <Accordion variant='outlined' sx={{  }}>
+                    <AccordionSummary
+                        expandIcon={<Icon icon="expand" />}
+                        aria-controls="device-content"
+                        id="device-header"
+                    >
+                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                            <Icon icon="mobile" />
+                            <Typography variant="subtitle1">
+                                Device
+                            </Typography>
+                        </Box>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                        <DeviceData device={doc?.device as Record<string, unknown> | undefined} />
+                    </AccordionDetails>
+                </Accordion>
+
+                <Accordion variant='outlined'>
+                    <AccordionSummary
+                        expandIcon={<Icon icon="expand" />}
+                        aria-controls="history-content"
+                        id="history-header"
+                    >
+                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                            <Icon icon="aicase" />
+                            <Typography variant="subtitle1">
+                                {latestHistory ? `${latestHistory.title}` : ''}
+                            </Typography>
+                        </Box>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                        <History history={doc?.history} />
+                    </AccordionDetails>
+                </Accordion>
+
             </CardContent>
         </Box>
     );

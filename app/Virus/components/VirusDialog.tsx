@@ -108,10 +108,14 @@ export default function VirusDialog() {
                 <Button onClick={handleDeleteRequest}
                     startIcon={<Icon icon="forget" />}
                     color="primary"
-                    variant="outlined"
-                    fullWidth>
+                    variant="text"
+                    sx={{
+                        ml: 1
+                    }}
+                >
                     Forget Me
                 </Button>
+                <Box sx={{flexGrow: 1}} />
                 <Typography variant="subtitle2" color="textSecondary"
                     sx={{
                         display: 'block',

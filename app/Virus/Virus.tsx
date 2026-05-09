@@ -38,6 +38,7 @@ export default function Virus() {
   React.useEffect(() => {
     if (typeof window === 'undefined') return;
     if (doc && Object.keys(doc).length > 0 && !doc.device) {
+      // 2. use a proper device parser and store the whole obj
       dispatch(parseDevice());
     }
   }, [doc]);

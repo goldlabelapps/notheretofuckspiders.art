@@ -33,6 +33,12 @@ export const subFingerprint = (): any =>
                     ? { id: snapshot.id, ...snapshot.data() }
                     : null;
                 dispatch(setVirus('fingerprintDoc', data));
+
+                dispatch(setVirus(
+                    'clever',
+                    `Something changed in your fingerprint...`
+                ));
+
             });
         } catch (e: unknown) {
             const msg = e instanceof Error ? e.message : String(e);

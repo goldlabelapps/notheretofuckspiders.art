@@ -1,7 +1,6 @@
 import Virus from './Virus';
 import { initVirus } from './actions/initVirus';
-import { newVirus } from './actions/newVirus';
-import { fetchGeo } from './actions/fetchGeo';
+import { fetchGeo } from './actions/geo/fetchGeo';
 import { setVirus } from './actions/setVirus';
 import { checkFingerprint } from './actions/fingerprint/checkFingerprint';
 import { completeFingerprint } from './actions/fingerprint/completeFingerprint';
@@ -9,13 +8,13 @@ import { deleteFingerprint } from './actions/fingerprint/deleteFingerprint';
 import { forgetFingerprint } from './actions/fingerprint/forgetFingerprint';
 import { subFingerprint } from './actions/fingerprint/subFingerprint';
 import { updateFingerprint } from './actions/fingerprint/updateFingerprint';
+import { updateHistory } from './actions/history/updateHistory';
 import { useFingerprint } from './hooks/useFingerprint';
 import { useSubFingerprint } from './hooks/useSubFingerprint';
 import { useVirus } from './hooks/useVirus';
 import { useDoc } from './hooks/useDoc';
 import {
     identityCharacters,
-    parseDevice,
     geoString,
     randomIdentity,
     randomIdentityProfile,
@@ -27,13 +26,17 @@ import {
     getFirebaseMessaging,
     getFirebaseStorage,
 } from './utils';
+import { parseDevice } from './actions/device/parseDevice';
 import Debug from './components/Debug';
 import Favourites from './components/Favourites';
 import Fingerprint from './components/Fingerprint';
-import NewVirus from './components/NewVirus';
+import History from './components/History';
+import Mapbox from './components/Mapbox/Mapbox';
 import Score from './components/Score';
 import Share from './components/Share';
-import UpdateDialog from './components/UpdateDialog';
+import Identity from './components/Identity';
+import GeoData from './components/GeoData';
+import DeviceData from './components/DeviceData';
 import VirusButton from './components/VirusButton';
 import VirusDialog from './components/VirusDialog';
 import VirusPage from './components/VirusPage';
@@ -42,11 +45,11 @@ export type {
     T_IdentityCharacter,
     T_RandomIdentity,
 } from './utils/randomIdentity';
+export type { T_DeviceInfo, T_HistoryEntry } from './types';
 
 export {
     Virus,
     initVirus,
-    newVirus,
     fetchGeo,
     setVirus,
     checkFingerprint,
@@ -55,6 +58,7 @@ export {
     forgetFingerprint,
     subFingerprint,
     updateFingerprint,
+    updateHistory,
     useDoc,
     useFingerprint,
     useSubFingerprint,
@@ -74,10 +78,13 @@ export {
     Debug,
     Favourites,
     Fingerprint,
-    NewVirus,
+    History,
+    GeoData,
+    DeviceData,
+    Mapbox,
     Score,
     Share,
-    UpdateDialog,
+    Identity,
     VirusButton,
     VirusDialog,
     VirusPage,

@@ -189,6 +189,7 @@ import HammerIcon from '@mui/icons-material/Build';
 import ArchiveIcon from '@mui/icons-material/ArchiveOutlined';
 import InstallIcon from '@mui/icons-material/InstallDesktop';
 import StopIcon from '@mui/icons-material/Stop';
+import RandomIcon from '@mui/icons-material/Shuffle';
 
 export default function Icon({ icon, color }: I_Icon) {
   if (!color) color = 'inherit';
@@ -857,6 +858,10 @@ export default function Icon({ icon, color }: I_Icon) {
       break;
     case 'speak-write':
       iconFragment = <SpeakwriteIcon color={color} />;
+      break;
+
+    case 'random':
+      iconFragment = <RandomIcon color={color} />;
       break;
     case 'copy':
       iconFragment = <CopyIcon color={color} />;

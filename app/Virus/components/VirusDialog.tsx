@@ -10,7 +10,6 @@ import {
     DialogContent,
     DialogTitle,
     IconButton,
-    Tooltip,
     useMediaQuery,
     useTheme,
     Typography,
@@ -27,7 +26,7 @@ import {
     setVirus,
 } from '../actions/setVirus';
 import Fingerprint from './Fingerprint';
-import { useDoc, useVirus, forgetFingerprint } from '../../Virus';
+import { useDoc, useVirus, forgetFingerprint, AvaFlag } from '../../Virus';
 
 export default function VirusDialog() {
     const dispatch = useDispatch();

@@ -1,10 +1,8 @@
 'use client';
 import * as React from 'react';
 import {
-    Avatar,
     Box,
     CardHeader,
-    Tooltip,
     Typography,
     CardContent,
     Accordion,
@@ -24,6 +22,7 @@ import {
     GeoData,
     DeviceData,
     History,
+    AvaFlag,
 } from '../../Virus';
 
 export default function Fingerprint() {
@@ -33,13 +32,21 @@ export default function Fingerprint() {
     const identityTitle = typeof doc?.name === 'string' && doc.name.trim().length > 0
         ? doc.name
         : 'Add identity';
-    const geoSubheader = geoString(doc?.geo) || doc?.id || '';
+    const geo = doc?.geo as Record<string, unknown> | undefined;
+    const device = doc?.device as Record<string, unknown> | undefined;
+    const lat = Number(geo?.latitude ?? geo?.lat);
+    const lon = Number(geo?.longitude ?? geo?.lon);
+    const browser = typeof device?.browser === 'string' ? device.browser : null;
+    const deviceModel = typeof device?.model === 'string' ? device.model : null;
+    const city = typeof geo?.city === 'string' ? geo.city : null;
+    const subheaderParts: string[] = [];
+    if (browser) subheaderParts.push(browser);
+    if (deviceModel) subheaderParts.push(`on ${deviceModel}`);
+    if (city) subheaderParts.push(`in ${city}`);
+    const geoSubheader = subheaderParts.join(' ') || doc?.id || '';
     const avatar = typeof doc?.avatar === 'string' && identityCharacters.includes(doc.avatar as any)
         ? doc.avatar
         : null;
-    const geo = doc?.geo as Record<string, unknown> | undefined;
-    const lat = Number(geo?.latitude ?? geo?.lat);
-    const lon = Number(geo?.longitude ?? geo?.lon);
     const map = Number.isFinite(lat) && Number.isFinite(lon)
         ? {
             lat,
@@ -60,6 +67,7 @@ export default function Fingerprint() {
 
     return (
         <Box>
+            
             <Identity
                 title="Identity"
                 open={identityEditorOpen}
@@ -67,6 +75,12 @@ export default function Fingerprint() {
                 hideTrigger
             />
             <CardHeader
+                title={<Typography variant="h4">
+                    {identityTitle}
+                </Typography>} 
+                subheader={<Typography variant="body1" color="text.secondary">
+                    {geoSubheader}
+                </Typography>}
                 onClick={() => setIdentityEditorOpen(true)}
                 aria-label={avatar ? 'Change identity' : 'Add identity'}
                 sx={{
@@ -77,37 +91,29 @@ export default function Fingerprint() {
                     cursor: 'pointer',
                 }}
                 avatar={<>
-                    {avatar ? <Tooltip title={'Change identity'}>
-                        <Avatar
-                            src={avatar ?
-                                `/shared/svg/characters/${avatar}.svg`
-                                : undefined}
-                            sx={{
-                                width: 100,
-                                height: 100,
-                            }}
-                        />
-                    </Tooltip> : null }
-                        
+                        <AvaFlag
+                            countryCode={typeof geo?.country_code2 === 'string' ? geo.country_code2 : 'US'}
+                            avatarUrl={`/shared/svg/characters/${avatar}.svg`}
+                            size={75}
+                            position="bottom-right"
+                        />            
                     </>
                 }
-                title={<Typography variant="h4">
-                            {identityTitle}
-                        </Typography>} 
+                
             />
             
             <CardContent>
 
                 <Grid container spacing={2} sx={{ mb: 2 }}>
 
-                    <Grid size={{ xs: 12, sm: 6 }}>
+                    <Grid size={{ xs: 12 }}>
                         <Accordion variant='outlined' sx={{}}>
                             <AccordionSummary
                                 expandIcon={<Icon icon="expand" />}
                                 aria-controls="device-content"
                                 id="device-header"
                             >
-                                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
                                     <Icon icon="mobile" />
                                     <Typography variant="subtitle1">
                                         Device
@@ -119,21 +125,14 @@ export default function Fingerprint() {
                             </AccordionDetails>
                         </Accordion>
                         
-                        <Accordion variant='outlined' sx={{ mt: 2 }}>
+                        <Accordion variant='outlined' sx={{ mt: 1 }}>
                             <AccordionSummary
                                 expandIcon={<Icon icon="expand" />}
                                 aria-controls="map-content"
                                 id="map-header">
-                                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
                                     <Box sx={{ mr: 0.5 }}>
-                                        <Avatar
-                                            sx={{
-                                                m: 0.5,
-                                                width: 24,
-                                                height: 24,
-                                            }}
-                                            src={typeof geo?.country_code2 === 'string' ? `/shared/svg/flags/${geo.country_code2.toLowerCase()}.svg` : undefined}
-                                        />
+                                        <Icon icon="geo" />
                                     </Box>
                                     <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.5 }}>
                                         <Typography variant="subtitle1" sx={{ color: 'text.secondary' }}>
@@ -154,7 +153,7 @@ export default function Fingerprint() {
                             </AccordionDetails>
                         </Accordion>
                     </Grid> 
-                    <Grid size={{ xs: 12, sm: 6 }}>
+                    <Grid size={{ xs: 12 }}>
                         <Box sx={{mt:2}}>
                             <History history={doc?.history} />
                         </Box>

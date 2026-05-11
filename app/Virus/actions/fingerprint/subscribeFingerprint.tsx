@@ -7,7 +7,7 @@ import { setVirus } from '../../../Virus';
 let activeSubscription: (() => void) | null = null;
 let subscribedFingerprint: string | null = null;
 
-export const subFingerprint = (): any =>
+export const subscribeFingerprint = (): any =>
     async (dispatch: Dispatch, getState: () => any) => {
         try {
             console.log('Subscribing to fingerprint changes...');
@@ -46,7 +46,7 @@ export const subFingerprint = (): any =>
         }
     };
 
-export const unsubFingerprint = () => (dispatch: Dispatch) => {
+export const unsubscribeFingerprint = () => (dispatch: Dispatch) => {
     if (activeSubscription) {
         activeSubscription();
         activeSubscription = null;

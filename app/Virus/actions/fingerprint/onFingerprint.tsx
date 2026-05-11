@@ -2,12 +2,12 @@ import type { T_UbereduxDispatch } from '../../../NX/types';
 import { setUbereduxKey } from '../../../NX/Uberedux';
 import { setFeedback } from '../../../NX/DesignSystem';
 
-export const completeFingerprint = (): any =>
+export const onFingerprint = (): any =>
 	async (dispatch: T_UbereduxDispatch, getState: () => any) => {
 		try {
 			dispatch(setFeedback({
 				severity: 'success',
-				title: 'Identity updated',
+				title: 'ONFINGERPIRINT',
 			}));
 		} catch (e: unknown) {
 			const msg = e instanceof Error ? e.message : String(e);

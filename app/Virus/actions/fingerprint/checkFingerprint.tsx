@@ -1,6 +1,6 @@
 import type { T_UbereduxDispatch } from '../../../NX/types';
 import { setUbereduxKey } from '../../../NX/Uberedux';
-import { setVirus, updateHistory } from '../../../Virus';
+import { setVirus, updateHistory, onFingerprint } from '../../../Virus';
 import { getFirebaseFirestore } from '../../utils/firebase';
 import { randomIdentityProfile } from '../../utils/randomIdentity';
 import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
@@ -46,6 +46,7 @@ export const checkFingerprint = (): any =>
                     avatar: profile.character,
                     name: profile.name,
                 });
+                dispatch(onFingerprint());
                 dispatch(setVirus('fingerprinted', true));
             } else {
                 const snapshotData = snapshot.data();

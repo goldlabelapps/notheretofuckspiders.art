@@ -3,10 +3,10 @@ import { initVirus } from './actions/initVirus';
 import { fetchGeo } from './actions/geo/fetchGeo';
 import { setVirus } from './actions/setVirus';
 import { checkFingerprint } from './actions/fingerprint/checkFingerprint';
-import { completeFingerprint } from './actions/fingerprint/completeFingerprint';
+import { onFingerprint } from './actions/fingerprint/onFingerprint';
 import { deleteFingerprint } from './actions/fingerprint/deleteFingerprint';
 import { forgetFingerprint } from './actions/fingerprint/forgetFingerprint';
-import { subFingerprint } from './actions/fingerprint/subFingerprint';
+import { subscribeFingerprint } from './actions/fingerprint/subscribeFingerprint';
 import { updateFingerprint } from './actions/fingerprint/updateFingerprint';
 import { updateHistory } from './actions/history/updateHistory';
 import { useFingerprint } from './hooks/useFingerprint';
@@ -53,10 +53,10 @@ export {
     fetchGeo,
     setVirus,
     checkFingerprint,
-    completeFingerprint,
+    onFingerprint,
     deleteFingerprint,
     forgetFingerprint,
-    subFingerprint,
+    subscribeFingerprint,
     updateFingerprint,
     updateHistory,
     useDoc,

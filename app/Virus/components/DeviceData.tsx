@@ -79,7 +79,6 @@ const DeviceData = ({ device }: T_DeviceDataProps) => {
                 {topFields.map(([key, label]) =>
                     hasValue(device[key]) ? renderKeyValue(label, device[key]) : null
                 )}
-
                 {nestedFields.map(([key, label]) => {
                     const value = device[key] as Record<string, unknown> | undefined;
                     if (!value || typeof value !== 'object') return null;

@@ -1,7 +1,6 @@
 import type { T_UbereduxDispatch } from '../../../NX/types';
 import { setUbereduxKey } from '../../../NX/Uberedux';
 import { getFirebaseFirestore } from '../../utils/firebase';
-import { completeFingerprint } from '../fingerprint/completeFingerprint';
 import { doc, updateDoc } from 'firebase/firestore';
 
 const inFlight = new Set<string>();
@@ -52,8 +51,6 @@ export const fetchGeo = (): any =>
 				geo,
 				updated: Date.now(),
 			});
-
-			dispatch(completeFingerprint());
 
 			resolved.add(fingerprint);
 		} catch (e: unknown) {

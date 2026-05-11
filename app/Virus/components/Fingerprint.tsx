@@ -10,6 +10,7 @@ import {
     Accordion,
     AccordionSummary,
     AccordionDetails,
+    Grid,
 } from '@mui/material';
 import { 
     Icon,
@@ -82,8 +83,8 @@ export default function Fingerprint() {
                                 `/shared/svg/characters/${avatar}.svg`
                                 : undefined}
                             sx={{
-                                width: 150,
-                                height: 150,
+                                width: 100,
+                                height: 100,
                             }}
                         />
                     </Tooltip> : null }
@@ -97,77 +98,68 @@ export default function Fingerprint() {
             
             <CardContent>
 
-                <Accordion variant='outlined' sx={{ mt: 2 }}>
-                    <AccordionSummary
-                        expandIcon={<Icon icon="expand" />}
-                        aria-controls="map-content"
-                        id="map-header">
-                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                            <Box sx={{ mr: 0.5 }}>
-                                <Avatar 
-                                    sx={{
-                                        m: 0.5,
-                                        width: 24,
-                                        height: 24,
-                                    }}
-                                    src={typeof geo?.country_code2 === 'string' ? `/shared/svg/flags/${geo.country_code2.toLowerCase()}.svg` : undefined} 
-                                />
-                            </Box>
-                            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.5 }}>
-                                <Typography variant="subtitle1" sx={{ color: 'text.secondary' }}>
-                                    {typeof geo?.country_name === 'string' && typeof geo?.city === 'string' 
-                                        ? `${geo.city}, ${geo.country_name}`
-                                        : typeof geo?.country_name === 'string'
-                                        ? geo.country_name
-                                        : 'Location data'}
-                                </Typography>
-                            </Box>
-                        </Box>
-                    </AccordionSummary>
-                    <AccordionDetails>
-                        <Box sx={{ mb: 2 }}>
-                            <Mapbox map={map} />
-                        </Box>
-                        <GeoData geo={geo} />
-                    </AccordionDetails>
-                </Accordion>
+                <Grid container spacing={2} sx={{ mb: 2 }}>
 
-                <Accordion variant='outlined' sx={{  }}>
-                    <AccordionSummary
-                        expandIcon={<Icon icon="expand" />}
-                        aria-controls="device-content"
-                        id="device-header"
-                    >
-                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                            <Icon icon="mobile" />
-                            <Typography variant="subtitle1">
-                                Device
-                            </Typography>
+                    <Grid size={{ xs: 12, sm: 6 }}>
+                        <Accordion variant='outlined' sx={{}}>
+                            <AccordionSummary
+                                expandIcon={<Icon icon="expand" />}
+                                aria-controls="device-content"
+                                id="device-header"
+                            >
+                                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                                    <Icon icon="mobile" />
+                                    <Typography variant="subtitle1">
+                                        Device
+                                    </Typography>
+                                </Box>
+                            </AccordionSummary>
+                            <AccordionDetails>
+                                <DeviceData device={doc?.device as Record<string, unknown> | undefined} />
+                            </AccordionDetails>
+                        </Accordion>
+                        
+                        <Accordion variant='outlined' sx={{ mt: 2 }}>
+                            <AccordionSummary
+                                expandIcon={<Icon icon="expand" />}
+                                aria-controls="map-content"
+                                id="map-header">
+                                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                                    <Box sx={{ mr: 0.5 }}>
+                                        <Avatar
+                                            sx={{
+                                                m: 0.5,
+                                                width: 24,
+                                                height: 24,
+                                            }}
+                                            src={typeof geo?.country_code2 === 'string' ? `/shared/svg/flags/${geo.country_code2.toLowerCase()}.svg` : undefined}
+                                        />
+                                    </Box>
+                                    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.5 }}>
+                                        <Typography variant="subtitle1" sx={{ color: 'text.secondary' }}>
+                                            {typeof geo?.country_name === 'string' && typeof geo?.city === 'string'
+                                                ? `${geo.city}, ${geo.country_name}`
+                                                : typeof geo?.country_name === 'string'
+                                                    ? geo.country_name
+                                                    : 'Location data'}
+                                        </Typography>
+                                    </Box>
+                                </Box>
+                            </AccordionSummary>
+                            <AccordionDetails>
+                                <Box sx={{ mb: 2 }}>
+                                    <Mapbox map={map} />
+                                </Box>
+                                <GeoData geo={geo} />
+                            </AccordionDetails>
+                        </Accordion>
+                    </Grid> 
+                    <Grid size={{ xs: 12, sm: 6 }}>
+                        <Box sx={{mt:2}}>
+                            <History history={doc?.history} />
                         </Box>
-                    </AccordionSummary>
-                    <AccordionDetails>
-                        <DeviceData device={doc?.device as Record<string, unknown> | undefined} />
-                    </AccordionDetails>
-                </Accordion>
-
-                <Accordion variant='outlined'>
-                    <AccordionSummary
-                        expandIcon={<Icon icon="expand" />}
-                        aria-controls="history-content"
-                        id="history-header"
-                    >
-                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                            <Icon icon="aicase" />
-                            <Typography variant="subtitle1">
-                                {latestHistory ? `${latestHistory.title}` : ''}
-                            </Typography>
-                        </Box>
-                    </AccordionSummary>
-                    <AccordionDetails>
-                        <History history={doc?.history} />
-                    </AccordionDetails>
-                </Accordion>
-
+                    </Grid>                    
+                </Grid>  
             </CardContent>
         </Box>
     );

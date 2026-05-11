@@ -82,10 +82,10 @@ export const updateHistory = () => async (
 			history: updatedHistory,
 			updated: Date.now(),
 		});
-		dispatch(setFeedback({
-			severity: 'success',
-			title: 'History updated',
-		}));
+		// dispatch(setFeedback({
+		// 	severity: 'success',
+		// 	title: 'History updated',
+		// }));
 	} catch (e: any) {
 		const isNotFound = e?.code === 'not-found';
 		dispatch(setFeedback({

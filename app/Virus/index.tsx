@@ -27,6 +27,7 @@ import {
     getFirebaseStorage,
 } from './utils';
 import { parseDevice } from './actions/device/parseDevice';
+import AvaFlag from './components/AvaFlag';
 import Debug from './components/Debug';
 import Favourites from './components/Favourites';
 import Fingerprint from './components/Fingerprint';
@@ -75,6 +76,7 @@ export {
     getFirebaseFirestore,
     getFirebaseMessaging,
     getFirebaseStorage,
+    AvaFlag,
     Debug,
     Favourites,
     Fingerprint,

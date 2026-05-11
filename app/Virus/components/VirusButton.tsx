@@ -12,7 +12,7 @@ import {
     Icon, 
     CleverText, 
 } from '../../NX/DesignSystem';
-import { setVirus, useVirus, useDoc } from '../../Virus';
+import { AvaFlag, setVirus, useVirus, useDoc } from '../../Virus';
 
 export default function VirusButton() {
 
@@ -20,10 +20,10 @@ export default function VirusButton() {
     const virus = useVirus();
     const doc = useDoc();
     const avatar = doc?.avatar || '';
+    const geo = doc?.geo as Record<string, unknown> | undefined;
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
     const toggleText = virus?.toggleText || '';
-    const icon = virus?.icon || 'virus';
 
     useEffect(() => {
         if (!toggleText) return;
@@ -54,11 +54,12 @@ export default function VirusButton() {
                     color="primary"
                     onClick={handleIconClick}>
                     {avatar ? (
-                        <Avatar
-                            alt={avatar}
-                            src={`/shared/svg/characters/${avatar}.svg`}
-                            sx={{ width: 32, height: 32 }}
-                        />
+                        <AvaFlag
+                            countryCode={typeof geo?.country_code2 === 'string' ? geo.country_code2 : 'US'}
+                            avatarUrl={`/shared/svg/characters/${avatar}.svg`}
+                            size={32}
+                            position="bottom-right"
+                        />        
                     ) : null}
                 </IconButton>
             </Box>

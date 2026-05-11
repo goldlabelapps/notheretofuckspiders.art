@@ -12,7 +12,6 @@ import {
     InputAdornment,
     TextField,
     Tooltip,
-    Typography,
     useMediaQuery,
     useTheme,
 } from '@mui/material';
@@ -22,14 +21,16 @@ import {
     useFullscreen,
 } from '../../NX/DesignSystem';
 import { useDispatch } from '../../NX/Uberedux';
-import { updateFingerprint } from '../actions/fingerprint/updateFingerprint';
-import { useDoc } from '../hooks/useDoc';
-import { useFingerprint } from '../hooks/useFingerprint';
 import {
     identityCharacters,
     randomIdentityProfile,
     type T_IdentityCharacter,
-} from '../utils/randomIdentity';
+} from '../utils';
+import { 
+    useFingerprint, 
+    useDoc,
+    updateFingerprint,
+ } from '../../Virus';
 
 type T_IconName = React.ComponentProps<typeof Icon>['icon'];
 
@@ -215,16 +216,71 @@ export default function Identity({
 
                     <DialogContent>
                         
+                    <Box>
+                        <TextField
+                            fullWidth
+                            sx={{ px: 3 }}
+                            inputRef={inputRef}
+                            variant='standard'
+                            type="text"
+                            value={rawValue}
+                            onChange={(e) => {
+                                setRawValue(e.target.value);
+                            }}
+                            onKeyDown={handleKeyDown}
+                            InputProps={{
+                                sx: { fontSize: '2.25rem' },
+                                startAdornment: (
+                                    <InputAdornment position="start">
+                                        <Tooltip title="Random identity">
+                                            <IconButton
+                                                color="primary"
+                                                edge="start"
+                                                aria-label="Generate random identity"
+                                                onClick={handleRandomIdentity}
+                                            >
+                                                <Icon icon="random" />
+                                            </IconButton>
+                                        </Tooltip>
+                                    </InputAdornment>
+                                ),
+                                endAdornment: (
+                                    <InputAdornment position="end">
+                                        <Tooltip title="Reset to original name">
+                                            <IconButton
+                                                color="secondary"
+                                                edge="end"
+                                                aria-label="Reset name"
+                                                onClick={() => {
+                                                    setRawValue(sourceName);
+                                                    setSelectedAvatar(currentAvatar);
+                                                }}
+                                            >
+                                                <Icon icon="cancel" />
+                                            </IconButton>
+                                        </Tooltip>
+                                    </InputAdornment>
+                                ),
+                            }}
+                        />
+                    </Box>
 
                         <Box sx={{ my: 2 }}>
                             <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2, mb: 3 }}>
                             <Avatar
                                 alt={selectedAvatar ?? currentAvatar ?? 'Avatar preview'}
                                 src={selectedAvatar || currentAvatar ? `/shared/svg/characters/${selectedAvatar ?? currentAvatar}.svg` : undefined}
-                                sx={{ width: 100, height: 100, boxShadow: 3 }}
+                                sx={{ width: 100, height: 100 }}
                             />
                         </Box>
-                        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, justifyContent: 'center', alignItems: 'center' }}>
+
+                        <Box sx={{ 
+                            display: 'flex', 
+                            flexWrap: 'wrap', 
+                            gap: 1, 
+                            justifyContent: 'center', 
+                            alignItems: 'center' }}>
+
                                 {identityCharacters.map((character) => {
                                     const selected = selectedAvatar === character;
                                     return (
@@ -241,47 +297,14 @@ export default function Identity({
                                                 <Avatar
                                                     alt={character}
                                                     src={`/shared/svg/characters/${character}.svg`}
-                                                    sx={{ width: 60, height: 60 }}
+                                                    sx={{ width: 50, height: 50 }}
                                                 />
                                             </IconButton>
                                         </Tooltip>
                                     );
                                 })}
                             </Box>
-                            <Box>
-                            <TextField
-                                fullWidth
-                                sx={{mt: '50px', px: 3}}
-                                inputRef={inputRef}
-                                variant='standard'
-                                type="text"
-                                value={rawValue}
-                                onChange={(e) => {
-                                    setRawValue(e.target.value);
-                                    if (error) setError(null);
-                                }}
-                                onKeyDown={handleKeyDown}
-                                InputProps={{
-                                    sx: { fontSize: '2.25rem' },
-                                    startAdornment: (
-                                        <InputAdornment position="start">
-                                            <Tooltip title="Random identity">
-                                                <IconButton
-                                                    color="primary"
-                                                    edge="start"
-                                                    aria-label="Generate random identity"
-                                                    onClick={handleRandomIdentity}
-                                                >
-                                                    <Icon icon="reset" />
-                                                </IconButton>
-                                            </Tooltip>
-                                        </InputAdornment>
-                                    ),
-                                }}
-                                error={!!error}
-                                helperText={error ?? ' '}
-                            />
-                            </Box>
+                            
                         </Box>
                     </DialogContent>
                     <DialogActions sx={{ px: 2, py: 1, gap: 1 }}>

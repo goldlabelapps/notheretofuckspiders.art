@@ -13,6 +13,7 @@ Virus° provides a complete visitor-identification and content loop:
 - Firestore-backed virus creation and live reads
 - Virus score growth by page visits
 - Drop-in UI entry points (`VirusButton`, `VirusDialog`) and pages (`Viruses`, `NewVirus`, `VirusPage`)
+- Avatar + flag UI helper (`AvaFlag`) for identity display
 
 The term "virus" in this module is thematic/game-like.
 
@@ -86,6 +87,7 @@ Virus/
 |  |- newVirus.tsx
 |  `- setVirus.tsx
 |- components/
+|  |- AvaFlag.tsx
 |  |- Debug.tsx
 |  |- Device.tsx
 |  |- Favourites.tsx
@@ -131,7 +133,7 @@ Exports from `index.tsx`:
 - Hooks: `useDoc`, `useFingerprint`, `useSubFingerprint`, `useVirus`
 - Utilities: `identityCharacters`, `parseDevice`, `randomIdentity`, `randomIdentityProfile`, `randomVirus`, `virusOutbreak`, `deviceModels`
 - Firebase helpers: `getFirebaseApp`, `getFirebaseAuth`, `getFirebaseFirestore`, `getFirebaseMessaging`, `getFirebaseStorage`
-- UI components: `Debug`, `Favourites`, `Fingerprint`, `Identity`, `NewVirus`, `Score`, `Share`, `VirusButton`, `VirusDialog`, `VirusPage`, `Viruses`
+- UI components: `AvaFlag`, `Debug`, `Favourites`, `Fingerprint`, `Identity`, `NewVirus`, `Score`, `Share`, `VirusButton`, `VirusDialog`, `VirusPage`, `Viruses`
 - Types: `T_IdentityCharacter`, `T_RandomIdentity`
 
 ## State + Data

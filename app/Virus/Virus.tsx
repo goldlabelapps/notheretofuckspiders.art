@@ -18,7 +18,6 @@ export default function Virus() {
 
   if (!config.enabled) return null;
 
-
   useSubFingerprint();
   const dispatch = useDispatch();
   const slice = useVirus();
@@ -41,8 +40,6 @@ export default function Virus() {
     if (typeof window === 'undefined') return;
     if (doc && Object.keys(doc).length > 0 && !doc.geo) dispatch(fetchGeo());
   }, [doc]);
-
-
 
   return (<>
             <VirusDialog />

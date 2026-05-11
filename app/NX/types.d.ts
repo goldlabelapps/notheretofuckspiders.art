@@ -353,6 +353,7 @@ export type I_Icon = {
     | 'good-fit'
     | 'products'
     | 'flash'
+    | 'random'
     | 'speak-write'
     | 'admin'
     | 'private'

@@ -4,7 +4,7 @@ import { getFirebaseFirestore } from '../../utils/firebase';
 import { doc, getDoc, updateDoc } from 'firebase/firestore';
 import { setFeedback } from '../../../NX/DesignSystem';
 
-const getHistoryEntry = (): T_HistoryEntry | null => {
+export const getHistoryEntry = (): T_HistoryEntry | null => {
 	if (typeof window === 'undefined') {
 		return null;
 	}

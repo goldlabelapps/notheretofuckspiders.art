@@ -3,7 +3,7 @@
 [![npm version](https://badge.fury.io/js/virus.svg)](https://badge.fury.io/js/virus)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-v2.1.2 - A client-side Virus feature module for Next.js + React, powered by Firebase and FingerprintJS.
+v2.1.9b - A client-side Virus feature module for Next.js + React, powered by Firebase and FingerprintJS.
 
 ## Overview
 
@@ -59,53 +59,59 @@ const MyComponent = () => {
 1. `Virus.tsx` mounts and dispatches `initVirus()` when the virus slice is empty.
 2. `initVirus()` lazily loads FingerprintJS and stores `visitorId` at `redux.virus.fingerprint`.
 3. When a fingerprint exists, `checkFingerprint()` creates or updates `fingerprints/{fingerprint}`.
-4. `useSubFingerprint()` subscribes to fingerprint document updates.
-5. If fingerprint doc has no `device` block, `parseDevice()` enriches it.
-6. `newVirus()` writes a new record into `viruses`.
-7. `VirusPage` increments `viruses/{id}.score` once per page mount.
+4. `useSubFingerprint()` subscribes to fingerprint document updates via `subscribeFingerprint()`.
+5. If fingerprint doc has no `device` block, `parseDevice()` enriches it with browser/device metadata.
+6. `fetchGeo()` enriches fingerprint with geolocation data.
+7. `updateHistory()` tracks visitor page visit history.
+8. UI components render identity, device data, geo data, and history information.
 
 ## Folder Map
 
 ```text
 Virus/
-|- 2.1.2
+|- 2.1.9b
 |- config.json
 |- index.tsx
 |- README.md
 |- types.d.ts
 |- Virus.tsx
 |- actions/
-|  |- fetchGeo.tsx
+|  |- initVirus.tsx
+|  |- setVirus.tsx
+|  |- device/
+|  |  `- parseDevice.tsx
 |  |- fingerprint/
 |  |  |- checkFingerprint.tsx
-|  |  |- completeFingerprint.tsx
 |  |  |- deleteFingerprint.tsx
 |  |  |- forgetFingerprint.tsx
-|  |  |- subFingerprint.tsx
+|  |  |- onFingerprint.tsx
+|  |  |- subscribeFingerprint.tsx
 |  |  `- updateFingerprint.tsx
-|  |- initVirus.tsx
-|  |- newVirus.tsx
-|  `- setVirus.tsx
+|  |- geo/
+|  |  `- fetchGeo.tsx
+|  `- history/
+|     `- updateHistory.tsx
 |- components/
 |  |- AvaFlag.tsx
 |  |- Debug.tsx
-|  |- Device.tsx
+|  |- DeviceData.tsx
 |  |- Favourites.tsx
 |  |- Fingerprint.tsx
+|  |- GeoData.tsx
+|  |- History.tsx
 |  |- Identity.tsx
-|  |- Mapbox/
-|  |  |- index.tsx
-|  |  |- Mapbox.tsx
-|  |  |- mapboxDark.json
-|  |  |- mapboxLight.json
-|  |  `- MapPin.tsx
-|  |- NewVirus.tsx
 |  |- Score.tsx
 |  |- Share.tsx
 |  |- VirusButton.tsx
 |  |- VirusDialog.tsx
+|  |- Viruses.tsx
 |  |- VirusPage.tsx
-|  `- Viruses.tsx
+|  `- Mapbox/
+|     |- index.tsx
+|     |- Mapbox.tsx
+|     |- mapboxDark.json
+|     |- mapboxLight.json
+|     `- MapPin.tsx
 |- hooks/
 |  |- useDoc.tsx
 |  |- useFingerprint.tsx
@@ -117,7 +123,6 @@ Virus/
    |- firebase.ts
    |- geoString.tsx
    |- index.tsx
-   |- parseDevice.tsx
    |- randomIdentity.tsx
    |- randomVirus.tsx
    |- utils.ts
@@ -129,12 +134,12 @@ Virus/
 Exports from `index.tsx`:
 
 - Root: `Virus`
-- Actions: `initVirus`, `newVirus`, `setVirus`, `fetchGeo`, `checkFingerprint`, `completeFingerprint`, `deleteFingerprint`, `forgetFingerprint`, `subFingerprint`, `updateFingerprint`
+- Actions: `initVirus`, `setVirus`, `parseDevice`, `fetchGeo`, `checkFingerprint`, `deleteFingerprint`, `forgetFingerprint`, `onFingerprint`, `subscribeFingerprint`, `updateFingerprint`, `updateHistory`
 - Hooks: `useDoc`, `useFingerprint`, `useSubFingerprint`, `useVirus`
-- Utilities: `identityCharacters`, `parseDevice`, `randomIdentity`, `randomIdentityProfile`, `randomVirus`, `virusOutbreak`, `deviceModels`
+- Utilities: `randomIdentity`, `randomVirus`, `virusOutbreak`, `geoString`, `deviceModels`
 - Firebase helpers: `getFirebaseApp`, `getFirebaseAuth`, `getFirebaseFirestore`, `getFirebaseMessaging`, `getFirebaseStorage`
-- UI components: `AvaFlag`, `Debug`, `Favourites`, `Fingerprint`, `Identity`, `NewVirus`, `Score`, `Share`, `VirusButton`, `VirusDialog`, `VirusPage`, `Viruses`
-- Types: `T_IdentityCharacter`, `T_RandomIdentity`
+- UI components: `AvaFlag`, `Debug`, `DeviceData`, `Favourites`, `Fingerprint`, `GeoData`, `History`, `Identity`, `Score`, `Share`, `VirusButton`, `VirusDialog`, `VirusPage`, `Viruses`, `Mapbox`
+- Types: `T_Fingerprint`, `T_DeviceInfo`, `T_Geo`, `T_Email`
 
 ## State + Data
 

@@ -12,4 +12,4 @@ A young bull and an old bull were standing on a hill overlooking a field full of
 
 The young bull said, 'Let’s run down there and fuck one of those cows.'
 
-[CleverText text="'No,' said the old bull. 'Let’s walk down and fuck them all.'"]
+[CleverText text="'No,' said the old bull. 'Let’s walk down and fuck them all.'"]  

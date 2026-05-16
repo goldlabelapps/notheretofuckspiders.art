@@ -5,6 +5,7 @@ title: Coder
 description: iCode
 tags: code, coding
 icon: virus
+image: https://live.staticflickr.com/65535/54925135563_df675914c2_b.jpg
 ---
 
 ```javascript
@@ -17,4 +18,4 @@ icon: virus
   };
 ```
 
-[PageLink url="/fables/tommy-one-leg" icon="right" iconAlign="right" description="Didn't pass the genetic profiling cos of his having only one leg"]  
+[PageLink url="/fables/tommy-one-leg" icon="right" iconAlign="right" title="Little Tommy One Leg" description="Didn't pass the genetic profiling"]  

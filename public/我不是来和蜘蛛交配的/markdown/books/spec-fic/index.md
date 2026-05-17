@@ -10,9 +10,9 @@ image: https://live.staticflickr.com/65535/55252648816_5de7229d82_b.jpg
 
 # Cute by Bob Palmer
 
-Sep 2024 [goodreads](https://www.goodreads.com/book/show/218590554-cute), reviewd May 2026
+> Published Sep 2024. Reviewed on [goodreads](https://www.goodreads.com/review/show/8563302638?book_show_action=false) May 2026
 
-Near future? Parallel present more like. Cute is fun and funny read. It's just the kind of high concept speculative fiction which gets my attention. The pace, storytellying, characters and entertainment the author delivers better than a movie
+Near future? Parallel present, more like. Cute is a fun, funny read. It’s exactly the kind of high-concept speculative fiction that gets my attention. The pace, storytelling, characters, and entertainment the author delivers are better than a movie.
 
 [PageLink iconAlign="right" title="Douglas Coupland" description="Canadian novelist and artist" url="/books/spec-fic/douglas-coupland" icon="right"]  
 

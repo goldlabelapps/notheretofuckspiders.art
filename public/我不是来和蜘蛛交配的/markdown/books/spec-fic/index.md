@@ -2,11 +2,20 @@
 order: 190
 title: Spec-Fic
 description: Speculative Fiction
-slug: /reading/spec-fic
+slug: /books/spec-fic
 icon: books
 tags: Science Fiction, Fiction, Classics, Dystopia, fascistic, fascism, spec-fic
+image: https://live.staticflickr.com/65535/55252648816_5de7229d82_b.jpg
 ---
 
-Explores fictional scenarios, worlds, technologies & societies to examine real questions. Sometimes with humor, sometime with satire. 
+# Cute by Bob Palmer
 
-Requires the reader to suspend disbelief, engage critically, and consider how imagined possibilities challenge their own reality
+Sep 2024 [goodreads](https://www.goodreads.com/book/show/218590554-cute), reviewd May 2026
+
+Near future? Parallel present more like. Cute is fun and funny read. It's just the kind of high concept speculative fiction which gets my attention. The pace, storytellying, characters and entertainment the author delivers better than a movie
+
+[PageLink iconAlign="right" title="Douglas Coupland" description="Canadian novelist and artist" url="/books/spec-fic/douglas-coupland" icon="right"]  
+
+[PageLink iconAlign="right" title="Tom Robbins" description="All round rock star" url="/books/spec-fic/tom-robbins" icon="right"]  
+
+[PageLink iconAlign="right" title="R.F. Kuang" description="Kuang's Babel was excluded from consideration for the 2023 Hugo Award along with Chinese Canadian author Xiran Jay Zhao's Iron Widow." url="/books/spec-fic/r-f-kuang" icon="right"]  

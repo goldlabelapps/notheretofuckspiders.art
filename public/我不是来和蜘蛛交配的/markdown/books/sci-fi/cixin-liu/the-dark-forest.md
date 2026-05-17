@@ -2,7 +2,7 @@
 order: 170
 title: The Dark Forest
 description: The Remembrance of Earth’s Past, Book 2
-slug: /reading/sci-fi/cixin-liu/the-dark-forest
+slug: /books/sci-fi/cixin-liu/the-dark-forest
 icon: books
 image: https://live.staticflickr.com/65535/54941521056_c3dbdb07cc_b.jpg
 tags: Cixin Liu, Speculative fiction, Chinese, hard sci-fi, parable, orwell

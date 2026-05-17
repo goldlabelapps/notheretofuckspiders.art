@@ -2,7 +2,7 @@
 order: 111
 title: Cixin Liu
 description: Author of The Three Body Problem
-slug: /reading/sci-fi/cixin-liu
+slug: /books/sci-fi/cixin-liu
 icon: books
 image: https://live.staticflickr.com/65535/54933893533_4b3dbc97d6_b.jpg
 tags: Cixin Liu, Speculative fiction, Chinese, hard sci-fi

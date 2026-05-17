@@ -8,7 +8,6 @@ icon: virus
 image: /我不是来和蜘蛛交配的/jpg/default.jpg
 ---
 
-[CleverText text="As far back as I can remember I knew that if I played by the rules I'd lose."]  
-
 [PageLink url="/wei-zang" icon="right" iconAlign="right" description="This is my story. Some of it is true"]  
 
+[CleverText text="As far back as I can remember I knew that if I played by the rules I'd lose."]  

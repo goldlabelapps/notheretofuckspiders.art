@@ -2,7 +2,7 @@
 order: 150
 title: Three Body Problem
 description: The Remembrance of Earth’s Past, Book 1
-slug: /reading/sci-fi/cixin-liu/three-body-problem
+slug: /books/sci-fi/cixin-liu/three-body-problem
 icon: books
 image: https://live.staticflickr.com/65535/54941521056_c3dbdb07cc_b.jpg
 tags: Cixin Liu, Speculative fiction, Chinese, hard sci-fi, parable, orwell

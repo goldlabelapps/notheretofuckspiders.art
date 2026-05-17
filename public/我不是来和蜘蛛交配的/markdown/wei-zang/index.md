@@ -8,8 +8,6 @@ icon: virus
 image: https://live.staticflickr.com/65535/54338019655_94e8e39903_b.jpg
 ---
 
-
-
 I am Zang Wei. At least, that would be the Western way of saying it. In China we would say it the other way around. Wei Zang. Cos family comes first.
 
 [PageLink url="/wei-zang/backstory" icon="right" iconAlign="right" description="Born in a fishing village called Shenzhen in 1975"]  

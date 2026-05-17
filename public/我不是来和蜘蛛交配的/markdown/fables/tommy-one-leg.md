@@ -7,6 +7,8 @@ tags: wei zang, author, tommy, fables, 独腿小汤米,
 icon: virus
 image: https://live.staticflickr.com/65535/53519132401_549d6c2773_b.jpg
 ---
+[PageLink iconAlign="right" title="Speculative Fiction" description="Requires suspension of disbelief" url="/books/spec-fic" icon="right"]  
+
 #### Chapter 1
 ### Escape from Shitlabs
 Tommy one leg wanted to work at Listingslab all his life. Didn't pass the genetic profiling cos of his having only one leg so he was sent to ShitLab instead but secretly studied listings after dark with a torch under the blankets.

@@ -10,9 +10,9 @@ image: https://live.staticflickr.com/65535/54341281725_d4f54af0c5_b.jpg
 
 I was born in a fishing village called Shenzhen in 1975. Dusty roads, rice paddies. Buying fish that were still gasping. Then, one day, the roads weren't dusty anymore. They were concrete. 
 
-Paddies vanished under scaffolding. Markets made way for malls. Foreigners started showing up in pressed shirts, talking about opportunities, and overnight, factories swallowed the horizon.  
+[PageLink url="/wei-zang/pronouns" icon="right" iconAlign="right" title="I identify as." description="My pronouns are."]  
 
-[PageLink url="/wei-zang/pronouns" icon="right" iconAlign="right" description="My pronouns are"]  
+Paddies vanished under scaffolding. Markets made way for malls. Foreigners started showing up in pressed shirts, talking about opportunities, and overnight, factories swallowed the horizon.  
 
 By the time I was a teenager, the city was  was mutating. I'd go to sleep and wake up to find a new skyline. The pace was absurd. 
 

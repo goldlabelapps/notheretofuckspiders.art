@@ -2,7 +2,7 @@
 order: 40
 title: Katabasis
 description: by R. F. Kuang
-slug: /reading/spec-fic/r-f-kuang/katabasis
+slug: /books/spec-fic/r-f-kuang/katabasis
 icon: books
 tags: Speculative fiction, alternative history, fantasy
 ---

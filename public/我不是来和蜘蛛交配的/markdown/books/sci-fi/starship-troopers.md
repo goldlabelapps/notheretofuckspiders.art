@@ -2,7 +2,7 @@
 order: 600
 title: Starship Troopers
 description: by Robert A. Heinlein, 1959
-slug: /reading/sci-fi/starship-troopers
+slug: /books/sci-fi/starship-troopers
 icon: books
 image: https://live.staticflickr.com/65535/54961864707_9973ab17f7_b.jpg
 tags: Science Fiction, Fiction, Classics, Dystopia, fascistic, fascism

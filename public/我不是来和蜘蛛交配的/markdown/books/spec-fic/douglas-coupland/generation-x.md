@@ -2,7 +2,7 @@
 order: 100
 title: Generation X
 description: by Douglas Coupland
-slug: /reading/spec-fic/douglas-coupland/generation-x
+slug: /books/spec-fic/douglas-coupland/generation-x
 icon: books
 image: https://live.staticflickr.com/65535/54736833001_ef9c5f4b57_c.jpg
 ---

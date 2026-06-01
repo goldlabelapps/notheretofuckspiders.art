@@ -19,16 +19,16 @@
     "features": {
         "designSystem": {
             "themeSwitching": true,
-            "defaultTheme": "dark",
+            "defaultTheme": "light",
             "themes": {
                 "light": {
                     "mode": "light",
-                    "primary": "#333",
-                    "secondary": "#222",
-                    "background": "#fefefe",
-                    "paper": "#fff",
-                    "text": "#222",
-                    "border": "#2EAF4A"
+                    "primary": "#2c2c2a",
+                    "secondary": "#364450",
+                    "background": "#f7f7f4",
+                    "paper": "#FFF",
+                    "border": "#d4d4d4",
+                    "text": "#2c2c2a"
                 },
                 "dark": {
                     "mode": "dark",

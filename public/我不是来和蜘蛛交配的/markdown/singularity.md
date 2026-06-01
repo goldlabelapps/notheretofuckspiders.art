@@ -8,6 +8,8 @@ icon: ai
 image: https://live.staticflickr.com/65535/55228044632_fbefe45525_b.jpg
 ---
 
+[PageLink url="/books/spec-fic" icon="right" iconAlign="right" description="Speculative Fiction"]  
+
 It's keeping tinfoil hat wearing folk awake at night. If Singuarity is the point at which the machines take over, it's the bad thing. It's Skynet, it's Asimov, it's Arthur C Clarke, it's the end of the world
 
 We've recently invented Large Language Models (LLM) which make things like ChatGPT work. Give it a text prompt and out comes human-like language. No sensible person has a clue how it really does that, but it must do because it’s doing it right in front of our eyes. That is wizardry
@@ -17,8 +19,6 @@ Now change the word _Language_ to the words _Human Behavior_. Apply the above wi
 Some experts believe that deploying AI like that to a drone with a gun might be a shit idea
 
 ### Here comes the science bit
-
-![Jennifer Aniston, in different L'Oreal Elvive adverts](/webp/superhero/smiling.webp)
 
 > If challenged to explain this silly idea using actual brain knowledge, this is how AI works
 

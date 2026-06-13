@@ -8,10 +8,9 @@ icon: virus
 image: /我不是来和蜘蛛交配的/jpg/default.jpg
 ---
 
-[PageLink url="/wei-zang" icon="right" iconAlign="right" title="As far back as I can remember I knew that if I played by the rules I'd lose." description="This is my story. Some of it is true"]  
+[PageLink url="/characters/wei-zang" icon="right" iconAlign="right" title="As far back as I can remember I knew that if I played by the rules I'd lose." description="This is my story. Some of it is true"]  
 
 
-The technology of Time Bubbles was winvented during the 2026 world cup. 
+[PageLink url="/zeitgeist" icon="right" iconAlign="right" title="The spirit of its age"]  
 
-
-[CleverText text=""]  
+[CleverText text="The technology of Time Bubbles was winvented during the 2026 world cup"]  

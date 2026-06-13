@@ -2,8 +2,8 @@
 order: 1270
 title: Puppyfing
 description: That puppy fing’s gonna get fucked
-icon: dog
-slug: /dog/puppyfing
+icon: dog, characters
+slug: /characters/dog/puppyfing
 image: https://live.staticflickr.com/65535/55162273107_dd10cbee81_c.jpg
 ---
 

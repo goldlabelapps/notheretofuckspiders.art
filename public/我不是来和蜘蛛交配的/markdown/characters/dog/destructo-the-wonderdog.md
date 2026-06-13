@@ -3,7 +3,7 @@ order: 1275
 title: Destructo
 description: The Wonderdog
 icon: dog
-slug: /dog/destructo-the-wonderdog
+slug: /characters/dog/destructo-the-wonderdog
 image: https://live.staticflickr.com/65535/54691336480_c273fe647c_o.jpg
 ---
 

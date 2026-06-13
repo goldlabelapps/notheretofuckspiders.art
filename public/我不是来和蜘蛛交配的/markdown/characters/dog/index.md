@@ -1,9 +1,9 @@
 ---
 order: 999
-slug: /dog
+slug: /characters/dog
 title: Dog
 description: I am dog
-tags: dog
+tags: dog, characters
 icon: dog
 image: https://live.staticflickr.com/65535/54353713944_5571897d59_b.jpg
 ---

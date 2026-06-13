@@ -1,9 +1,9 @@
 ---
 order: 322
-slug: /wei-zang/coder
+slug: /characters/wei-zang/coder
 title: Coder
 description: iCode
-tags: code, coding
+tags: code, coding, characters
 icon: virus
 image: https://live.staticflickr.com/65535/54925135563_df675914c2_b.jpg
 ---

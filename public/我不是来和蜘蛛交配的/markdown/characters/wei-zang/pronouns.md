@@ -1,9 +1,9 @@
 ---
 order: 305
-slug: /wei-zang/pronouns
+slug: /characters/wei-zang/pronouns
 title: Pronouns
 description: My pronouns are
-tags: wei zang, author, Pronouns
+tags: wei zang, author, Pronouns, characters
 icon: fish
 image: https://live.staticflickr.com/65535/54105421612_dd80f9fdaa_b.jpg
 ---

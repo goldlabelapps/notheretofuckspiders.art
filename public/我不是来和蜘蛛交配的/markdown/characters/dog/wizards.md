@@ -1,9 +1,9 @@
 ---
 order: 1201
-slug: /dog/wizards
+slug: /characters/dog/wizards
 title: Wizards
 description: Any sufficiently advanced technology is indistinguishable from magic
-tags: dog
+tags: dog, characters
 icon: dog
 image: https://live.staticflickr.com/65535/54353713944_5571897d59_b.jpg
 ---

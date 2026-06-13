@@ -1,9 +1,9 @@
 ---
 order: 1299
-slug: /dog/wigglepud-lady
+slug: /characters/dog/wigglepud-lady
 title: Wigglepud Lady
 description: She didn’t just lick the wigglepud. She lifted it up!
-tags: dog
+tags: dog, characters
 icon: dog
 image: https://live.staticflickr.com/65535/54353713944_5571897d59_b.jpg
 ---

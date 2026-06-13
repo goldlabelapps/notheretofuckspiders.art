@@ -1,9 +1,9 @@
 ---
-order: 12
+order: 1235
 title: Singularity
+slug: /zeitgeist/singularity
 description: Put that kind of AI into a drone with a gun... then yeh, you've gonna have a big fuckin' problem. (Bloke down the pub said, yesterday)
-slug: /singularity
-keywords: robots, ceros, guns, chatgpt, LLM, AI, Singularity, Skynet
+keywords: robots, ceros, guns, chatgpt, LLM, AI, Singularity, Skynet, zeitgeist
 icon: ai
 image: https://live.staticflickr.com/65535/55228044632_fbefe45525_b.jpg
 ---

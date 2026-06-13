@@ -1,9 +1,9 @@
 ---
 order: 550
-slug: /bez/cat
+slug: /characters/bez/cat
 title: Cat
 description: That HR chick who leaves her notepad lying around
-tags: bez
+tags: bez, characters
 icon: dog
 image: https://live.staticflickr.com/65535/53518242682_21988edbc8_b.jpg
 ---

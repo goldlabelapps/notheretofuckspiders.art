@@ -1,9 +1,9 @@
 ---
 order: 302
-slug: /wei-zang/backstory
+slug: /characters/wei-zang/backstory
 title: Back Story
 description: By the 90’s Shenzhen was a neon hallucination
-tags: backstory,
+tags: backstory, characters
 icon: writing
 image: https://live.staticflickr.com/65535/54341281725_d4f54af0c5_b.jpg
 ---

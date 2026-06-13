@@ -1,9 +1,9 @@
 ---
 order: 300
-slug: /wei-zang
+slug: /characters/wei-zang
 title: Wei Zang
 description: This is my story. Some of it is true
-tags: wei zang, auther
+tags: wei zang, auther, characters
 icon: virus
 image: https://live.staticflickr.com/65535/54338019655_94e8e39903_b.jpg
 ---

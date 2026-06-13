@@ -2,13 +2,13 @@
 order: 1235
 title: Singularity
 slug: /zeitgeist/singularity
-description: Put that kind of AI into a drone with a gun... then yeh, you've gonna have a big fuckin' problem. (Bloke down the pub said, yesterday)
+description: Put that kind of AI into a drone with a gun... 
 keywords: robots, ceros, guns, chatgpt, LLM, AI, Singularity, Skynet, zeitgeist
 icon: ai
 image: https://live.staticflickr.com/65535/55228044632_fbefe45525_b.jpg
 ---
 
-[PageLink url="/books/spec-fic" icon="right" iconAlign="right" description="Speculative Fiction"]  
+> "Then yeh, you've got a big fucken problem." _Aussie bloke down the pub said, yesterday_
 
 It's keeping tinfoil hat wearing folk awake at night. If Singuarity is the point at which the machines take over, it's the bad thing. It's Skynet, it's Asimov, it's Arthur C Clarke, it's the end of the world
 
@@ -57,3 +57,5 @@ Ongoing research in neural network design and learning algorithms can enhance ho
 ### Drones
 
 For a few thousand quid you could probably put together a drone with a 3D printed gun and a Raspberry Pi to run the AI needed to pilot it autonomously. It'll be connected to the main AI Hive mind of course. It will use the mobile networks for that
+
+[PageLink url="/books/spec-fic" icon="right" iconAlign="right" description="Speculative Fiction"]  

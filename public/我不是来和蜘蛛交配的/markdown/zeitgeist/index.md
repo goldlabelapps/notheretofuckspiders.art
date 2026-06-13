@@ -8,6 +8,6 @@ icon: rocket
 image: https://live.staticflickr.com/65535/54340497432_b8c92a3215_b.jpg
 ---
 
-[PageLink url="/zeitgeist/time-bubbles" icon="right" iconAlign="right" title="Time Bubbles"]  
+[PageLink url="/zeitgeist/time-bubbles" icon="right" iconAlign="right" title="Time Bubbles" description="When enough monkeys create enough prompts"]  
 
-[PageLink url="/zeitgeist/singularity" icon="right" iconAlign="right" title="Singularity"]  
+[PageLink url="/zeitgeist/singularity" title="Singularity" description="Aussie bloke down the pub said, yesterday" icon="right" iconAlign="right" ]  

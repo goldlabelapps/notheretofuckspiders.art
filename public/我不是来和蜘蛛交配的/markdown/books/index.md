@@ -1,5 +1,5 @@
 ---
-order: 450
+order: 50
 slug: /books
 title: Books
 description: All these books get 5 stars

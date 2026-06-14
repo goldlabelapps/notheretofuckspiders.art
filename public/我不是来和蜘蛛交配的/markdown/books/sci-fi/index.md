@@ -1,6 +1,6 @@
 ---
 order: 500
-title: Si Fi
+title: Sci Fi
 description: Science Fiction
 slug: /books/sci-fi
 icon: books

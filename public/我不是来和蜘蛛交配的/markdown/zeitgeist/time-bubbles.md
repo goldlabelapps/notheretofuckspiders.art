@@ -14,7 +14,7 @@ People were sick of matches being at weird times and started prompting ChatGPT. 
 
 It finally understood what the humans really wanted; bullet proof delusion. The ability to exist entirely in their own reality regardless of external stimuli. 
 
-They had a look into it. Turns out human perception of time and place is entirely handled by the amygdala. Not only that, but a very simple flood and drain approach using a cheaply synthesised hormone and some very predictable electrical signals can fool it into believing you are in any time or place. In fact you can make it believe pretty much anything, but that came later.
+AI had a look into it. Turns out human perception of time and place is entirely handled by the amygdala. Not only that, but a very simple flood and drain approach using a cheaply synthesised hormone and some very predictable electrical signals can fool it into believing you are in any time or place. In fact you can make it believe pretty much anything, but that came later.
 
 Time Bubbles let us watch live matches whenever. It only needed a very small Bio AI Device implant. Very cheap. Very easy. Non intrusive. Once people discovered how much fun it was, any remaining squeamishness about that kind of thing disappeared. 
 

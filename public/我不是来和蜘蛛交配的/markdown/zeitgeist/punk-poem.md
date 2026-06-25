@@ -19,3 +19,5 @@ Rip up their flowers and steal their trousers
 Kill the old  
 Take their houses  
 Strip them of their big girls’ blouses
+
+> Barry Kent, 1993

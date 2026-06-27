@@ -14,6 +14,18 @@ export default function HiddenMessage({
 }: {
   slug?: string;
 }) {
+  return (
+    <React.Suspense fallback={null}>
+      <HiddenMessageInner slug={slug} />
+    </React.Suspense>
+  );
+}
+
+function HiddenMessageInner({
+  slug,
+}: {
+  slug?: string;
+}) {
   const [hiddenMessages, setHiddenMessages] = React.useState<HiddenMessageItem[]>([]);
   const searchParams = useSearchParams();
 

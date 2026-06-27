@@ -10,8 +10,16 @@ const configPath = path.join(process.cwd(), 'public', tenant, 'config.json');
 const configRaw = fs.readFileSync(configPath, 'utf-8');
 const config = JSON.parse(configRaw);
 const { title, description, favicon } = config;
+const metadataBase = (() => {
+  try {
+    return new URL(config.url || 'http://localhost:3000');
+  } catch {
+    return new URL('http://localhost:3000');
+  }
+})();
 
 export const metadata: Metadata = {
+  metadataBase,
   title: `${title}, ${description}`,
   description,
   icons: {

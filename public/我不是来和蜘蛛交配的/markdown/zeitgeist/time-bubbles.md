@@ -3,7 +3,7 @@ order: 1236
 title: Time Bubbles
 slug: /zeitgeist/time-bubbles
 description: The infinite monkey effect
-keywords: time, sci-fi, 
+keywortagsds: time, sci-fi, 
 icon: ai
 image: https://live.staticflickr.com/65535/55332182863_aa66e24def_b.jpg
 ---

@@ -41,7 +41,7 @@ The following shortcodes are available out of the box:
 
 | Shortcode         | Description                                      | Example Usage                                      |
 |-------------------|--------------------------------------------------|----------------------------------------------------|
-| `BuyNow`          | Renders a "Buy Now" card with a link             | `[BuyNow url="https://example.com" label="Buy Now!"]` |
+| `HiddenMessage`   | Renders a hidden message placeholder from slug     | `[HiddenMessage]` |
 | `GithubLink`      | Button linking to a GitHub repo or file          | `[GithubLink url="https://github.com/" label="View Repo"]` |
 | `FeedbackBtn`     | Button to trigger feedback UI                    | `[FeedbackBtn url="/feedback" label="Send Feedback"]` |
 | `CleverText`      | Renders clever/animated text                     | `[CleverText text="Hello, world!"]`                |

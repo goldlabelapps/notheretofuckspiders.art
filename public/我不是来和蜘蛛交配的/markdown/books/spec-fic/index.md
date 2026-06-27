@@ -14,6 +14,9 @@ image: https://live.staticflickr.com/65535/55252648816_5de7229d82_b.jpg
 
 Near future? Parallel present, more like. Cute is a fun, funny read. It’s exactly the kind of high-concept speculative fiction that gets my attention. The pace, storytelling, characters, and entertainment the author delivers are better than a movie.
 
+
+## Authors
+
 [PageLink iconAlign="right" title="Douglas Coupland" description="Canadian novelist and artist" url="/books/spec-fic/douglas-coupland" icon="right"]  
 
 [PageLink iconAlign="right" title="Tom Robbins" description="All round rock star" url="/books/spec-fic/tom-robbins" icon="right"]  

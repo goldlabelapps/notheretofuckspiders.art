@@ -1,8 +1,8 @@
 {
   "short_name": "Nhtfs",
   "name": "Nhtfs",
-  "theme_color": "#2C2C2A",
-  "background_color": "#2C2C2A",
+  "theme_color": "#171622",
+  "background_color": "#171622",
   "display": "fullscreen",
   "orientation": "any",
   "scope": "/",

@@ -8,9 +8,11 @@ icon: ai
 image: https://live.staticflickr.com/65535/55332182863_aa66e24def_b.jpg
 ---
 
+[HiddenMessage slug="ossian-whiley"]
+
 > [CleverText text="Time Bubble technology was invented during the 2026 World Cup"]  
 
-People were sick of matches being at weird times and started prompting ChatGPT. Due to the infinite monkey effect AI actually came up with something useful.
+People were sick of matches being played at weird times and started prompting ChatGPT. Due to the infinite monkey effect AI actually came up with something useful.
 
 It finally understood what the humans really wanted; bullet proof delusion. The ability to exist entirely in their own reality regardless of external stimuli. 
 
@@ -21,3 +23,4 @@ Time Bubbles let us watch live matches whenever. It only needed a very small Bio
 One unforeseen effect was the collapse of the recreational drugs market. Even the strongest smack was like a fart in a stiff breeze compared to a BAID induced delusional state. The dealers didn’t know what to do with all the suddenly worthless powder. In London someone chucked a few tons in the water supply to see what would happen. No one noticed. 
 
 They were all off their tits anyway.
+

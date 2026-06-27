@@ -1,5 +1,5 @@
 
-import BuyNow from "./components/BuyNow";
+import HiddenMessage from "./components/HiddenMessage";
 import GithubLink from "./components/GithubLink";
 import FeedbackBtn from "./components/FeedbackBtn";
 import CleverTextShortcode from "./components/CleverTextShortcode";
@@ -9,7 +9,7 @@ import PageLink from "./components/PageLink";
 
 export {
     RenderMarkdown,
-    BuyNow,
+    HiddenMessage,
     FeedbackBtn,
     CleverTextShortcode,
     GithubLink,

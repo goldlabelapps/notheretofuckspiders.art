@@ -23,10 +23,10 @@
             "themes": {
                 "dark": {
                     "mode": "dark",
-                    "primary": "#B6B2FF",
-                    "secondary": "#A9A5FF",
-                    "background": "#110A54",
-                    "paper": "#2C248D",
+                    "primary": "#E6E4FF",
+                    "secondary": "#E0DEFF",
+                    "background": "#171622",
+                    "paper": "#222132",
                     "text": "#ECEBFF"
                 },
                 "light": {

@@ -8,8 +8,8 @@ icon: virus
 image: https://live.staticflickr.com/65535/55332182863_aa66e24def_b.jpg
 ---
 
-[PageLink url="/zeitgeist/punk-poem" icon="blokey" title="Punk Poem" description="Kill the old"]  
-
 [PageLink url="/zeitgeist/time-bubbles" icon="ai" title="Time Bubbles" description="The infinite monkey effect"]  
+
+[PageLink url="/zeitgeist/punk-poem" icon="blokey" title="Punk Poem" description="Kill the old"]  
 
 [PageLink url="/characters/wei-zang" icon="virus" title="As far back as I can remember I knew that if I played by the rules I'd lose." description="This is my story. Some of it is true"]  

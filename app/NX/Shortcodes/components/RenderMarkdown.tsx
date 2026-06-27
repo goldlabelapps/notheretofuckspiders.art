@@ -9,7 +9,7 @@ import {
   alpha,
 } from '@mui/material';
 import {
-  BuyNow,
+  HiddenMessage,
   FeedbackBtn,
   CleverTextShortcode,
   GithubLink,
@@ -20,11 +20,13 @@ import {
 export type I_RenderMarkdown = {
   children: React.ReactNode;
   config?: any;
+  slug?: string;
 };
 
 export default function RenderMarkdown({
   children = '',
   config,
+  slug,
 }: I_RenderMarkdown) {
   const theme = useTheme();
   const scrollRef = React.useRef<HTMLDivElement>(null);
@@ -38,6 +40,7 @@ export default function RenderMarkdown({
     const parseShortcode = (
       regex: RegExp,
       Component: React.ElementType,
+      extraProps: Record<string, any> = {},
     ): React.ReactNode | null => {
       const match = text.match(regex);
       if (!match) return null;
@@ -56,12 +59,16 @@ export default function RenderMarkdown({
         props[attrMatch[1]] = val;
       }
 
-      return <Component {...props} config={config} />;
+      return <Component {...props} {...extraProps} config={config} />;
     };
 
-    // BuyNow
-    const buyNow = parseShortcode(/\[BuyNow\s+(.*?)\]/, BuyNow);
-    if (buyNow) return buyNow;
+    // HiddenMessage
+    const hiddenMessage = parseShortcode(
+      /\[HiddenMessage\s*(.*?)\]/,
+      HiddenMessage,
+      { slug, placeholder: slug },
+    );
+    if (hiddenMessage) return hiddenMessage;
 
     // FeedbackBtn
     const feedbackBtn = parseShortcode(/\[FeedbackBtn\s+(.*?)\]/, FeedbackBtn);

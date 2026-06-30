@@ -1,12 +1,15 @@
 <div>
-    <h1><a href="https://notheretofuckspiders.art/" target="_blank" rel="noreferrer">
-	<img
-		src="public/我不是来和蜘蛛交配的/png/favicon.png"
-		alt="Not here to fuck spiders"
-		width="40"
-		height="40"
-	/>
-</a> Not here to fuck spiders</h1>
+    <h1 style="display: flex; align-items: center; gap: 8px;">
+        <a href="https://notheretofuckspiders.art/" target="_blank" rel="noreferrer" style="display: inline-flex; align-items: center;">
+        <img
+            src="public/我不是来和蜘蛛交配的/png/favicon.png"
+            alt="Not here to fuck spiders"
+            width="25"
+            height="25"
+        />
+        </a>
+        <span>Not here to fuck spiders</span>
+    </h1>
 </div>
 
 ![Goldlabel NX°](public/shared/jpg/default.jpg)  

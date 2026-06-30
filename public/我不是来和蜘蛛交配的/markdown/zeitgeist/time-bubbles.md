@@ -2,10 +2,10 @@
 order: 1236
 title: Time Bubbles
 slug: /zeitgeist/time-bubbles
-description: The infinite monkey effect
+description: The 2026 Fifa World Cup
 keywortagsds: time, sci-fi, 
 icon: ai
-image: https://live.staticflickr.com/65535/55332182863_aa66e24def_b.jpg
+image: https://live.staticflickr.com/65535/55365828378_090ef631a8_b.jpg
 ---
 
 [HiddenMessage slug="ossian-whiley"]

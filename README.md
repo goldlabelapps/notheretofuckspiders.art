@@ -4,8 +4,8 @@
         <img
             src="public/我不是来和蜘蛛交配的/png/favicon.png"
             alt="Not here to fuck spiders"
-            width="30"
-            height="30"
+            width="25"
+            height="25"
         />
         </a>
         <span>Not here to fuck spiders</span>

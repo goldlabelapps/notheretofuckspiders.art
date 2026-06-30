@@ -10,6 +10,8 @@ const configPath = path.join(process.cwd(), 'public', tenant, 'config.json');
 const configRaw = fs.readFileSync(configPath, 'utf-8');
 const config = JSON.parse(configRaw);
 const { title, description, favicon } = config;
+const encodedFavicon = typeof favicon === 'string' ? encodeURI(favicon) : favicon;
+const encodedManifestHref = `/${encodeURIComponent(tenant)}/manifest.json`;
 const metadataBase = (() => {
   try {
     return new URL(config.url || 'http://localhost:3000');
@@ -23,9 +25,9 @@ export const metadata: Metadata = {
   title: `${title}, ${description}`,
   description,
   icons: {
-    icon: favicon,
-    shortcut: favicon,
-    apple: favicon,
+    icon: encodedFavicon,
+    shortcut: encodedFavicon,
+    apple: encodedFavicon,
   },
 };
 
@@ -40,8 +42,8 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href={favicon} />
-        <link rel="manifest" href={`/${tenant}/manifest.json`} />
+        <link rel="icon" href={encodedFavicon} />
+        <link rel="manifest" href={encodedManifestHref} />
         <meta name="application-name" content={title} />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />

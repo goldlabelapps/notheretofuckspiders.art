@@ -1,7 +1,7 @@
 {
     "tenant": "我不是来和蜘蛛交配的",
-    "siteName": "Nhtfs",
-    "description": "by Wei Zang",
+    "siteName": "Nhtfs°",
+    "description": "Not here to fuck spiders",
     "url": "https://notheretofuckspiders.art",
     "owner": {
         "name": "Wei Zang",
@@ -13,13 +13,13 @@
         "dark": "/我不是来和蜘蛛交配的/svg/avatarDark.svg"
     },
     "images": {
-        "light": "https://live.staticflickr.com/65535/54338019655_94e8e39903_b.jpg",
-        "dark": "https://live.staticflickr.com/65535/54338019655_94e8e39903_b.jpg"
+        "light": "https://live.staticflickr.com/65535/55365828378_090ef631a8_b.jpg",
+        "dark": "https://live.staticflickr.com/65535/55365828378_090ef631a8_b.jpg"
     },
     "features": {
         "designSystem": {
             "themeSwitching": true,
-            "defaultTheme": "dark",
+            "defaultTheme": "light",
             "themes": {
                 "dark": {
                     "mode": "dark",
@@ -31,11 +31,11 @@
                 },
                 "light": {
                     "mode": "light",
-                    "primary": "#110A54",
-                    "secondary": "#241A82",
-                    "background": "#E8E7FF",
-                    "paper": "#EEEDFF",
-                    "text": "#1A1A1A"
+                    "primary": "#3F3F3F",
+                    "secondary": "#0E0E0E",
+                    "background": "#ECECEC",
+                    "paper": "#E1E1E1",
+                    "text": "#0E0E0E"
                 }
             }
         }

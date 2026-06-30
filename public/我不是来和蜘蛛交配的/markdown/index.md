@@ -5,8 +5,10 @@ title: Nhtfs
 description: Not here to fuck spiders
 tags: wei zang, pornvirusmp3, virus, 我不是来和蜘蛛交配的,
 icon: virus
-image: https://live.staticflickr.com/65535/55332182863_aa66e24def_b.jpg
+image: https://live.staticflickr.com/65535/55365828378_090ef631a8_b.jpg
 ---
+
+[HiddenMessage slug="colz"]
 
 [PageLink url="/zeitgeist/time-bubbles" icon="ai" title="Time Bubbles" description="The infinite monkey effect"]  
 

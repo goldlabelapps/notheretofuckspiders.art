@@ -2,6 +2,7 @@
 'use client';
 import React from 'react';
 import { useSearchParams } from 'next/navigation';
+import { Alert } from '@mui/material';
 
 type HiddenMessageItem = {
   slug: string;
@@ -28,6 +29,7 @@ function HiddenMessageInner({
 }) {
   const [hiddenMessages, setHiddenMessages] = React.useState<HiddenMessageItem[]>([]);
   const searchParams = useSearchParams();
+  const querySlug = searchParams.get('slug');
 
   React.useEffect(() => {
     let isMounted = true;
@@ -54,8 +56,15 @@ function HiddenMessageInner({
     };
   }, []);
 
-  const querySlug = (searchParams.get('slug') || slug || '').replace(/^\/+|\/+$/g, '');
-  const slugToken = querySlug.split('/').pop() || '';
+  if (querySlug !== null) {
+    return (
+      <Alert severity="error">
+        Hey you! <strong>{querySlug}</strong> is not a valid slug. You looking for easter eggs?
+      </Alert>
+    );
+  }
+
+  const slugToken = (slug || '').replace(/^\/+|\/+$/g, '').split('/').pop() || '';
   const matchedMessage = hiddenMessages.find((entry) => entry.slug === slugToken);
 
   if (!matchedMessage) return null;

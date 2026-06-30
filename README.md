@@ -1,7 +1,5 @@
-## [notheretofuckspiders.art](https://notheretofuckspiders.art/)
+## [Not here to fuck spiders](https://notheretofuckspiders.art/)
 
-![NextJS](public/shared/png/python.png)  
+![Goldlabel NX°](public/shared/jpg/default.jpg)  
 
-> Wei Zang's son
-
-_[powered by °NX](https://goldlabel.pro/nx/nx-admin)_ 
+_[powered by NX°](https://goldlabel.pro/nx)_ 

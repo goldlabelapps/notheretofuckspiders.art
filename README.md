@@ -3,8 +3,8 @@
 	<img
 		src="public/我不是来和蜘蛛交配的/png/favicon.png"
 		alt="Not here to fuck spiders"
-		width="32"
-		height="32"
+		width="40"
+		height="40"
 	/>
 </a> Not here to fuck spiders</h1>
 </div>

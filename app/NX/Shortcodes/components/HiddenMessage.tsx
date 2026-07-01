@@ -36,7 +36,7 @@ function HiddenMessageInner({
 
     const loadHiddenMessages = async () => {
       try {
-        const response = await fetch('/我不是来和蜘蛛交配的/json/hiddenMessages.json');
+        const response = await fetch('/nhtfs/json/hiddenMessages.json');
         if (!response.ok) return;
         const data = (await response.json()) as HiddenMessageItem[];
         if (isMounted) {

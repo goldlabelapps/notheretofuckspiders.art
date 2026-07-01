@@ -1,5 +1,5 @@
 {
-    "tenant": "我不是来和蜘蛛交配的",
+    "tenant": "nhtfs",
     "siteName": "Nhtfs°",
     "description": "Not here to fuck spiders",
     "url": "https://notheretofuckspiders.art",
@@ -7,10 +7,10 @@
         "name": "Wei Zang",
         "email": "weizang@notheretofuckspiders.art"
     },
-    "favicon": "/我不是来和蜘蛛交配的/png/favicon.png",
+    "favicon": "/nhtfs/png/favicon.png",
     "avatars": {
-        "light": "/我不是来和蜘蛛交配的/svg/avatarLight.svg",
-        "dark": "/我不是来和蜘蛛交配的/svg/avatarDark.svg"
+        "light": "/nhtfs/svg/avatarLight.svg",
+        "dark": "/nhtfs/svg/avatarDark.svg"
     },
     "images": {
         "light": "https://live.staticflickr.com/65535/55365828378_090ef631a8_b.jpg",

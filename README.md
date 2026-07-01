@@ -2,7 +2,7 @@
     <h1 style="display: flex; align-items: center; gap: 8px;">
         <a href="https://notheretofuckspiders.art/" target="_blank" rel="noreferrer" style="display: inline-flex; align-items: center;">
         <img
-            src="public/我不是来和蜘蛛交配的/png/favicon.png"
+            src="public/nhtfs/png/favicon.png"
             alt="Not here to fuck spiders"
             width="25"
             height="25"

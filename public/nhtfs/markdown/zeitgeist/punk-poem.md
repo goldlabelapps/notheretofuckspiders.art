@@ -5,7 +5,7 @@ slug: /zeitgeist/punk-poem
 description: Kill the old 
 keywords: poem, old peeps, 
 icon: blokey
-image: /我不是来和蜘蛛交配的/gif/punk.gif
+image: /nhtfs/gif/punk.gif
 ---
 
 Kill the old  

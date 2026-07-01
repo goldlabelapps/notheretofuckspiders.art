@@ -27,7 +27,8 @@ export type T_Email = {
 
 
 export type T_Tenant = 'my-tenant' |
-    'new-tenant'
+    'new-tenant' |
+    'nhtfs'
 ;
 
 export type T_Config = {

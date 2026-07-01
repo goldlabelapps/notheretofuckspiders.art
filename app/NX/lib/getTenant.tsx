@@ -1,5 +1,5 @@
 import type { T_Tenant } from '../types';
-import 我不是来和蜘蛛交配的Config from '../../../public/我不是来和蜘蛛交配的/config.json';
+import nhtfsConfig from '../../../public/nhtfs/config.json';
 
 export const getTenant = (tenant?: T_Tenant) => {
 
@@ -8,13 +8,13 @@ export const getTenant = (tenant?: T_Tenant) => {
     let markdownDir;
 
     switch (t) {      
-        case '我不是来和蜘蛛交配的':
-            config = 我不是来和蜘蛛交配的Config;
-            markdownDir = process.cwd() + '/public/我不是来和蜘蛛交配的/markdown';
+        case 'nhtfs':
+            config = nhtfsConfig;
+            markdownDir = process.cwd() + '/public/nhtfs/markdown';
             break;
         default:
-            config = 我不是来和蜘蛛交配的Config;
-            markdownDir = process.cwd() + '/public/我不是来和蜘蛛交配的/markdown';
+            config = nhtfsConfig;
+            markdownDir = process.cwd() + '/public/nhtfs/markdown';
             break;
     }
     return {

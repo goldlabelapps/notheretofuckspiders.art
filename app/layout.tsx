@@ -5,7 +5,7 @@ import path from 'path';
 import { UbereduxProvider } from './NX/Uberedux';
 import RequireAuthWrapper from './NX/Paywall/components/RequireAuthWrapper';
 
-const tenant = process.env.NEXT_PUBLIC_TENANT || "free";
+const tenant = process.env.NEXT_PUBLIC_TENANT || "nhtfs";
 const configPath = path.join(process.cwd(), 'public', tenant, 'config.json');
 const configRaw = fs.readFileSync(configPath, 'utf-8');
 const config = JSON.parse(configRaw);
@@ -24,11 +24,6 @@ export const metadata: Metadata = {
   metadataBase,
   title: `${title}, ${description}`,
   description,
-  icons: {
-    icon: encodedFavicon,
-    shortcut: encodedFavicon,
-    apple: encodedFavicon,
-  },
 };
 
 export default async function RootLayout({

@@ -28,7 +28,7 @@ import { RenderMarkdown } from '../NX/Shortcodes';
 export async function generateMetadata({ params }: { params: any }): Promise<Metadata> {
     const resolvedParams = typeof params.then === 'function' ? await params : params;
     const slugArr = resolvedParams?.slug || [];
-    const tenant = process.env.NEXT_PUBLIC_TENANT || "nx";
+    const tenant = process.env.NEXT_PUBLIC_TENANT || "nhtfs";
     const { config } = getTenant(tenant as T_Tenant);
     const filePath = serverUseMDBySlug(slugArr, tenant);
     let frontmatter: T_Frontmatter = {};
@@ -69,7 +69,7 @@ export async function generateMetadata({ params }: { params: any }): Promise<Met
 }
 
 export async function generateStaticParams() {
-    const tenant = process.env.NEXT_PUBLIC_TENANT || "nx";
+    const tenant = process.env.NEXT_PUBLIC_TENANT || "nhtfs";
     const { markdownDir } = getTenant(tenant as T_Tenant);
     let allSlugs = serverUseAllMd(markdownDir, tenant);
     return allSlugs.map((slugArr) => {
@@ -83,7 +83,7 @@ export default async function Page(props: any) {
     const resolvedParams = typeof params?.then === 'function' ? await params : params;
     let slugArr = resolvedParams?.slug || [];
     while (slugArr.length > 1 && slugArr[slugArr.length - 1] === "") slugArr.pop();
-    const tenant = process.env.NEXT_PUBLIC_TENANT || "nx";
+    const tenant = process.env.NEXT_PUBLIC_TENANT || "nhtfs";
     const { config: rawConfig } = getTenant(tenant as T_Tenant);
     const config = { ...rawConfig, tenant: tenant as T_Tenant };
     const filePath = serverUseMDBySlug(slugArr, tenant);

@@ -19,7 +19,7 @@
     "features": {
         "designSystem": {
             "themeSwitching": true,
-            "defaultTheme": "light",
+            "defaultTheme": "dark",
             "themes": {
                 "dark": {
                     "mode": "dark",

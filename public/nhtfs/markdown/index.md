@@ -8,10 +8,6 @@ icon: virus
 image: https://live.staticflickr.com/65535/55365828378_090ef631a8_b.jpg
 ---
 
-[HiddenMessage slug="colz"]
+[PageLink url="/characters/wei-zang" icon="virus" title="As far back as I can remember I knew that if I played by the rules I'd lose." description="This is my story. Some of it is true"]  
 
 [PageLink url="/zeitgeist/time-bubbles" icon="ai" title="Time Bubbles" description="The infinite monkey effect"]  
-
-[PageLink url="/zeitgeist/punk-poem" icon="blokey" title="Punk Poem" description="Kill the old"]  
-
-[PageLink url="/characters/wei-zang" icon="virus" title="As far back as I can remember I knew that if I played by the rules I'd lose." description="This is my story. Some of it is true"]  
